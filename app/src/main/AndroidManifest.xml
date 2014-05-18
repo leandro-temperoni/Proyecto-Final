@@ -2,10 +2,55 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.caece.proyectofinal" >
 
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--detect wifi state (on/off)-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--detect connection (connected/disconnected)-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--allows manipulating bluetooth-->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <!--allows manipulating bluetooth-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <!--allows intercepting sms messages-->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <!--allows intercepting incoming calls-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!--allows intercepting outgoing calls-->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <!--for ads-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--allows app to start at boot-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!--access gps state-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+    <uses-permission android:name="com.caece.proyectofinal.RESTART_EVENT_SERVICE"/>
+
+    <permission
+        android:name="com.caece.proyectofinal.RESTART_EVENT_SERVICE"
+        android:description="@string/restart_event_service_desc"
+        android:label="@string/restart_event_service_label"
+        android:protectionLevel="signature"/>
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.gps"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false"/>
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
         android:allowBackup="true"
@@ -21,6 +66,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ServiceRestartActivity"
+            android:theme="@style/ThemeTransparent"/>
+
+        <receiver android:name=".EventReceiver">
+            <intent-filter>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECT_REQUESTED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.intent.action.HEADSET_PLUG"/>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+                <action android:name="android.media.VOLUME_CHANGED_ACTION"/>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".EventService"
+            android:permission="com.caece.proyectofinal.RESTART_EVENT_SERVICE"
+            android:exported="true"/>
+
     </application>
 
 </manifest>
