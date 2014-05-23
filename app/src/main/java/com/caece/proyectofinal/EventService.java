@@ -14,11 +14,15 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import com.caece.proyectofinal.Utils.Device;
 import com.caece.proyectofinal.Utils.MemoryStatus;
 import com.caece.proyectofinal.Utils.MyLog;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 
 public class EventService extends Service {
@@ -27,8 +31,10 @@ public class EventService extends Service {
     private String lastActiveApp = "";
     Handler handler;
     Handler handler2;
+    Handler handler3;
     private AppLaunchChecker appLaunchChecker = new AppLaunchChecker();
     private FeatureChecker featuresChecker = new FeatureChecker();
+    private LogWatcher logWatcher = new LogWatcher();
 
     private int APP_LAUNCH_CHECK_INTERVAL = 1000;
     private int FEATURES_CHECK_INTERVAL = 2000;
@@ -99,7 +105,25 @@ public class EventService extends Service {
         handler2 = new Handler(thread2.getLooper());
         handler2.postDelayed(featuresChecker, FEATURES_CHECK_INTERVAL);
 
+        if(Build.VERSION.SDK_INT < 16) {        //SI ES MENOR A JELLY BEAN (4.1)
+
+            HandlerThread thread3 = new HandlerThread("LogWatcher");
+            thread3.start();
+            handler3 = new Handler(thread2.getLooper());
+            handler3.postDelayed(logWatcher, 1000);
+
+        }
+
         super.onCreate();
+    }
+
+    private class LogWatcher implements Runnable
+    {
+        @Override
+        public void run()
+        {
+            log();
+        }
     }
 
     private class AppLaunchChecker implements Runnable
@@ -174,6 +198,39 @@ public class EventService extends Service {
     }
 
     private long getRam(){ return Device.getCurrentRAM(this); }
+
+    private void log() {
+
+        try {
+            Runtime.getRuntime().exec("logcat -c").waitFor();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Process process = null;
+        try {
+            process = Runtime.getRuntime().exec("logcat ActivityManager:* *:S");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        while (true) {
+            String nextLine = null;
+            try {
+                nextLine = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (nextLine.contains("ActivityManager")) {
+                //Log.i("pepe", nextLine.replace("ActivityManager", "AM"));
+                if(nextLine.contains("Displayed"))
+                    MyLog.write(nextLine, "Tiempos");
+            }
+            // Process line
+        }
+
+    }
 
     @Override
     public void onDestroy()
