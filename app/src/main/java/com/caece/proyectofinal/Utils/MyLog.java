@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.RandomAccessFile;
+import java.util.Calendar;
 
 /**
  * Created by COCO on 18/05/2014.
@@ -21,13 +22,14 @@ public class MyLog {
         if(!dir.exists())
             dir.mkdirs();
         File myFile = new File(dir, name + ".txt");
+        Calendar calendar = Calendar.getInstance();
 
         try
         {
             long fileLength = myFile.length();
             RandomAccessFile raf = new RandomAccessFile(myFile, "rw");
             raf.seek(fileLength);
-            raf.writeBytes(text + "\n");
+            raf.writeBytes(text + " - " + calendar.getTimeInMillis() + "\n");
             raf.close();
         } catch(Exception e)
         {

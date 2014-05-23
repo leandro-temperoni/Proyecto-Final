@@ -109,7 +109,7 @@ public class EventService extends Service {
 
             HandlerThread thread3 = new HandlerThread("LogWatcher");
             thread3.start();
-            handler3 = new Handler(thread2.getLooper());
+            handler3 = new Handler(thread3.getLooper());
             handler3.postDelayed(logWatcher, 1000);
 
         }
@@ -186,10 +186,10 @@ public class EventService extends Service {
             long romTotal = MemoryStatus.getTotalInternalMemorySize();
             long romLevel = 100 - (romAvailable * 100) / romTotal;
 
-            MyLog.write("RAM: " + String.valueOf(100 - RAMLevel) + "% - " + (totalRAM - currentRAM) + "MB / " + totalRAM + "MB", "Mediciones");
+            MyLog.write("RAM: " + String.valueOf(100 - RAMLevel) + "%", "Mediciones");
             MyLog.write("CPU: " + String.valueOf((int) cpuUsage) + "%", "Mediciones");
-            MyLog.write("Mem Int: " + String.valueOf(romLevel) + "% - " + MemoryStatus.formatSize(romTotal - romAvailable) + " / " + MemoryStatus.formatSize(romTotal), "Mediciones");
-            MyLog.write("Mem Ext: " + String.valueOf(sdLevel) + "% - " + MemoryStatus.formatSize(sdTotal - sdAvailable) + " / " + MemoryStatus.formatSize(sdTotal), "Mediciones");
+            MyLog.write("MI: " + String.valueOf(romLevel) + "%", "Mediciones");
+            MyLog.write("ME: " + String.valueOf(sdLevel) + "%", "Mediciones");
 
             handler2.postDelayed(featuresChecker, FEATURES_CHECK_INTERVAL);
 
@@ -225,7 +225,7 @@ public class EventService extends Service {
             if (nextLine.contains("ActivityManager")) {
                 //Log.i("pepe", nextLine.replace("ActivityManager", "AM"));
                 if(nextLine.contains("Displayed"))
-                    MyLog.write(nextLine, "Tiempos");
+                    MyLog.write(nextLine.substring(25), "Tiempos");
             }
             // Process line
         }
