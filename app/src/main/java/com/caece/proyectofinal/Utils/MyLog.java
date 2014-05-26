@@ -15,7 +15,7 @@ import java.util.Calendar;
  */
 public class MyLog {
 
-    public static void write(String text, String name){
+    public static void write(String text, String name, Boolean timestamp){
 
         File externalStorageDir = Environment.getExternalStorageDirectory();
         File dir = new File(externalStorageDir.getAbsolutePath() + "/ProyectoFinal/logs");
@@ -29,7 +29,9 @@ public class MyLog {
             long fileLength = myFile.length();
             RandomAccessFile raf = new RandomAccessFile(myFile, "rw");
             raf.seek(fileLength);
-            raf.writeBytes(text + " - " + calendar.getTimeInMillis() + "\n");
+            if(timestamp)
+                raf.writeBytes(text + " - " + calendar.getTimeInMillis() + "\n");
+            else raf.writeBytes(text + "\n");
             raf.close();
         } catch(Exception e)
         {

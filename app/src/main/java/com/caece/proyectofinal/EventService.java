@@ -29,15 +29,24 @@ public class EventService extends Service {
 
     private EventReceiver manualRegisterReceiver;
     private String lastActiveApp = "";
+    private int intervalos;
+    private Boolean estoyMidiendo;
+    private List<ActivityManager.RunningTaskInfo> tasksAnteriores;
     Handler handler;
     Handler handler2;
     Handler handler3;
+    Handler handler4;
+    Handler handler5;
     private AppLaunchChecker appLaunchChecker = new AppLaunchChecker();
     private FeatureChecker featuresChecker = new FeatureChecker();
     private LogWatcher logWatcher = new LogWatcher();
+    private SpaceChecker spaceChecker = new SpaceChecker();
+    private ResponseTimeChecker responseTimeChecker = new ResponseTimeChecker();
 
     private int APP_LAUNCH_CHECK_INTERVAL = 1000;
-    private int FEATURES_CHECK_INTERVAL = 2000;
+    private int FEATURES_CHECK_INTERVAL = 1000;
+    private int SPACE_CHECK_INTERVAL = 600000;
+    private int RESPONSE_TIME_CHECK_INTERVAL = 200;
 
     @Override
     public IBinder onBind(Intent intent)
@@ -92,6 +101,9 @@ public class EventService extends Service {
         intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 
+        intervalos = 0;
+        estoyMidiendo = false;
+
         manualRegisterReceiver = new EventReceiver();
         registerReceiver(manualRegisterReceiver, intentFilter);
 
@@ -105,14 +117,24 @@ public class EventService extends Service {
         handler2 = new Handler(thread2.getLooper());
         handler2.postDelayed(featuresChecker, FEATURES_CHECK_INTERVAL);
 
-        if(Build.VERSION.SDK_INT < 16) {        //SI ES MENOR A JELLY BEAN (4.1)
+        /*if(Build.VERSION.SDK_INT < 16) {        //SI ES MENOR A JELLY BEAN (4.1)
 
             HandlerThread thread3 = new HandlerThread("LogWatcher");
             thread3.start();
             handler3 = new Handler(thread3.getLooper());
             handler3.postDelayed(logWatcher, 1000);
 
-        }
+        }*/
+
+        HandlerThread thread4 = new HandlerThread("SpaceCheckerThread");
+        thread4.start();
+        handler4 = new Handler(thread4.getLooper());
+        handler4.postDelayed(spaceChecker, SPACE_CHECK_INTERVAL);
+
+        HandlerThread thread5 = new HandlerThread("ResponseTimeCheckerThread");
+        thread5.start();
+        handler5 = new Handler(thread5.getLooper());
+        handler5.postDelayed(responseTimeChecker, RESPONSE_TIME_CHECK_INTERVAL);
 
         super.onCreate();
     }
@@ -167,6 +189,54 @@ public class EventService extends Service {
         }
     }
 
+    private class ResponseTimeChecker implements Runnable {
+        @Override
+        public void run() {
+
+            if(tasksAnteriores == null){
+                tasksAnteriores = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(10); Log.i("pepe", "cargo");}
+            else{
+
+                List<ActivityManager.RunningTaskInfo> tasks = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(10);
+
+                if(tasksAnteriores.get(0).id != tasks.get(0).id || estoyMidiendo) {      //CAMBIO EL TOPE O ESTOY MIDIENDO
+
+                    if (tasksAnteriores.get(1).id != tasks.get(0).id && !estoyMidiendo) //SI NO ESTABA 2DA, OSEA QUE ES NUEVA
+                        if (tasks.get(0).numRunning == 0 || tasks.get(0).baseActivity == null) {     //SI NO TIENE ACTIVIDADES SUMO UN INTERVALO
+                            intervalos++;
+                            estoyMidiendo = true;
+                            Log.i("pepe", "intervalos en " + intervalos);
+                        } else Log.i("pepe", "tiene actividad");
+
+                    else {                                       //SIGO MIDIENDO INTERVALOS
+
+                        if (tasks.get(0).numRunning == 0) { //SI NO TIENE ACTIVIDADES SUMO UN INTERVALO
+                            intervalos++;
+                            Log.i("pepe", "intervalos en " + intervalos);
+                        } else {
+                            if (intervalos > 0) {            //SI TIENE INTERVALOS, RESETEO LA VARIABLE Y ESCRIBO EL TIEMPO
+                                estoyMidiendo = false;
+                                intervalos++;
+                                Log.i("pepe", "reseteo y escribo " + intervalos);
+                                MyLog.write(tasks.get(0).topActivity.getPackageName() + ":" + intervalos, "Tiempos", false);
+                                intervalos = 0;
+                            }
+                        }
+
+                    }
+
+                }
+
+                tasksAnteriores = tasks;
+
+            }
+
+            handler5.postDelayed(responseTimeChecker, RESPONSE_TIME_CHECK_INTERVAL);
+
+        }
+
+    }
+
     private class FeatureChecker implements Runnable {
         @Override
         public void run() {
@@ -186,10 +256,31 @@ public class EventService extends Service {
             long romTotal = MemoryStatus.getTotalInternalMemorySize();
             long romLevel = 100 - (romAvailable * 100) / romTotal;
 
-            MyLog.write("RAM: " + String.valueOf(100 - RAMLevel) + "%", "Mediciones");
-            MyLog.write("CPU: " + String.valueOf((int) cpuUsage) + "%", "Mediciones");
-            MyLog.write("MI: " + String.valueOf(romLevel) + "%", "Mediciones");
-            MyLog.write("ME: " + String.valueOf(sdLevel) + "%", "Mediciones");
+            //MyLog.write("RAM: " + String.valueOf(100 - RAMLevel) + "%", "Mediciones");
+            //MyLog.write("CPU: " + String.valueOf((int) cpuUsage) + "%", "Mediciones");
+            //MyLog.write("MI: " + String.valueOf(romLevel) + "%", "Mediciones");
+            //MyLog.write("ME: " + String.valueOf(sdLevel) + "%", "Mediciones");
+
+            //handler2.postDelayed(featuresChecker, FEATURES_CHECK_INTERVAL);
+
+        }
+
+    }
+
+    private class SpaceChecker implements Runnable {
+        @Override
+        public void run() {
+
+            long sdAvailable = MemoryStatus.getAvailableExternalMemorySize();
+            long sdTotal = MemoryStatus.getTotalExternalMemorySize();
+            long sdLevel = 100 - (sdAvailable * 100) / sdTotal;
+
+            long romAvailable = MemoryStatus.getAvailableInternalMemorySize();
+            long romTotal = MemoryStatus.getTotalInternalMemorySize();
+            long romLevel = 100 - (romAvailable * 100) / romTotal;
+
+            MyLog.write("MI: " + String.valueOf(romLevel) + "%", "Mediciones", false);
+            MyLog.write("ME: " + String.valueOf(sdLevel) + "%", "Mediciones", false);
 
             handler2.postDelayed(featuresChecker, FEATURES_CHECK_INTERVAL);
 
@@ -225,7 +316,7 @@ public class EventService extends Service {
             if (nextLine.contains("ActivityManager")) {
                 //Log.i("pepe", nextLine.replace("ActivityManager", "AM"));
                 if(nextLine.contains("Displayed"))
-                    MyLog.write(nextLine.substring(25), "Tiempos");
+                    MyLog.write(nextLine.substring(25), "Tiempos", false);
             }
             // Process line
         }
@@ -238,6 +329,9 @@ public class EventService extends Service {
         unregisterReceiver(manualRegisterReceiver);
         handler.removeCallbacks(appLaunchChecker);
         handler2.removeCallbacks(featuresChecker);
+        //handler3.removeCallbacks(logWatcher);
+        handler4.removeCallbacks(spaceChecker);
+        handler5.removeCallbacks(responseTimeChecker);
         super.onDestroy();
     }
 
