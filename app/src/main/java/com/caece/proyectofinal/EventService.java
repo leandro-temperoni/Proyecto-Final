@@ -16,6 +16,7 @@ import android.os.IBinder;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.caece.proyectofinal.Utils.Battery;
 import com.caece.proyectofinal.Utils.Device;
 import com.caece.proyectofinal.Utils.MemoryStatus;
 import com.caece.proyectofinal.Utils.MyLog;
@@ -24,6 +25,7 @@ import com.caece.proyectofinal.Utils.Notificacion;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.os.Debug.getMemoryInfo;
@@ -188,6 +190,8 @@ public class EventService extends Service {
             List<ActivityManager.RunningAppProcessInfo> processes = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningAppProcesses();
             MyLog.write("MP:" + processes.size(), "Mediciones",false);
 
+            getCPUPerApp();
+
             handler.postDelayed(oneSecondChecker, ONE_SECOND_CHECK_INTERVAL);
         }
     }
@@ -232,6 +236,33 @@ public class EventService extends Service {
 
                 }
 
+                //Ver quien mato a roger rabbit
+
+                if(tasks.size() < tasksAnteriores.size()) {      //Si se mato alguna
+                    //Log.i("pepe", "se mato alguna");
+
+                    for (ActivityManager.RunningTaskInfo taskAnterior : tasksAnteriores) {
+
+                        Boolean noEstaba = true;
+                        String name = taskAnterior.topActivity.getPackageName();
+                        for (ActivityManager.RunningTaskInfo task : tasks) {
+
+                            if (taskAnterior.id == task.id)
+                                noEstaba = false;
+
+                        }
+
+                        if (noEstaba) {
+                            //Log.i("pepe", name);
+                            if (lastActiveApp.equals("com.sec.android.app.controlpanel"))
+                                MyLog.write("CBU:" + name, "Mediciones", false);
+                            else if (memoriaSaturada())
+                                MyLog.write("CBA:" + name, "Mediciones", false);
+                        }
+                    }
+
+                }
+
                 tasksAnteriores = tasks;
 
             }
@@ -256,6 +287,7 @@ public class EventService extends Service {
 
             MyLog.write("MI:" + String.valueOf(romLevel), "Mediciones", false);
             MyLog.write("ME:" + String.valueOf(sdLevel), "Mediciones", false);
+            MyLog.write("BL:" + String.valueOf(nivelBateria()), "Mediciones", false);
 
             //Esto desp se borra, es para probar nomas
             if(MyLog.superolos5MB() && !aviso) {
@@ -268,6 +300,53 @@ public class EventService extends Service {
         }
 
     }
+
+    private void getCPUPerApp(){
+
+        try {
+            // -m 10, how many entries you want, -d 1, delay by how much, -n 1,
+            // number of iterations
+            Process p = Runtime.getRuntime().exec("top -m 5 -d 0 -n 1");
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line = reader.readLine();
+            int j = 0;
+            String datos = "C:";
+            while (line != null) {
+                line = reader.readLine();
+                if(line != null) {
+                    String[] split = line.split(" ");
+                    String s = "";
+
+                    for (int i = 0; i < split.length; i++) {
+                        if (!split[i].equals(""))
+                            s += "_" + split[i];
+
+                    }
+
+                    if (s.contains("%") && j > 1) {
+                        String[] split2 = s.split("_");
+                        if (split2.length == 11)
+                            if (!split2[2].replace("%", "").equals("0") && !split2[10].equals("top"))
+                                //Log.i("pepe", split2[10] + ":" + split2[1] + ":" + split2[2]);
+                                datos += split2[10] + ":" + split2[1] + ":" + split2[2] + "-";
+
+                    }
+                }
+                j++;
+            }
+
+            if(!datos.equals("C:"))
+                //Log.i("pepe", datos.substring(0, datos.length() - 1));
+                MyLog.write(datos.substring(0, datos.length() - 1), "Mediciones", false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private int nivelBateria(){ return Battery.getLevel(this); }
 
     private void notificacion(){ Notificacion.mostrar(this, "Oh no", "El archivo supero los 5 MB!"); }
 

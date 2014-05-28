@@ -25,8 +25,10 @@ public class MainActivity extends Activity {
         Intent oldService = new Intent(this, EventService.class);
         stopService(oldService);
 
-        Intent newService = new Intent(this, EventService.class);
-        startService(newService);
+        if(!ActivityManager.isUserAMonkey()) {                          //Si el usuario no es un mono, iniciamos el servicio
+            Intent newService = new Intent(this, EventService.class);
+            startService(newService);
+        }
 
     }
 
