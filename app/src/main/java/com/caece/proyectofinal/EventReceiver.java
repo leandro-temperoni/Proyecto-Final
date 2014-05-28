@@ -24,12 +24,6 @@ import java.util.Locale;
 
 public class EventReceiver extends BroadcastReceiver {
 
-    public static void sendToReceiver(Event event)
-    {
-        Log.i("pepe", event.getDescription());
-        MyLog.write(event.getDescription(), "Eventos", false);
-    }
-
     @Override
     public void onReceive(Context context, Intent intent)
     {
@@ -52,12 +46,12 @@ public class EventReceiver extends BroadcastReceiver {
             if(networkInfo.isConnected())
             {
                 Log.i("pepe", "Conectado a wifi");
-                MyLog.write("Conectado a wifi", "Eventos", false);
+                //MyLog.write("Conectado a wifi", "Mediciones", false);
             }
             else
             {
                 Log.i("pepe", "Desconectado a wifi");
-                MyLog.write("Desconectado a wifi", "Eventos", false);
+                //MyLog.write("Desconectado a wifi", "Mediciones", false);
             }
 
         }
@@ -70,12 +64,12 @@ public class EventReceiver extends BroadcastReceiver {
             switch (wifiState)
             {
                 case WifiManager.WIFI_STATE_DISABLED:
-                    Log.i("pepe", "Wifi Deshabilitado");
-                    MyLog.write("Wifi Deshabilitado", "Eventos", false);
+                    Log.i("pepe", "WifiOFF");
+                    MyLog.write("WifiOFF", "Mediciones", true);
                     break;
                 case WifiManager.WIFI_STATE_ENABLED:
-                    Log.i("pepe", "Wifi Habilitado");
-                    MyLog.write("Wifi Habilitado", "Eventos", false);
+                    Log.i("pepe", "WifiON");
+                    MyLog.write("WWifiON", "Mediciones", true);
                     break;
             }
 
@@ -88,20 +82,20 @@ public class EventReceiver extends BroadcastReceiver {
             switch (state)
             {
                 case BluetoothAdapter.STATE_OFF:
-                    Log.i("pepe", "B/T Deshabilitado");
-                    MyLog.write("B/T Deshabilitado", "Eventos", false);
+                    Log.i("pepe", "B/TOFF");
+                    MyLog.write("B/TOFF", "Mediciones", true);
                     break;
                 case BluetoothAdapter.STATE_ON:
-                    Log.i("pepe", "B/T Habilitado");
-                    MyLog.write("B/T Habilitado", "Eventos", false);
+                    Log.i("pepe", "B/TON");
+                    MyLog.write("B/TON", "Mediciones", true);
                     break;
                 case BluetoothAdapter.STATE_CONNECTED:
                     Log.i("pepe", "B/T Conectado");
-                    MyLog.write("B/T Conectado", "Eventos", false);
+                    //MyLog.write("B/T Conectado", "Mediciones", false);
                     break;
                 case BluetoothAdapter.STATE_DISCONNECTED:
                     Log.i("pepe", "B/T Desconectado");
-                    MyLog.write("B/T Desconectado", "Eventos", false);
+                    //MyLog.write("B/T Desconectado", "Mediciones", false);
                     break;
             }
 
@@ -131,47 +125,47 @@ public class EventReceiver extends BroadcastReceiver {
                 e.printStackTrace();
             }
             String address = messages[0].getOriginatingAddress();
-            Log.i("pepe", "Nuevo SMS recibido");
-            MyLog.write("Nuevo SMS recibido", "Eventos", false);
+            Log.i("pepe", "SMSR");
+            MyLog.write("SMSR", "Mediciones", false);
         }
         if(intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED) || intent.getAction().equals("android.intent.action.QUICKBOOT_POWERON"))
         {
-            Log.i("pepe", "Boot completed");
-            MyLog.write("Boot completed", "Eventos", false);
+            Log.i("pepe", "BC");
+            MyLog.write("BC", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_TIME_CHANGED))
         {
             Log.i("pepe", "Se cambio la hora");
-            MyLog.write("Se cambio la hora", "Eventos", false);
+            //MyLog.write("Se cambio la hora", "Mediciones", false);
         }
         if(intent.getAction().equals(Intent.ACTION_DATE_CHANGED))
         {
             Log.i("pepe", "Se cambio la fecha");
-            MyLog.write("Se cambio la fecha", "Eventos", false);
+            //MyLog.write("Se cambio la fecha", "Mediciones", false);
         }
         if(intent.getAction().equals(Intent.ACTION_TIMEZONE_CHANGED))
         {
             Log.i("pepe", "Se cambio la hora local");
-            MyLog.write("Se cambio la hora local", "Eventos", false);
+            //MyLog.write("Se cambio la hora local", "Mediciones", false);
         }
         if(intent.getAction().equals(Intent.ACTION_AIRPLANE_MODE_CHANGED))
         {
             boolean isEnabled = extras != null && extras.getBoolean("state");
             if(isEnabled) {
-                Log.i("pepe", "Modo avion activado");
-                MyLog.write("Modo avion activado", "Eventos", false);
+                Log.i("pepe", "AvionOn");
+                MyLog.write("AvionON", "Mediciones", true);
             }
-            else { Log.i("pepe", "Modo avion desactivado"); MyLog.write("Modo avion desactivado", "Eventos", false); }
+            else { Log.i("pepe", "AvionOFF"); MyLog.write("AvionOFF", "Mediciones", true); }
         }
         if(intent.getAction().equals(LocationManager.PROVIDERS_CHANGED_ACTION))
         {
             final LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
             boolean gpsEnabled = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
             if(gpsEnabled) {
-                Log.i("pepe", "GPS activado");
-                MyLog.write("GPS activado", "Eventos", false);
+                Log.i("pepe", "GPSON");
+                MyLog.write("GPSON", "Mediciones", true);
             }
-            else { Log.i("pepe", "GPS desactivado"); MyLog.write("GPS desactivado", "Eventos", false); }
+            else { Log.i("pepe", "GPSOFF"); MyLog.write("GPSOFF", "Mediciones", true); }
         }
         if(intent.getAction().equals("android.media.VOLUME_CHANGED_ACTION"))
         {
@@ -192,14 +186,14 @@ public class EventReceiver extends BroadcastReceiver {
             if(streamType == 2) type = context.getString(R.string.ringer);
             else if(streamType == 3) type = context.getString(R.string.media);
             Log.i("pepe", "Volume changed");
-            MyLog.write("Volume changed", "Eventos", false);
+            //MyLog.write("Volume changed", "Mediciones", false);
         }
         if(intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL))
         {
             /*android.intent.extra.PHONE_NUMBER=2222*/
             String phoneNum = extras != null ? extras.getString(Intent.EXTRA_PHONE_NUMBER) : context.getString(R.string.na).toUpperCase();
-            Log.i("pepe", "Nueva outgoing call");
-            MyLog.write("Nueva outgoing call", "Eventos", false);
+            Log.i("pepe", "IntLL");
+            MyLog.write("IntLL", "Mediciones", false);
         }
         if(intent.getAction().equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED))
         {
@@ -209,38 +203,38 @@ public class EventReceiver extends BroadcastReceiver {
             }
             String phoneNum = extras != null ? extras.getString(TelephonyManager.EXTRA_INCOMING_NUMBER) : context.getString(R.string.na).toUpperCase();
 
-            Log.i("pepe", "Estado del telefono cambio");
-            MyLog.write("Estado del telefono cambio", "Eventos", false);
+            Log.i("pepe", "RecLL");
+            MyLog.write("RecLL", "Mediciones", false);
 
         }
         if(intent.getAction().equals(Intent.ACTION_CONFIGURATION_CHANGED))
         {
             boolean landscape = context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
             if(landscape) {
-                Log.i("pepe", "Landscape");
-                MyLog.write("Orientación landscape", "Eventos", false);
+                Log.i("pepe", "LSC");
+                MyLog.write("LSC", "Mediciones", true);
             }
-            else { Log.i("pepe", "portrait"); MyLog.write("Orientación portrait", "Eventos", false); }
+            else { Log.i("pepe", "PRT"); MyLog.write("PRT", "Mediciones", true); }
         }
         if(intent.getAction().equals(Intent.ACTION_REBOOT))
         {
-            Log.i("pepe", "Reboot");
-            MyLog.write("Reboot", "Eventos", false);
+            Log.i("pepe", "RB");
+            MyLog.write("RB", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_SHUTDOWN))
         {
-            Log.i("pepe", "Shutdown");
-            MyLog.write("Shutdown", "Eventos", false);
+            Log.i("pepe", "SH");
+            MyLog.write("SH", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_POWER_CONNECTED))
         {
-            Log.i("pepe", "Power connected");
-            MyLog.write("Power connected", "Eventos", false);
+            Log.i("pepe", "PC");
+            MyLog.write("PC", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED))
         {
-            Log.i("pepe", "Power disconnected");
-            MyLog.write("Power disconnected", "Eventos", false);
+            Log.i("pepe", "PD");
+            MyLog.write("PD", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED) && false)//TODO add option to log all battery options
         {
@@ -251,23 +245,23 @@ public class EventReceiver extends BroadcastReceiver {
                 {
                     case BatteryManager.BATTERY_STATUS_CHARGING:
                         Log.i("pepe", "Cargando bateria");
-                        MyLog.write("Cargando bateria", "Eventos", false);
+                        //MyLog.write("Cargando bateria", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_STATUS_DISCHARGING:
                         Log.i("pepe", "Descargandose le bateria");
-                        MyLog.write("Descargandose le bateria", "Eventos", false);
+                        //MyLog.write("Descargandose le bateria", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_STATUS_FULL:
-                        Log.i("pepe", "Esta llena la bateria");
-                        MyLog.write("Esta llena la bateria", "Eventos", false);
+                        Log.i("pepe", "FB");
+                        MyLog.write("FB", "Mediciones", true);
                         break;
                     case BatteryManager.BATTERY_STATUS_NOT_CHARGING:
                         Log.i("pepe", "No se esta cargando");
-                        MyLog.write("No se esta cargando", "Eventos", false);
+                        //MyLog.write("No se esta cargando", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_STATUS_UNKNOWN:
                         Log.i("pepe", "No se sabe el estado de la bateria");
-                        MyLog.write("No se sabe el estado de la bateria", "Eventos", false);
+                        //MyLog.write("No se sabe el estado de la bateria", "Mediciones", false);
                         break;
                 }
                 int level = extras.getInt(BatteryManager.EXTRA_LEVEL);
@@ -276,31 +270,31 @@ public class EventReceiver extends BroadcastReceiver {
                 {
                     case BatteryManager.BATTERY_HEALTH_COLD:
                         Log.i("pepe", "BATTERY_HEALTH_COLD");
-                        MyLog.write("BATTERY_HEALTH_COLD", "Eventos", false);
+                        //MyLog.write("BATTERY_HEALTH_COLD", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_HEALTH_DEAD:
                         Log.i("pepe", "BATTERY_HEALTH_DEAD");
-                        MyLog.write("BATTERY_HEALTH_DEAD", "Eventos", false);
+                        //MyLog.write("BATTERY_HEALTH_DEAD", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_HEALTH_GOOD:
                         Log.i("pepe", "BATTERY_HEALTH_GOOD");
-                        MyLog.write("BATTERY_HEALTH_GOOD", "Eventos", false);
+                        //MyLog.write("BATTERY_HEALTH_GOOD", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE:
                         Log.i("pepe", "BATTERY_HEALTH_OVER_VOLTAGE");
-                        MyLog.write("BATTERY_HEALTH_OVER_VOLTAGE", "Eventos", false);
+                        //MyLog.write("BATTERY_HEALTH_OVER_VOLTAGE", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_HEALTH_OVERHEAT:
                         Log.i("pepe", "BATTERY_HEALTH_OVERHEAT");
-                        MyLog.write("BATTERY_HEALTH_OVERHEAT", "Eventos", false);
+                        //MyLog.write("BATTERY_HEALTH_OVERHEAT", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_HEALTH_UNKNOWN:
                         Log.i("pepe", "BATTERY_HEALTH_UNKNOWN");
-                        MyLog.write("BATTERY_HEALTH_UNKNOWN", "Eventos", false);
+                        //MyLog.write("BATTERY_HEALTH_UNKNOWN", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_HEALTH_UNSPECIFIED_FAILURE:
                         Log.i("pepe", "BATTERY_HEALTH_UNSPECIFIED_FAILURE");
-                        MyLog.write("BATTERY_HEALTH_UNSPECIFIED_FAILURE", "Eventos", false);
+                        //MyLog.write("BATTERY_HEALTH_UNSPECIFIED_FAILURE", "Mediciones", false);
                         break;
                 }
 
@@ -309,33 +303,33 @@ public class EventReceiver extends BroadcastReceiver {
         }
         if(intent.getAction().equals(Intent.ACTION_BATTERY_LOW))
         {
-            Log.i("pepe", "Aviso bateria baja");
-            MyLog.write("Aviso bateria baja", "Eventos", false);
+            Log.i("pepe", "LB");
+            MyLog.write("LB", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_BATTERY_OKAY))
         {
             Log.i("pepe", "Aviso bateria ok");
-            MyLog.write("Aviso bateria ok", "Eventos", false);
+            //MyLog.write("Aviso bateria ok", "Mediciones", false);
         }
         if(intent.getAction().equals(Intent.ACTION_LOCALE_CHANGED))
         {
             Log.i("pepe", "Aviso locale changed");
-            MyLog.write("Aviso locale changed", "Eventos", false);
+            //MyLog.write("Aviso locale changed", "Mediciones", false);
         }
         if(intent.getAction().equals(Intent.ACTION_SCREEN_OFF))
         {
-            Log.i("pepe", "Screen off");
-            MyLog.write("Screen off", "Eventos", false);
+            Log.i("pepe", "ScOff");
+            MyLog.write("ScOff", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_SCREEN_ON))
         {
-            Log.i("pepe", "Screen on");
-            MyLog.write("Screen on", "Eventos", false);
+            Log.i("pepe", "ScON");
+            MyLog.write("ScON", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_USER_PRESENT))
         {
-            Log.i("pepe", "User present");
-            MyLog.write("User present", "Eventos", false);
+            Log.i("pepe", "UP");
+            MyLog.write("UP", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_HEADSET_PLUG))
         {
@@ -346,24 +340,24 @@ public class EventReceiver extends BroadcastReceiver {
             if(state == 1)
             {
                 Log.i("pepe", "Enchufo headset");
-                MyLog.write("Enchufo headset", "Eventos", false);
+                //MyLog.write("Enchufo headset", "Mediciones", false);
             }
             else if(state == 0)
             {
                 Log.i("pepe", "Desenchufo headset");
-                MyLog.write("Desenchufo headset", "Eventos", false);
+                //MyLog.write("Desenchufo headset", "Mediciones", false);
             }
 
         }
         if(intent.getAction().equals(Intent.ACTION_MEDIA_SCANNER_STARTED))
         {
             Log.i("pepe", "Media scanner started");
-            MyLog.write("Media scanner started", "Eventos", false);
+            //MyLog.write("Media scanner started", "Mediciones", false);
         }
         if(intent.getAction().equals(Intent.ACTION_MEDIA_SCANNER_FINISHED))
         {
             Log.i("pepe", "Media scanner finished");
-            MyLog.write("Media scanner finished", "Eventos", false);
+            //MyLog.write("Media scanner finished", "Mediciones", false);
         }
     }
 }

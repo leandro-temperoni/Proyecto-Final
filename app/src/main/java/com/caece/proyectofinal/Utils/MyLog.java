@@ -40,4 +40,40 @@ public class MyLog {
 
     }
 
+    public static void writeHeader(String text, String name){
+
+        File externalStorageDir = Environment.getExternalStorageDirectory();
+        File dir = new File(externalStorageDir.getAbsolutePath() + "/ProyectoFinal/logs");
+        if(!dir.exists())
+            dir.mkdirs();
+        File myFile = new File(dir, name + ".txt");
+        Calendar calendar = Calendar.getInstance();
+
+        try
+        {
+            RandomAccessFile raf = new RandomAccessFile(myFile, "rw");
+            raf.seek(0);
+            raf.writeBytes(text + "-" + calendar.getTimeInMillis() + "\n");
+            raf.close();
+        } catch(Exception e)
+        {
+            Log.i("pepe", e.getMessage());
+        }
+
+    }
+
+    public static Boolean superolos5MB(){
+
+        File externalStorageDir = Environment.getExternalStorageDirectory();
+        File dir = new File(externalStorageDir.getAbsolutePath() + "/ProyectoFinal/logs");
+        if(!dir.exists())
+            dir.mkdirs();
+        File myFile = new File(dir, "Mediciones.txt");
+
+        if(myFile.length() > 5000000)
+            return true;
+        else return false;
+
+    }
+
 }

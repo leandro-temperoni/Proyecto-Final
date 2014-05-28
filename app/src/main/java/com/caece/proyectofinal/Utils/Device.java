@@ -96,6 +96,16 @@ public class Device {
 
     }
 
+    public static Boolean getCurrentRAMState(Context context){
+
+        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        activityManager.getMemoryInfo(mi);
+
+        return mi.lowMemory;
+
+    }
+
     public static long getTotalMemory() {
         {
             String str1 = "/proc/meminfo";
