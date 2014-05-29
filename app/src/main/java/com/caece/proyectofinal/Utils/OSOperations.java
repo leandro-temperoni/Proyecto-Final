@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
 
+import com.caece.proyectofinal.EventReceiver;
+
 import java.util.ArrayList;
 
 /**
@@ -23,6 +25,23 @@ public class OSOperations {
         Uri packageURI = Uri.parse("package:" + packageString);
         Intent intent = new Intent(Intent.ACTION_DELETE, packageURI);
         context.startActivity(intent);
+
+    }
+
+    public static String getAppNameFromPackageName(PackageManager pm,String packageName){
+
+        String appName;
+        try
+        {
+            ApplicationInfo ai = pm.getApplicationInfo(packageName, 0);
+            appName = (String) pm.getApplicationLabel(ai);
+        }
+        catch (Exception e)
+        {
+            appName = "[" + "Unknowed app" + "]";
+        }
+
+        return appName;
 
     }
 

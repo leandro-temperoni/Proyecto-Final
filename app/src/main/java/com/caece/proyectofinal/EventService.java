@@ -98,6 +98,12 @@ public class EventService extends Service {
         intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_OK);
         intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_LOW);
 
+        //packages
+        intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
+        intentFilter.addAction(Intent.ACTION_PACKAGE_DATA_CLEARED);
+        intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        intentFilter.addDataScheme("package");
+
         //power
         intentFilter.addAction(Intent.ACTION_BATTERY_LOW);
         intentFilter.addAction(Intent.ACTION_BATTERY_OKAY);

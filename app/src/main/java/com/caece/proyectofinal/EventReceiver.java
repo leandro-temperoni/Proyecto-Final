@@ -18,6 +18,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import com.caece.proyectofinal.Utils.MyLog;
+import com.caece.proyectofinal.Utils.OSOperations;
 
 import java.util.Date;
 import java.util.Locale;
@@ -235,6 +236,24 @@ public class EventReceiver extends BroadcastReceiver {
         {
             Log.i("pepe", "PD");
             MyLog.write("PD", "Mediciones", true);
+        }
+        if(intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED))
+        {
+            String packageName = intent.getData().toString().replace("package:", "");
+            String app = OSOperations.getAppNameFromPackageName(context.getPackageManager(), packageName);
+            MyLog.write("AI:" + packageName + ":" + app, "Mediciones", true);
+        }
+        if(intent.getAction().equals(Intent.ACTION_PACKAGE_DATA_CLEARED))
+        {
+            String packageName = intent.getData().toString().replace("package:", "");
+            String app = OSOperations.getAppNameFromPackageName(context.getPackageManager(), packageName);
+            MyLog.write("ADC:" + packageName + ":" + app, "Mediciones", true);
+        }
+        if(intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))
+        {
+            String packageName = intent.getData().toString().replace("package:", "");
+            //String app = OSOperations.getAppNameFromPackageName(context.getPackageManager(), packageName);
+            MyLog.write("AU:" + packageName, "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED) && false)//TODO add option to log all battery options
         {
