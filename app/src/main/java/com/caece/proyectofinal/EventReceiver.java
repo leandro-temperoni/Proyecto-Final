@@ -255,7 +255,7 @@ public class EventReceiver extends BroadcastReceiver {
             //String app = OSOperations.getAppNameFromPackageName(context.getPackageManager(), packageName);
             MyLog.write("AU:" + packageName, "Mediciones", true);
         }
-        if(intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED) && false)//TODO add option to log all battery options
+        if(intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED) && false)
         {
             if(extras != null)
             {

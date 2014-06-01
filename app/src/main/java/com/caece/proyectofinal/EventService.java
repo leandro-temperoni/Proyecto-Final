@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Debug;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -158,6 +159,8 @@ public class EventService extends Service {
         @Override
         public void run()
         {
+            Boolean nuevaApp = false;
+
             List<ActivityManager.RunningTaskInfo> tasks = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
             if(tasks != null && !tasks.isEmpty())
             {
@@ -171,6 +174,7 @@ public class EventService extends Service {
                         if(pn != null && !lastActiveApp.equals(pn))
                         {
                             lastActiveApp = pn;
+                            nuevaApp = true;
                             PackageManager pm = getPackageManager();
                             String appName;
                             try
@@ -198,8 +202,50 @@ public class EventService extends Service {
 
             getCPUPerApp();
 
+            if(nuevaApp)
+                getMemPerApp(processes);
+
             handler.postDelayed(oneSecondChecker, ONE_SECOND_CHECK_INTERVAL);
         }
+    }
+
+    private void getMemPerApp(List<ActivityManager.RunningAppProcessInfo> processes){
+
+        List<ActivityManager.RunningTaskInfo> tasks = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(10);
+        ArrayList<String> pns = new ArrayList<String>();
+        for(int i = 0; i < tasks.size(); i++) {
+            String pn = tasks.get(i).topActivity.getPackageName();
+            if(!pn.contains("launcher"))
+                pns.add(pn);
+        }
+
+        int[] pids = new int[tasks.size()];
+        int i = 0;
+        for(ActivityManager.RunningAppProcessInfo info : processes){
+
+            if(pns.contains(info.processName)) {
+                pids[i] = info.pid;
+                i++;
+            }
+
+        }
+
+        Debug.MemoryInfo[] memoryInfos = ((ActivityManager) getSystemService(Context.ACTIVITY_SERVICE)).getProcessMemoryInfo(pids);
+        String data = "M:";
+        i = 0;
+        for(Debug.MemoryInfo info : memoryInfos){
+
+            if(info.getTotalPss() != 0)
+                data += pns.get(i) + ":" + pids[i] + ":" + info.getTotalPss() + "-";
+            i++;
+
+        }
+
+        if(!data.equals("M:")) {
+            MyLog.write(data, "Mediciones", true);
+            //Log.i("pepe", data);
+        }
+
     }
 
     private Boolean memoriaSaturada(){ return Device.getCurrentRAMState(this); }
@@ -333,8 +379,7 @@ public class EventService extends Service {
                     if (s.contains("%") && j > 1) {
                         String[] split2 = s.split("_");
                         if (split2.length == 11)
-                            if (!split2[2].replace("%", "").equals("0") && !split2[10].equals("top"))
-                                //Log.i("pepe", split2[10] + ":" + split2[1] + ":" + split2[2]);
+                            if (!split2[2].replace("%", "").equals("0") && split2[10].contains("."))
                                 datos += split2[10] + ":" + split2[1] + ":" + split2[2] + "-";
 
                     }
@@ -342,9 +387,10 @@ public class EventService extends Service {
                 j++;
             }
 
-            if(!datos.equals("C:"))
+            if(!datos.equals("C:")) {
                 //Log.i("pepe", datos.substring(0, datos.length() - 1));
                 MyLog.write(datos.substring(0, datos.length() - 1), "Mediciones", false);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
