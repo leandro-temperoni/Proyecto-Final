@@ -1,4 +1,4 @@
-package com.caece.proyectofinal;
+package com.caece.proyectofinal.Services;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -17,11 +17,9 @@ import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.caece.proyectofinal.R;
 import com.caece.proyectofinal.Utils.MyLog;
 import com.caece.proyectofinal.Utils.OSOperations;
-
-import java.util.Date;
-import java.util.Locale;
 
 public class EventReceiver extends BroadcastReceiver {
 
@@ -152,21 +150,17 @@ public class EventReceiver extends BroadcastReceiver {
         if(intent.getAction().equals(Intent.ACTION_AIRPLANE_MODE_CHANGED))
         {
             boolean isEnabled = extras != null && extras.getBoolean("state");
-            if(isEnabled) {
-                Log.i("pepe", "AvionOn");
+            if(isEnabled)
                 MyLog.write("AvionON", "Mediciones", true);
-            }
-            else { Log.i("pepe", "AvionOFF"); MyLog.write("AvionOFF", "Mediciones", true); }
+            else MyLog.write("AvionOFF", "Mediciones", true);
         }
         if(intent.getAction().equals(LocationManager.PROVIDERS_CHANGED_ACTION))
         {
             final LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
             boolean gpsEnabled = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            if(gpsEnabled) {
-                Log.i("pepe", "GPSON");
+            if(gpsEnabled)
                 MyLog.write("GPSON", "Mediciones", true);
-            }
-            else { Log.i("pepe", "GPSOFF"); MyLog.write("GPSOFF", "Mediciones", true); }
+            else MyLog.write("GPSOFF", "Mediciones", true);
         }
         if(intent.getAction().equals("android.media.VOLUME_CHANGED_ACTION"))
         {
@@ -337,17 +331,17 @@ public class EventReceiver extends BroadcastReceiver {
         }
         if(intent.getAction().equals(Intent.ACTION_SCREEN_OFF))
         {
-            Log.i("pepe", "ScOff");
+            //Log.i("pepe", "ScOff");
             MyLog.write("ScOff", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_SCREEN_ON))
         {
-            Log.i("pepe", "ScON");
+            //Log.i("pepe", "ScON");
             MyLog.write("ScON", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_USER_PRESENT))
         {
-            Log.i("pepe", "UP");
+            //Log.i("pepe", "UP");
             MyLog.write("UP", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_HEADSET_PLUG))

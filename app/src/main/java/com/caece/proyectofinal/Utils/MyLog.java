@@ -24,6 +24,8 @@ public class MyLog {
         File myFile = new File(dir, name + ".txt");
         Calendar calendar = Calendar.getInstance();
 
+        Log.i("pepe", text);
+
         try
         {
             long fileLength = myFile.length();

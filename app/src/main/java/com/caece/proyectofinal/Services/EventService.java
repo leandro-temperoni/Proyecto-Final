@@ -1,4 +1,4 @@
-package com.caece.proyectofinal;
+package com.caece.proyectofinal.Services;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
@@ -17,6 +17,7 @@ import android.os.IBinder;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.caece.proyectofinal.Activities.ServiceRestartActivity;
 import com.caece.proyectofinal.Utils.Battery;
 import com.caece.proyectofinal.Utils.Device;
 import com.caece.proyectofinal.Utils.MemoryStatus;
@@ -29,8 +30,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.os.Debug.getMemoryInfo;
-
 public class EventService extends Service {
 
     private EventReceiver manualRegisterReceiver;
@@ -38,18 +37,15 @@ public class EventService extends Service {
     private int intervalos;
     private Boolean estoyMidiendo;
     private List<ActivityManager.RunningTaskInfo> tasksAnteriores;
-    Handler handler;
-    Handler handler3;
-    Handler handler4;
-    Handler handler5;
+    Handler handlerOneSecond;
+    Handler handlerLogWatcher;
+    Handler handlerTenMinutesChecker;
     private OneSecondChecker oneSecondChecker = new OneSecondChecker();
     private LogWatcher logWatcher = new LogWatcher();
-    private SpaceChecker spaceChecker = new SpaceChecker();
-    private ResponseTimeChecker responseTimeChecker = new ResponseTimeChecker();
+    private TenMinutesChecker tenMinutesChecker = new TenMinutesChecker();
 
     private int ONE_SECOND_CHECK_INTERVAL = 1000;
     private int SPACE_CHECK_INTERVAL = 600000;
-    private int RESPONSE_TIME_CHECK_INTERVAL = 200;
 
     Boolean aviso = false;
 
@@ -120,27 +116,22 @@ public class EventService extends Service {
 
         HandlerThread thread = new HandlerThread("OneSecondCheckerThread");
         thread.start();
-        handler = new Handler(thread.getLooper());
-        handler.postDelayed(oneSecondChecker, ONE_SECOND_CHECK_INTERVAL);
+        handlerOneSecond = new Handler(thread.getLooper());
+        handlerOneSecond.postDelayed(oneSecondChecker, ONE_SECOND_CHECK_INTERVAL);
 
-        /*if(Build.VERSION.SDK_INT < 16) {        //SI ES MENOR A JELLY BEAN (4.1)
+        if(Build.VERSION.SDK_INT < 16) {        //SI ES MENOR A JELLY BEAN (4.1)
 
             HandlerThread thread3 = new HandlerThread("LogWatcher");
             thread3.start();
-            handler3 = new Handler(thread3.getLooper());
-            handler3.postDelayed(logWatcher, 1000);
+            handlerLogWatcher = new Handler(thread3.getLooper());
+            handlerLogWatcher.postDelayed(logWatcher, 1000);
 
-        }*/
+        }
 
-        HandlerThread thread4 = new HandlerThread("SpaceCheckerThread");
+        HandlerThread thread4 = new HandlerThread("TenMinutesCheckerThread");
         thread4.start();
-        handler4 = new Handler(thread4.getLooper());
-        handler4.postDelayed(spaceChecker, SPACE_CHECK_INTERVAL);
-
-        HandlerThread thread5 = new HandlerThread("ResponseTimeCheckerThread");
-        thread5.start();
-        handler5 = new Handler(thread5.getLooper());
-        handler5.postDelayed(responseTimeChecker, RESPONSE_TIME_CHECK_INTERVAL);
+        handlerTenMinutesChecker = new Handler(thread4.getLooper());
+        handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
         super.onCreate();
     }
@@ -161,7 +152,7 @@ public class EventService extends Service {
         {
             Boolean nuevaApp = false;
 
-            List<ActivityManager.RunningTaskInfo> tasks = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
+            List<ActivityManager.RunningTaskInfo> tasks = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(10);
             if(tasks != null && !tasks.isEmpty())
             {
                 ActivityManager.RunningTaskInfo task = tasks.get(0);            //App en el frente
@@ -194,18 +185,55 @@ public class EventService extends Service {
                 }
             }
 
-            if(memoriaSaturada())                                                       //Memoria saturada
+            //Memoria saturada
+            if(memoriaSaturada())
                 MyLog.write("MS", "Mediciones", false);
-
-            List<ActivityManager.RunningAppProcessInfo> processes = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningAppProcesses();
-            MyLog.write("MP:" + processes.size(), "Mediciones",false);
 
             getCPUPerApp();
 
-            if(nuevaApp)
+            //Si se abrio una nueva app o se cerro, se registra el grado de multiprogramacion y la memoria por app
+            if(nuevaApp) {
+                List<ActivityManager.RunningAppProcessInfo> processes = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningAppProcesses();
+                MyLog.write("MP:" + processes.size(), "Mediciones",false);
                 getMemPerApp(processes);
+            }
 
-            handler.postDelayed(oneSecondChecker, ONE_SECOND_CHECK_INTERVAL);
+            //Ver quien mato a roger rabbit
+
+            if(tasksAnteriores == null)
+                tasksAnteriores = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(10);
+            else {
+
+                if(tasks.size() < tasksAnteriores.size()) {      //Si se mato alguna
+                    //Log.i("pepe", "se mato alguna");
+
+                    for (ActivityManager.RunningTaskInfo taskAnterior : tasksAnteriores) {
+
+                        Boolean noEstaba = true;
+                        String name = taskAnterior.topActivity.getPackageName();
+                        for (ActivityManager.RunningTaskInfo task : tasks) {
+
+                            if (taskAnterior.id == task.id)
+                                noEstaba = false;
+
+                        }
+
+                        if (noEstaba) {
+                            //Log.i("pepe", name);
+                            if (lastActiveApp.equals("com.sec.android.app.controlpanel"))
+                                MyLog.write("CBU:" + name, "Mediciones", false);
+                            else if (memoriaSaturada())
+                                MyLog.write("CBA:" + name, "Mediciones", false);
+                        }
+                    }
+
+                }
+
+                tasksAnteriores = tasks;
+
+            }
+
+            handlerOneSecond.postDelayed(oneSecondChecker, ONE_SECOND_CHECK_INTERVAL);
         }
     }
 
@@ -242,7 +270,7 @@ public class EventService extends Service {
         }
 
         if(!data.equals("M:")) {
-            MyLog.write(data, "Mediciones", true);
+            MyLog.write(data.substring(0, data.length() - 1), "Mediciones", true);
             //Log.i("pepe", data);
         }
 
@@ -250,82 +278,7 @@ public class EventService extends Service {
 
     private Boolean memoriaSaturada(){ return Device.getCurrentRAMState(this); }
 
-    private class ResponseTimeChecker implements Runnable {
-        @Override
-        public void run() {
-
-            if(tasksAnteriores == null){
-                tasksAnteriores = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(10); Log.i("pepe", "cargo");}
-            else{
-
-                List<ActivityManager.RunningTaskInfo> tasks = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(10);
-
-                if(tasksAnteriores.get(0).id != tasks.get(0).id || estoyMidiendo) {      //CAMBIO EL TOPE O ESTOY MIDIENDO
-
-                    if (tasksAnteriores.size() == 1 || (tasksAnteriores.get(1).id != tasks.get(0).id && !estoyMidiendo)) //SI NO ESTABA 2DA, OSEA QUE ES NUEVA
-                        if (tasks.get(0).numRunning == 0 || tasks.get(0).baseActivity == null) {     //SI NO TIENE ACTIVIDADES SUMO UN INTERVALO
-                            intervalos++;
-                            estoyMidiendo = true;
-                            Log.i("pepe", "intervalos en " + intervalos);
-                        } else Log.i("pepe", "tiene actividad");
-
-                    else {                                       //SIGO MIDIENDO INTERVALOS
-
-                        if (tasks.get(0).numRunning == 0) { //SI NO TIENE ACTIVIDADES SUMO UN INTERVALO
-                            intervalos++;
-                            Log.i("pepe", "intervalos en " + intervalos);
-                        } else {
-                            if (intervalos > 0) {            //SI TIENE INTERVALOS, RESETEO LA VARIABLE Y ESCRIBO EL TIEMPO
-                                estoyMidiendo = false;
-                                intervalos++;
-                                Log.i("pepe", "reseteo y escribo " + intervalos);
-                                MyLog.write(tasks.get(0).topActivity.getPackageName() + ":" + intervalos, "Mediciones", false);
-                                intervalos = 0;
-                            }
-                        }
-
-                    }
-
-                }
-
-                //Ver quien mato a roger rabbit
-
-                if(tasks.size() < tasksAnteriores.size()) {      //Si se mato alguna
-                    //Log.i("pepe", "se mato alguna");
-
-                    for (ActivityManager.RunningTaskInfo taskAnterior : tasksAnteriores) {
-
-                        Boolean noEstaba = true;
-                        String name = taskAnterior.topActivity.getPackageName();
-                        for (ActivityManager.RunningTaskInfo task : tasks) {
-
-                            if (taskAnterior.id == task.id)
-                                noEstaba = false;
-
-                        }
-
-                        if (noEstaba) {
-                            //Log.i("pepe", name);
-                            if (lastActiveApp.equals("com.sec.android.app.controlpanel"))
-                                MyLog.write("CBU:" + name, "Mediciones", false);
-                            else if (memoriaSaturada())
-                                MyLog.write("CBA:" + name, "Mediciones", false);
-                        }
-                    }
-
-                }
-
-                tasksAnteriores = tasks;
-
-            }
-
-            handler5.postDelayed(responseTimeChecker, RESPONSE_TIME_CHECK_INTERVAL);
-
-        }
-
-    }
-
-    private class SpaceChecker implements Runnable {
+    private class TenMinutesChecker implements Runnable {
         @Override
         public void run() {
 
@@ -347,7 +300,7 @@ public class EventService extends Service {
                 aviso = true;
             }
 
-            handler4.postDelayed(spaceChecker, SPACE_CHECK_INTERVAL);
+            handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
         }
 
@@ -428,9 +381,9 @@ public class EventService extends Service {
             if (nextLine.contains("ActivityManager")) {
                 //Log.i("pepe", nextLine.replace("ActivityManager", "AM"));
                 if(nextLine.contains("Displayed"))
-                    MyLog.write(nextLine.substring(25), "Tiempos", false);
+                    MyLog.write(nextLine.substring(25), "Mediciones", false);
             }
-            // Process line
+
         }
 
     }
@@ -439,10 +392,9 @@ public class EventService extends Service {
     public void onDestroy()
     {
         unregisterReceiver(manualRegisterReceiver);
-        handler.removeCallbacks(oneSecondChecker);
-        //handler3.removeCallbacks(logWatcher);
-        handler4.removeCallbacks(spaceChecker);
-        handler5.removeCallbacks(responseTimeChecker);
+        handlerOneSecond.removeCallbacks(oneSecondChecker);
+        handlerLogWatcher.removeCallbacks(logWatcher);
+        handlerTenMinutesChecker.removeCallbacks(tenMinutesChecker);
         super.onDestroy();
     }
 

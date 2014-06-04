@@ -57,7 +57,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.caece.proyectofinal.MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -66,10 +66,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.caece.proyectofinal.ServiceRestartActivity"
+            android:name=".Activities.ServiceRestartActivity"
             android:theme="@style/ThemeTransparent" />
 
-        <receiver android:name="com.caece.proyectofinal.EventReceiver" >
+        <receiver android:name=".Services.EventReceiver" >
             <intent-filter>
                 <action android:name="android.net.wifi.STATE_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
@@ -90,12 +90,13 @@
                 <action android:name="android.location.PROVIDERS_CHANGED" />
                 <action android:name="android.media.VOLUME_CHANGED_ACTION" />
                 <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
 
             </intent-filter>
         </receiver>
 
         <service
-            android:name="com.caece.proyectofinal.EventService"
+            android:name=".Services.EventService"
             android:exported="true"
             android:permission="com.caece.proyectofinal.RESTART_EVENT_SERVICE" />
 

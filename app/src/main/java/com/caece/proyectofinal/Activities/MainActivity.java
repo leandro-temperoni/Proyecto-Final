@@ -1,19 +1,15 @@
-package com.caece.proyectofinal;
+package com.caece.proyectofinal.Activities;
 
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
+import com.caece.proyectofinal.R;
+import com.caece.proyectofinal.Services.EventService;
+import com.caece.proyectofinal.Utils.Preferencias;
 
 public class MainActivity extends Activity {
 
@@ -22,12 +18,18 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent oldService = new Intent(this, EventService.class);
+        Intent oldService = new Intent(this, EventService.class);       //Detenemos el servicio, si es que estaba corriendo
         stopService(oldService);
 
         if(!ActivityManager.isUserAMonkey()) {                          //Si el usuario no es un mono, iniciamos el servicio
             Intent newService = new Intent(this, EventService.class);
             startService(newService);
+        }
+
+        if(Preferencias.primeraCorrida(this)) {                           //Si es la primera corrida, se da de alta el dispositivo
+
+            //Generar archivo con datos y enviarlo
+
         }
 
     }

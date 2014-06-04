@@ -1,12 +1,11 @@
-package com.caece.proyectofinal;
+package com.caece.proyectofinal.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-/**
- * Created by pedja on 14.4.14..
- */
+import com.caece.proyectofinal.Services.EventService;
+
 public class ServiceRestartActivity extends Activity
 {
     @Override

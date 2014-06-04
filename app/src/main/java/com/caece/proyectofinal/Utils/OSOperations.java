@@ -8,8 +8,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
 
-import com.caece.proyectofinal.EventReceiver;
-
 import java.util.ArrayList;
 
 /**
