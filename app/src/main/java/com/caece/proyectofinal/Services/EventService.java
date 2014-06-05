@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.net.TrafficStats;
 import android.os.Build;
 import android.os.Debug;
 import android.os.Handler;
@@ -293,6 +294,8 @@ public class EventService extends Service {
             MyLog.write("MI:" + String.valueOf(romLevel), "Mediciones", false);
             MyLog.write("ME:" + String.valueOf(sdLevel), "Mediciones", false);
             MyLog.write("BL:" + String.valueOf(nivelBateria()), "Mediciones", false);
+            MyLog.write("DR:" + String.valueOf(TrafficStats.getTotalRxBytes()), "Mediciones", true);
+            MyLog.write("DE:" + String.valueOf(TrafficStats.getTotalTxBytes()), "Mediciones", true);
 
             //Esto desp se borra, es para probar nomas
             if(MyLog.superolos5MB() && !aviso) {
@@ -309,13 +312,15 @@ public class EventService extends Service {
     private void getCPUPerApp(){
 
         try {
+            int pid = 0;
+            int pn = 0;
+            int cpu = 0;
             // -m 10, how many entries you want, -d 1, delay by how much, -n 1,
             // number of iterations
-            Process p = Runtime.getRuntime().exec("top -m 5 -d 0 -n 1");
+            Process p = Runtime.getRuntime().exec("top -m 50 -d 0 -n 1");
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line = reader.readLine();
-            int j = 0;
             String datos = "C:";
             while (line != null) {
                 line = reader.readLine();
@@ -325,19 +330,36 @@ public class EventService extends Service {
 
                     for (int i = 0; i < split.length; i++) {
                         if (!split[i].equals(""))
-                            s += "_" + split[i];
+                            s += "-" + split[i];
 
                     }
 
-                    if (s.contains("%") && j > 1) {
-                        String[] split2 = s.split("_");
-                        if (split2.length == 11)
-                            if (!split2[2].replace("%", "").equals("0") && split2[10].contains("."))
-                                datos += split2[10] + ":" + split2[1] + ":" + split2[2] + "-";
+                    if (!s.contains("PID")) {
+
+                        //Log.i("cpu", s);
+                        String[] split2 = s.split("-");
+                        if (!split2[cpu].replace("%", "").equals("0") && !s.contains("top") && s.contains(".")) {
+                            datos += split2[pn] + ":" + split2[pid] + ":" + split2[cpu] + "-";
+                        }
+
+                    } else {
+
+                        String[] split2 = s.split("-");
+                        for (int i = 0; i < split2.length; i++) {
+
+                            if (split2[i].equals("PID"))
+                                pid = i;
+                            if (split2[i].equals("CPU%"))
+                                cpu = i;
+                            if (split2[i].equals("Name"))
+                                pn = i;
+
+                        }
 
                     }
+
                 }
-                j++;
+
             }
 
             if(!datos.equals("C:")) {
