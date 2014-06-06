@@ -68,7 +68,7 @@ public class EventReceiver extends BroadcastReceiver {
                     break;
                 case WifiManager.WIFI_STATE_ENABLED:
                     Log.i("pepe", "WifiON");
-                    MyLog.write("WWifiON", "Mediciones", true);
+                    MyLog.write("WifiON", "Mediciones", true);
                     break;
             }
 
@@ -258,11 +258,11 @@ public class EventReceiver extends BroadcastReceiver {
                 {
                     case BatteryManager.BATTERY_STATUS_CHARGING:
                         Log.i("pepe", "Cargando bateria");
-                        //MyLog.write("Cargando bateria", "Mediciones", false);
+                        MyLog.write("BatC", "Mediciones", true);
                         break;
                     case BatteryManager.BATTERY_STATUS_DISCHARGING:
                         Log.i("pepe", "Descargandose le bateria");
-                        //MyLog.write("Descargandose le bateria", "Mediciones", false);
+                        MyLog.write("BatD", "Mediciones", true);
                         break;
                     case BatteryManager.BATTERY_STATUS_FULL:
                         Log.i("pepe", "FB");
@@ -332,7 +332,7 @@ public class EventReceiver extends BroadcastReceiver {
         if(intent.getAction().equals(Intent.ACTION_SCREEN_OFF))
         {
             //Log.i("pepe", "ScOff");
-            MyLog.write("ScOff", "Mediciones", true);
+            MyLog.write("ScOFF", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_SCREEN_ON))
         {
@@ -343,6 +343,16 @@ public class EventReceiver extends BroadcastReceiver {
         {
             //Log.i("pepe", "UP");
             MyLog.write("UP", "Mediciones", true);
+        }
+        if(intent.getAction().equals(Intent.ACTION_DEVICE_STORAGE_LOW))
+        {
+            //Log.i("pepe", "SL");
+            MyLog.write("SL", "Mediciones", true);
+        }
+        if(intent.getAction().equals(Intent.ACTION_DEVICE_STORAGE_OK))
+        {
+            //Log.i("pepe", "SOK");
+            MyLog.write("SOK", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_HEADSET_PLUG))
         {

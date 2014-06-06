@@ -4,19 +4,20 @@ import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.Service;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.TrafficStats;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Debug;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 
 import com.caece.proyectofinal.Activities.ServiceRestartActivity;
 import com.caece.proyectofinal.Utils.Battery;
@@ -35,12 +36,11 @@ public class EventService extends Service {
 
     private EventReceiver manualRegisterReceiver;
     private String lastActiveApp = "";
-    private int intervalos;
-    private Boolean estoyMidiendo;
+    private LocationMonitor locationMonitor;
     private List<ActivityManager.RunningTaskInfo> tasksAnteriores;
-    Handler handlerOneSecond;
-    Handler handlerLogWatcher;
-    Handler handlerTenMinutesChecker;
+    private Handler handlerOneSecond;
+    private Handler handlerLogWatcher;
+    private Handler handlerTenMinutesChecker;
     private OneSecondChecker oneSecondChecker = new OneSecondChecker();
     private LogWatcher logWatcher = new LogWatcher();
     private TenMinutesChecker tenMinutesChecker = new TenMinutesChecker();
@@ -70,6 +70,8 @@ public class EventService extends Service {
         intentFilter.addAction(Intent.ACTION_SHUTDOWN);
         intentFilter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
         intentFilter.addAction(Intent.ACTION_HEADSET_PLUG);
+        intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_LOW);
+        intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_OK);
 
         //package
         intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
@@ -109,8 +111,12 @@ public class EventService extends Service {
         intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 
-        intervalos = 0;
-        estoyMidiendo = false;
+        SMSObserver smsObserver = new SMSObserver(new Handler(), this);
+        ContentResolver contentResolver = this.getContentResolver();
+        contentResolver.registerContentObserver(Uri.parse("content://sms"),true, smsObserver);
+
+        locationMonitor = new LocationMonitor(this);
+        locationMonitor.startListening();
 
         manualRegisterReceiver = new EventReceiver();
         registerReceiver(manualRegisterReceiver, intentFilter);
@@ -295,7 +301,7 @@ public class EventService extends Service {
             MyLog.write("ME:" + String.valueOf(sdLevel), "Mediciones", false);
             MyLog.write("BL:" + String.valueOf(nivelBateria()), "Mediciones", false);
             MyLog.write("DR:" + String.valueOf(TrafficStats.getTotalRxBytes()), "Mediciones", true);
-            MyLog.write("DE:" + String.valueOf(TrafficStats.getTotalTxBytes()), "Mediciones", true);
+            MyLog.write("DS:" + String.valueOf(TrafficStats.getTotalTxBytes()), "Mediciones", true);
 
             //Esto desp se borra, es para probar nomas
             if(MyLog.superolos5MB() && !aviso) {
@@ -403,7 +409,7 @@ public class EventService extends Service {
             if (nextLine.contains("ActivityManager")) {
                 //Log.i("pepe", nextLine.replace("ActivityManager", "AM"));
                 if(nextLine.contains("Displayed"))
-                    MyLog.write(nextLine.substring(25), "Mediciones", false);
+                    MyLog.write(nextLine.substring(25).replace("Displayed", "RT:").replace(" ", ""), "Mediciones", false);
             }
 
         }
@@ -417,6 +423,7 @@ public class EventService extends Service {
         handlerOneSecond.removeCallbacks(oneSecondChecker);
         handlerLogWatcher.removeCallbacks(logWatcher);
         handlerTenMinutesChecker.removeCallbacks(tenMinutesChecker);
+        locationMonitor.stopListening();
         super.onDestroy();
     }
 

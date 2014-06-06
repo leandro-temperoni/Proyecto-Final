@@ -23,6 +23,7 @@
     <!-- access gps state -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="com.caece.proyectofinal.RESTART_EVENT_SERVICE" />
 
     <permission
@@ -91,6 +92,8 @@
                 <action android:name="android.media.VOLUME_CHANGED_ACTION" />
                 <action android:name="android.intent.action.PHONE_STATE" />
                 <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
 
             </intent-filter>
         </receiver>

@@ -3,12 +3,15 @@ package com.caece.proyectofinal.Activities;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.caece.proyectofinal.R;
 import com.caece.proyectofinal.Services.EventService;
+import com.caece.proyectofinal.Utils.Device;
+import com.caece.proyectofinal.Utils.MyLog;
 import com.caece.proyectofinal.Utils.Preferencias;
 
 public class MainActivity extends Activity {
@@ -29,6 +32,7 @@ public class MainActivity extends Activity {
         if(Preferencias.primeraCorrida(this)) {                           //Si es la primera corrida, se da de alta el dispositivo
 
             //Generar archivo con datos y enviarlo
+            collectData();
 
         }
 
@@ -49,6 +53,15 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void collectData(){
+
+        String number = Device.getPhoneNumber(this);
+        String model = Device.getDeviceName();
+        int api = Build.VERSION.SDK_INT;
+        MyLog.write(number + ":" + model + ":" + api, "Datos", true);
+
     }
 
 }
