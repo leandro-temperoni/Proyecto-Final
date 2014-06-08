@@ -26,10 +26,10 @@ public class Device {
         }
     }
 
-    public static String getPhoneNumber(Context context){
+    public static String getDeviceId(Context context){
 
         TelephonyManager tMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        String mPhoneNumber = tMgr.getLine1Number();
+        String mPhoneNumber = tMgr.getDeviceId();
         return mPhoneNumber;
 
     }

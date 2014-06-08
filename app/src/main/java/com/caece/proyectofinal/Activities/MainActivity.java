@@ -57,10 +57,10 @@ public class MainActivity extends Activity {
 
     private void collectData(){
 
-        String number = Device.getPhoneNumber(this);
+        String id = Device.getDeviceId(this);
         String model = Device.getDeviceName();
         int api = Build.VERSION.SDK_INT;
-        MyLog.write(number + ":" + model + ":" + api, "Datos", true);
+        MyLog.write(id+ ":" + model + ":" + api, "Datos", true);
 
     }
 
