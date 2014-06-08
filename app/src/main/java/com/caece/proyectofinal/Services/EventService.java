@@ -115,8 +115,8 @@ public class EventService extends Service {
         ContentResolver contentResolver = this.getContentResolver();
         contentResolver.registerContentObserver(Uri.parse("content://sms"),true, smsObserver);
 
-        locationMonitor = new LocationMonitor(this);
-        locationMonitor.startListening();
+        //locationMonitor = new LocationMonitor(this);
+        //locationMonitor.startListening();
 
         manualRegisterReceiver = new EventReceiver();
         registerReceiver(manualRegisterReceiver, intentFilter);
@@ -423,7 +423,7 @@ public class EventService extends Service {
         handlerOneSecond.removeCallbacks(oneSecondChecker);
         handlerLogWatcher.removeCallbacks(logWatcher);
         handlerTenMinutesChecker.removeCallbacks(tenMinutesChecker);
-        locationMonitor.stopListening();
+        //locationMonitor.stopListening();
         super.onDestroy();
     }
 
