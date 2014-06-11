@@ -1,6 +1,7 @@
 package com.caece.proyectofinal.Utils;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
@@ -14,9 +15,11 @@ public class Notificacion {
 
     public static void mostrar(Context context, String title, String text) {
 
+        PendingIntent pi = PendingIntent.getBroadcast(context, 0, new Intent(), PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder mBuilder;
         mBuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.drawable.ic_launcher)
+                .setContentIntent(pi)
                 .setContentTitle(title)
                 .setContentText(text);
 

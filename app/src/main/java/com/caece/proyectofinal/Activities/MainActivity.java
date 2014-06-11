@@ -12,6 +12,7 @@ import com.caece.proyectofinal.R;
 import com.caece.proyectofinal.Services.EventService;
 import com.caece.proyectofinal.Utils.Device;
 import com.caece.proyectofinal.Utils.MyLog;
+import com.caece.proyectofinal.Utils.Notificacion;
 import com.caece.proyectofinal.Utils.Preferencias;
 
 public class MainActivity extends Activity {

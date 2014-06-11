@@ -23,9 +23,9 @@
     <!-- access gps state -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.caece.proyectofinal.RESTART_EVENT_SERVICE" />
 
     <permission
@@ -60,7 +60,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Activities.MainActivity"
+            android:name="com.caece.proyectofinal.Activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,10 +69,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.ServiceRestartActivity"
+            android:name="com.caece.proyectofinal.Activities.ServiceRestartActivity"
             android:theme="@style/ThemeTransparent" />
 
-        <receiver android:name=".Services.EventReceiver" >
+        <receiver android:name="com.caece.proyectofinal.Services.EventReceiver" >
             <intent-filter>
                 <action android:name="android.net.wifi.STATE_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
@@ -96,15 +96,20 @@
                 <action android:name="android.intent.action.ACTION_SHUTDOWN" />
                 <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
                 <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
-
             </intent-filter>
         </receiver>
 
         <service
-            android:name=".Services.EventService"
+            android:name="com.caece.proyectofinal.Services.EventService"
             android:exported="true"
             android:permission="com.caece.proyectofinal.RESTART_EVENT_SERVICE" />
+
+        <service android:name="com.caece.proyectofinal.Services.LocationService"
+            android:exported="true"
+            android:enabled="true" >
+        </service>
 
     </application>
 
 </manifest>
+

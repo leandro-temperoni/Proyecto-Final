@@ -2,6 +2,8 @@ package com.caece.proyectofinal.Utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 
@@ -140,6 +142,13 @@ public class Device {
         for (ActivityManager.RunningAppProcessInfo pid : am.getRunningAppProcesses()) {
             am.killBackgroundProcesses(pid.processName);
         }
+
+    }
+
+    public static Location getCurrentLocation(Context context){
+
+        LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+        return locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
     }
 

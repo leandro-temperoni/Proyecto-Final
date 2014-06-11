@@ -2,6 +2,8 @@ package com.caece.proyectofinal.Services;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -30,13 +32,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class EventService extends Service {
 
     private EventReceiver manualRegisterReceiver;
     private String lastActiveApp = "";
-    private LocationMonitor locationMonitor;
+    private Calendar lastCalendar;
     private List<ActivityManager.RunningTaskInfo> tasksAnteriores;
     private Handler handlerOneSecond;
     private Handler handlerLogWatcher;
@@ -111,12 +114,13 @@ public class EventService extends Service {
         intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 
+        PendingIntent pi = PendingIntent.getService(this, 0, new Intent(this, LocationService.class), PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        am.set(AlarmManager.RTC_WAKEUP, getTime(), pi);     //Programo ejecutar el servicio de localizacion a las 3AM
+
         SMSObserver smsObserver = new SMSObserver(new Handler(), this);
         ContentResolver contentResolver = this.getContentResolver();
-        contentResolver.registerContentObserver(Uri.parse("content://sms"),true, smsObserver);
-
-        //locationMonitor = new LocationMonitor(this);
-        //locationMonitor.startListening();
+        contentResolver.registerContentObserver(Uri.parse("content://sms"), true, smsObserver);
 
         manualRegisterReceiver = new EventReceiver();
         registerReceiver(manualRegisterReceiver, intentFilter);
@@ -141,6 +145,25 @@ public class EventService extends Service {
         handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
         super.onCreate();
+    }
+
+    private long getTime() {
+
+        long time = 0;
+        Calendar calendar = Calendar.getInstance();
+        if(calendar.get(Calendar.HOUR_OF_DAY) > 3) {
+            calendar.set(Calendar.HOUR_OF_DAY, 3);
+            calendar.set(Calendar.MINUTE, 0);
+            time = calendar.getTimeInMillis() + 86400000;
+        }
+        else {
+            calendar.set(Calendar.HOUR_OF_DAY, 3);
+            calendar.set(Calendar.MINUTE, 0);
+            time = calendar.getTimeInMillis();
+        }
+
+        return time;
+
     }
 
     private class LogWatcher implements Runnable
@@ -420,10 +443,12 @@ public class EventService extends Service {
     public void onDestroy()
     {
         unregisterReceiver(manualRegisterReceiver);
-        handlerOneSecond.removeCallbacks(oneSecondChecker);
-        handlerLogWatcher.removeCallbacks(logWatcher);
-        handlerTenMinutesChecker.removeCallbacks(tenMinutesChecker);
-        //locationMonitor.stopListening();
+        if(handlerOneSecond != null)
+            handlerOneSecond.removeCallbacks(oneSecondChecker);
+        if(handlerLogWatcher != null)
+            handlerLogWatcher.removeCallbacks(logWatcher);
+        if(handlerTenMinutesChecker != null)
+            handlerTenMinutesChecker.removeCallbacks(tenMinutesChecker);
         super.onDestroy();
     }
 
