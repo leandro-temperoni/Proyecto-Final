@@ -149,20 +149,18 @@ public class EventService extends Service {
 
     private long getTime() {
 
-        long time = 0;
         Calendar calendar = Calendar.getInstance();
-        if(calendar.get(Calendar.HOUR_OF_DAY) > 3) {
+        if(calendar.get(Calendar.HOUR_OF_DAY) >= 3) {
             calendar.set(Calendar.HOUR_OF_DAY, 3);
             calendar.set(Calendar.MINUTE, 0);
-            time = calendar.getTimeInMillis() + 86400000;
+            calendar.add(Calendar.DAY_OF_YEAR, 1);
         }
         else {
             calendar.set(Calendar.HOUR_OF_DAY, 3);
             calendar.set(Calendar.MINUTE, 0);
-            time = calendar.getTimeInMillis();
         }
 
-        return time;
+        return calendar.getTimeInMillis();
 
     }
 

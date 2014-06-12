@@ -28,10 +28,11 @@ public class LocationService extends Service {
         }
         else Notificacion.mostrar(this, "Localizacion", "Error al medir");
 
-        long time = Calendar.getInstance().getTimeInMillis() + 43200000;
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.HOUR, 12);
         PendingIntent pi = PendingIntent.getService(this, 0, new Intent(this, LocationService.class), PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        am.set(AlarmManager.RTC_WAKEUP, time, pi);     //Programo ejecutar el servicio de localizacion dentro de 12 hs
+        am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);     //Programo ejecutar el servicio de localizacion dentro de 12 hs
 
         stopSelf();
 
