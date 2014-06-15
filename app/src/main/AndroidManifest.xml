@@ -99,17 +99,24 @@
             </intent-filter>
         </receiver>
 
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <service
             android:name="com.caece.proyectofinal.Services.EventService"
             android:exported="true"
             android:permission="com.caece.proyectofinal.RESTART_EVENT_SERVICE" />
-
-        <service android:name="com.caece.proyectofinal.Services.LocationService"
-            android:exported="true"
-            android:enabled="true" >
+        <service
+            android:name="com.caece.proyectofinal.Services.LocationService"
+            android:enabled="true"
+            android:exported="true" >
         </service>
-
+        <service
+            android:name="com.caece.proyectofinal.Services.LocationServiceJellyBean"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>
-

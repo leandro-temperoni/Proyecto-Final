@@ -248,7 +248,7 @@ public class EventService extends Service {
 
                         if (noEstaba) {
                             //Log.i("pepe", name);
-                            if (lastActiveApp.equals("com.sec.android.app.controlpanel"))
+                            if (lastActiveApp.equals("com.sec.android.app.controlpanel") || lastActiveApp.equals("com.android.systemui"))
                                 MyLog.write("CBU:" + name, "Mediciones", false);
                             else if (memoriaSaturada())
                                 MyLog.write("CBA:" + name, "Mediciones", false);
