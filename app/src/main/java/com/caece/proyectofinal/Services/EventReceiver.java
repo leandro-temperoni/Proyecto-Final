@@ -125,7 +125,7 @@ public class EventReceiver extends BroadcastReceiver {
             }
             String address = messages[0].getOriginatingAddress();
             Log.i("pepe", "SMSR");
-            MyLog.write("SMSR", "Mediciones", false);
+            MyLog.write("SMSR", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED) || intent.getAction().equals("android.intent.action.QUICKBOOT_POWERON"))
         {
@@ -188,7 +188,7 @@ public class EventReceiver extends BroadcastReceiver {
             /*android.intent.extra.PHONE_NUMBER=2222*/
             String phoneNum = extras != null ? extras.getString(Intent.EXTRA_PHONE_NUMBER) : context.getString(R.string.na).toUpperCase();
             Log.i("pepe", "IntLL");
-            MyLog.write("IntLL", "Mediciones", false);
+            MyLog.write("IntLL", "Mediciones", true);
         }
         if(intent.getAction().equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED))
         {
@@ -199,7 +199,7 @@ public class EventReceiver extends BroadcastReceiver {
             String phoneNum = extras != null ? extras.getString(TelephonyManager.EXTRA_INCOMING_NUMBER) : context.getString(R.string.na).toUpperCase();
 
             Log.i("pepe", "RecLL");
-            MyLog.write("RecLL", "Mediciones", false);
+            MyLog.write("RecLL", "Mediciones", true);
 
         }
         if(intent.getAction().equals(Intent.ACTION_CONFIGURATION_CHANGED))

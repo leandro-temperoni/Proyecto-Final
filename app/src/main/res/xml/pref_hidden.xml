@@ -4,4 +4,11 @@
             android:key="primeraCorrida"
             android:defaultValue="true" />
 
+    <CheckBoxPreference
+        android:key="yaLocalize"
+        android:defaultValue="false" />
+
+    <Preference
+        android:key="timePrimeraCorrida" />
+
 </PreferenceScreen>

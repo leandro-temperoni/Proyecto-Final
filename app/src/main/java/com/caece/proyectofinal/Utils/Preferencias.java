@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import java.util.Calendar;
+
 /**
  * Created by lea on 6/09/13.
  */
@@ -26,16 +28,42 @@ public class Preferencias {
 
     }
 
+    public static Boolean yaLocalize(Context context){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPrefs.getBoolean("yaLocalize", true);
+
+    }
+
+    public static void cancelarLocalizacion(Context context){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        sharedPrefs.edit().putBoolean("yaLocalize", true).commit();
+
+    }
+
     public static Boolean primeraCorrida(Context context){
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         Boolean primeraCorrida = sharedPrefs.getBoolean("primeraCorrida", true);
 
-        if (primeraCorrida)
+        if (primeraCorrida){
+
             sharedPrefs.edit().putBoolean("primeraCorrida", false).commit();
+            sharedPrefs.edit().putLong("timePrimeraCorrida", Calendar.getInstance().getTimeInMillis()).commit();
+
+        }
+
 
         return primeraCorrida;
+
+    }
+
+    public static long getTimePrimeraCorrida(Context context){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPrefs.getLong("timePrimeraCorrida", 0);
 
     }
 

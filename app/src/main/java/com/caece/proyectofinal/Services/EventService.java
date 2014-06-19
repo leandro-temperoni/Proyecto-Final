@@ -27,6 +27,8 @@ import com.caece.proyectofinal.Utils.Device;
 import com.caece.proyectofinal.Utils.MemoryStatus;
 import com.caece.proyectofinal.Utils.MyLog;
 import com.caece.proyectofinal.Utils.Notificacion;
+import com.caece.proyectofinal.Utils.OSOperations;
+import com.caece.proyectofinal.Utils.Preferencias;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -114,9 +116,10 @@ public class EventService extends Service {
         intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 
-        PendingIntent pi = PendingIntent.getService(this, 0, new Intent(this, LocationService.class), PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        am.set(AlarmManager.RTC_WAKEUP, getTime(), pi);     //Programo ejecutar el servicio de localizacion a las 3AM
+        if(Preferencias.yaLocalize(this)) {
+            Intent intent = new Intent(this, LocationService.class);
+            startService(intent);
+        }
 
         SMSObserver smsObserver = new SMSObserver(new Handler(), this);
         ContentResolver contentResolver = this.getContentResolver();
@@ -145,23 +148,6 @@ public class EventService extends Service {
         handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
         super.onCreate();
-    }
-
-    private long getTime() {
-
-        Calendar calendar = Calendar.getInstance();
-        if(calendar.get(Calendar.HOUR_OF_DAY) >= 3) {
-            calendar.set(Calendar.HOUR_OF_DAY, 3);
-            calendar.set(Calendar.MINUTE, 0);
-            calendar.add(Calendar.DAY_OF_YEAR, 1);
-        }
-        else {
-            calendar.set(Calendar.HOUR_OF_DAY, 3);
-            calendar.set(Calendar.MINUTE, 0);
-        }
-
-        return calendar.getTimeInMillis();
-
     }
 
     private class LogWatcher implements Runnable
@@ -206,7 +192,7 @@ public class EventService extends Service {
                                 appName = "[" + "Unknowed app" + "]";
                             }
 
-                            MyLog.write("FA:" + appName, "Mediciones", false);
+                            MyLog.write("FA:" + appName, "Mediciones", true);
 
                         }
                     }
@@ -215,14 +201,14 @@ public class EventService extends Service {
 
             //Memoria saturada
             if(memoriaSaturada())
-                MyLog.write("MS", "Mediciones", false);
+                MyLog.write("MS", "Mediciones", true);
 
             getCPUPerApp();
 
             //Si se abrio una nueva app o se cerro, se registra el grado de multiprogramacion y la memoria por app
             if(nuevaApp) {
                 List<ActivityManager.RunningAppProcessInfo> processes = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningAppProcesses();
-                MyLog.write("MP:" + processes.size(), "Mediciones",false);
+                MyLog.write("MP:" + processes.size(), "Mediciones",true);
                 getMemPerApp(processes);
             }
 
@@ -249,9 +235,9 @@ public class EventService extends Service {
                         if (noEstaba) {
                             //Log.i("pepe", name);
                             if (lastActiveApp.equals("com.sec.android.app.controlpanel") || lastActiveApp.equals("com.android.systemui"))
-                                MyLog.write("CBU:" + name, "Mediciones", false);
+                                MyLog.write("CBU:" + OSOperations.getAppNameFromPackageName(getPackageManager(), name), "Mediciones", true);
                             else if (memoriaSaturada())
-                                MyLog.write("CBA:" + name, "Mediciones", false);
+                                MyLog.write("CBA:" + OSOperations.getAppNameFromPackageName(getPackageManager(), name), "Mediciones", true);
                         }
                     }
 
@@ -292,7 +278,7 @@ public class EventService extends Service {
         for(Debug.MemoryInfo info : memoryInfos){
 
             if(info.getTotalPss() != 0)
-                data += pns.get(i) + ":" + pids[i] + ":" + info.getTotalPss() + "-";
+                data += OSOperations.getAppNameFromPackageName(getPackageManager(), pns.get(i)) + ":" + pids[i] + ":" + info.getTotalPss() + "-";
             i++;
 
         }
@@ -318,17 +304,11 @@ public class EventService extends Service {
             long romTotal = MemoryStatus.getTotalInternalMemorySize();
             long romLevel = 100 - (romAvailable * 100) / romTotal;
 
-            MyLog.write("MI:" + String.valueOf(romLevel), "Mediciones", false);
-            MyLog.write("ME:" + String.valueOf(sdLevel), "Mediciones", false);
-            MyLog.write("BL:" + String.valueOf(nivelBateria()), "Mediciones", false);
+            MyLog.write("MI:" + String.valueOf(romLevel), "Mediciones", true);
+            MyLog.write("ME:" + String.valueOf(sdLevel), "Mediciones", true);
+            MyLog.write("BL:" + String.valueOf(nivelBateria()), "Mediciones", true);
             MyLog.write("DR:" + String.valueOf(TrafficStats.getTotalRxBytes()), "Mediciones", true);
             MyLog.write("DS:" + String.valueOf(TrafficStats.getTotalTxBytes()), "Mediciones", true);
-
-            //Esto desp se borra, es para probar nomas
-            if(MyLog.superolos5MB() && !aviso) {
-                notificacion();
-                aviso = true;
-            }
 
             handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
@@ -366,7 +346,7 @@ public class EventService extends Service {
                         //Log.i("cpu", s);
                         String[] split2 = s.split("-");
                         if (!split2[cpu].replace("%", "").equals("0") && !s.contains("top") && s.contains(".")) {
-                            datos += split2[pn] + ":" + split2[pid] + ":" + split2[cpu] + "-";
+                            datos += OSOperations.getAppNameFromPackageName(getPackageManager(), split2[pn]) + ":" + split2[pid] + ":" + split2[cpu] + "-";
                         }
 
                     } else {
@@ -391,7 +371,7 @@ public class EventService extends Service {
 
             if(!datos.equals("C:")) {
                 //Log.i("pepe", datos.substring(0, datos.length() - 1));
-                MyLog.write(datos.substring(0, datos.length() - 1), "Mediciones", false);
+                MyLog.write(datos.substring(0, datos.length() - 1), "Mediciones", true);
             }
 
         } catch (Exception e) {
@@ -401,8 +381,6 @@ public class EventService extends Service {
     }
 
     private int nivelBateria(){ return Battery.getLevel(this); }
-
-    private void notificacion(){ Notificacion.mostrar(this, "Oh no", "El archivo supero los 5 MB!"); }
 
     private void log() {
 
@@ -429,8 +407,12 @@ public class EventService extends Service {
             }
             if (nextLine.contains("ActivityManager")) {
                 //Log.i("pepe", nextLine.replace("ActivityManager", "AM"));
-                if(nextLine.contains("Displayed"))
-                    MyLog.write(nextLine.substring(25).replace("Displayed", "RT:").replace(" ", ""), "Mediciones", false);
+                if(nextLine.contains("Displayed")) {
+                    String line = nextLine.substring(25).replace("Displayed", "RT:").replace(" ", "");
+                    String pn = line.substring(3, line.indexOf("/"));
+                    line = line.replace(pn, OSOperations.getAppNameFromPackageName(getPackageManager(), pn));
+                    MyLog.write(line, "Mediciones", true);
+                }
             }
 
         }

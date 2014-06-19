@@ -25,16 +25,16 @@ public class MainActivity extends Activity {
         Intent oldService = new Intent(this, EventService.class);       //Detenemos el servicio, si es que estaba corriendo
         stopService(oldService);
 
-        if(!ActivityManager.isUserAMonkey()) {                          //Si el usuario no es un mono, iniciamos el servicio
-            Intent newService = new Intent(this, EventService.class);
-            startService(newService);
-        }
-
         if(Preferencias.primeraCorrida(this)) {                           //Si es la primera corrida, se da de alta el dispositivo
 
             //Generar archivo con datos y enviarlo
             collectData();
 
+        }
+
+        if(!ActivityManager.isUserAMonkey()) {                          //Si el usuario no es un mono, iniciamos el servicio
+            Intent newService = new Intent(this, EventService.class);
+            startService(newService);
         }
 
     }

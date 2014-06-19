@@ -17,9 +17,7 @@ import android.util.Log;
 import com.caece.proyectofinal.Utils.Device;
 import com.caece.proyectofinal.Utils.MyLog;
 import com.caece.proyectofinal.Utils.Notificacion;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.location.LocationClient;
+import com.caece.proyectofinal.Utils.Preferencias;
 
 import java.util.Calendar;
 
@@ -43,10 +41,8 @@ public class LocationService extends Service {
 
         if(location != null) {
             MyLog.write(location.getLongitude() + "-" + location.getLatitude(), "Coordenadas", true);
-            //Notificacion.mostrar(this, "Localizacion", location.getLongitude() + "-" + location.getLatitude());
             detenerYProgramar();
         }
-        //else Notificacion.mostrar(this, "Localizacion", "Error al medir");
 
     }
 
@@ -85,10 +81,20 @@ public class LocationService extends Service {
         stopListening();
 
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.HOUR, 12);
-        PendingIntent pi = PendingIntent.getService(this, 0, new Intent(this, LocationService.class), PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);     //Programo ejecutar el servicio de localizacion dentro de 12 hs
+
+        if(Preferencias.getTimePrimeraCorrida(this) + 259200000 > calendar.getTimeInMillis()) {      //Si no llevo 3 dias midiendo, sigo
+
+            calendar.add(Calendar.HOUR, 1);
+            PendingIntent pi = PendingIntent.getService(this, 0, new Intent(this, LocationService.class), PendingIntent.FLAG_UPDATE_CURRENT);
+            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);     //Programo ejecutar el servicio de localizacion dentro de 1 hora
+
+        }
+        else { //Dejo de medir y envio al servidor
+
+            Preferencias.cancelarLocalizacion(this);
+
+        }
 
         stopSelf();
 
