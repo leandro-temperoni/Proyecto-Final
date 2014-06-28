@@ -68,9 +68,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.caece.proyectofinal.Activities.ServiceRestartActivity"
             android:theme="@style/ThemeTransparent" />
+
+        <activity
+            android:name="com.caece.proyectofinal.Activities.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
 
         <receiver android:name="com.caece.proyectofinal.Services.EventReceiver" >
             <intent-filter>

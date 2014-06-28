@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
 
             //Generar archivo con datos y enviarlo
             collectData();
+            MyLog.subirAlServidor("Datos");
 
         }
 
@@ -49,11 +50,18 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
+        if(item.getItemId() == R.id.action_settings)
+            preferencias();
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void preferencias(){
+
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+
     }
 
     private void collectData(){

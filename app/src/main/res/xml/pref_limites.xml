@@ -1,0 +1,33 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="ram_list"
+        android:title="@string/pref_title_ram"
+        android:defaultValue="80"
+        android:summary="@string/pref_description_ram"
+        android:entries="@array/pref_ram_list_titles"
+        android:entryValues="@array/pref_ram_list_values"
+        android:negativeButtonText="Cancelar"
+        android:positiveButtonText="Aceptar" />
+
+    <ListPreference
+        android:key="memint_list"
+        android:title="@string/pref_title_memint"
+        android:defaultValue="80"
+        android:summary="@string/pref_description_memint"
+        android:entries="@array/pref_memint_list_titles"
+        android:entryValues="@array/pref_memint_list_values"
+        android:negativeButtonText="Cancelar"
+        android:positiveButtonText="Aceptar" />
+
+    <ListPreference
+        android:key="memext_list"
+        android:title="@string/pref_title_memext"
+        android:defaultValue="80"
+        android:summary="@string/pref_description_memext"
+        android:entries="@array/pref_memext_list_titles"
+        android:entryValues="@array/pref_memext_list_values"
+        android:negativeButtonText="Cancelar"
+        android:positiveButtonText="Aceptar" />
+
+</PreferenceScreen>

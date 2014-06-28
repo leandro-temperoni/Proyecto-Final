@@ -4,6 +4,8 @@ import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -75,6 +77,24 @@ public class MyLog {
         if(myFile.length() > 5000000)
             return true;
         else return false;
+
+    }
+
+    public static void subirAlServidor(String name){
+
+        File externalStorageDir = Environment.getExternalStorageDirectory();
+        File dir = new File(externalStorageDir.getAbsolutePath() + "/ProyectoFinal/logs");
+        if(!dir.exists())
+            dir.mkdirs();
+        File myFile = new File(dir, name + ".txt");
+
+        HttpFileUploader uploader = new HttpFileUploader("http://tesis-oswebarg.rhcloud.com/upload.php", myFile.getName());
+        try {
+            uploader.doStart(new FileInputStream(myFile.getAbsolutePath()));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Log.i("pepe", "fallo el upload");
+        }
 
     }
 
