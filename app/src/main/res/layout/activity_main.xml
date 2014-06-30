@@ -6,14 +6,163 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="#000000"
+    android:background="#E0E0E0"
     tools:context="com.caece.proyectofinal.Activities.MainActivity">
 
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textview" />
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeRam"
+            android:background="@drawable/rounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewRam"
+                android:text="RAM"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/progressBarRam"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/progressBarRam"
+                android:layout_below="@id/textViewRam"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_centerInParent="true"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/progressbar" />
+
+            <TextView
+                android:id="@+id/textViewRamValor"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeMI"
+            android:layout_below="@+id/relativeRam"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewMI"
+                android:text="ROM"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/progressBarMI"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/progressBarMI"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_below="@+id/textViewMI"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_centerInParent="true"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/progressbar" />
+
+            <TextView
+                android:id="@+id/textViewMIValor"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeME"
+            android:layout_below="@+id/relativeMI"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewME"
+                android:text="SD"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/progressBarME"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/progressBarME"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_below="@+id/textViewME"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_centerInParent="true"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/progressbar" />
+
+            <TextView
+                android:id="@+id/textViewMEValor"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLM"
+            android:layout_below="@+id/relativeME"
+            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/rounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="Liberar RAM"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:id="@+id/buttonLiberar"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:text="Aplicaciones"
+                android:layout_alignParentRight="true"
+                android:id="@+id/buttonApps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

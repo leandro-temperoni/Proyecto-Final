@@ -1,8 +1,14 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" >
+    <style name="AppTheme" parent="Theme.Sherlock.Light" >
         <!-- Customize your theme here. -->
+        <item name="actionBarStyle">@style/Widget.MyTheme.ActionBar</item>
+    </style>
+
+    <style name="Widget.MyTheme.ActionBar" parent="Widget.Sherlock.ActionBar">
+        <item name="android:background">@color/white</item>
+        <item name="background">@color/white</item>
     </style>
 
     <style name="ThemeTransparent" parent="AppTheme">

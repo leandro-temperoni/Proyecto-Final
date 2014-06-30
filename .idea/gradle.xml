@@ -9,6 +9,8 @@
           <set>
             <option value="D:\Documents\Android\ProyectoFinal" />
             <option value="D:\Documents\Android\ProyectoFinal\app" />
+            <option value="D:\Documents\Android\ProyectoFinal\libraries" />
+            <option value="D:\Documents\Android\ProyectoFinal\libraries\actionbarsherlock" />
           </set>
         </option>
       </GradleProjectSettings>
