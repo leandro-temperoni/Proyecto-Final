@@ -237,7 +237,8 @@ public class EventService extends Service {
                             if (lastActiveApp.equals("com.sec.android.app.controlpanel") || lastActiveApp.equals("com.android.systemui"))
                                 MyLog.write("CBU:" + OSOperations.getAppNameFromPackageName(getPackageManager(), name), "Mediciones", true);
                             else if (memoriaSaturada())
-                                MyLog.write("CBA:" + OSOperations.getAppNameFromPackageName(getPackageManager(), name), "Mediciones", true);
+                                    MyLog.write("CBA:" + OSOperations.getAppNameFromPackageName(getPackageManager(), name), "Mediciones", true);
+                                else MyLog.write("CBUN:" + OSOperations.getAppNameFromPackageName(getPackageManager(), name), "Mediciones", true);
                         }
                     }
 

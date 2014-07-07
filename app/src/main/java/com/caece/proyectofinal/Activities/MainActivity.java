@@ -150,7 +150,9 @@ public class MainActivity extends SherlockActivity {
         Boolean esta = true;
         if(pbRam.getProgress() != RAMLevel){
 
-            pbRam.setProgress(pbRam.getProgress() + 1);
+            if(pbRam.getProgress() + 3 <= RAMLevel)
+                pbRam.setProgress(pbRam.getProgress() + 3);
+            else pbRam.setProgress(RAMLevel);
             textViewRamValor.setText(pbRam.getProgress() + "%");
             esta = false;
 
@@ -158,7 +160,9 @@ public class MainActivity extends SherlockActivity {
 
         if(pbMI.getProgress() != MILevel){
 
-            pbMI.setProgress(pbMI.getProgress() + 1);
+            if(pbMI.getProgress() + 3 <= MILevel)
+                pbMI.setProgress(pbMI.getProgress() + 3);
+            else pbMI.setProgress(MILevel);
             textViewMIValor.setText(pbMI.getProgress() + "%");
             esta = false;
 
@@ -166,7 +170,9 @@ public class MainActivity extends SherlockActivity {
 
         if(pbME.getProgress() != MELevel){
 
-            pbME.setProgress(pbRam.getProgress() + 1);
+            if(pbME.getProgress() + 3 <= MELevel)
+                pbME.setProgress(pbRam.getProgress() + 3);
+            else pbME.setProgress(MELevel);
             textViewMEValor.setText(pbME.getProgress() + "%");
             esta = false;
 
