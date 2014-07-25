@@ -20,7 +20,7 @@ public class MyLog {
     public static void write(String text, String name, Boolean timestamp){
 
         File externalStorageDir = Environment.getExternalStorageDirectory();
-        File dir = new File(externalStorageDir.getAbsolutePath() + "/ProyectoFinal/logs");
+        File dir = new File(externalStorageDir.getAbsolutePath() + "/ProyectoFinal/logs");      //Cambiar este path a Android/data
         if(!dir.exists())
             dir.mkdirs();
         File myFile = new File(dir, name + ".txt");

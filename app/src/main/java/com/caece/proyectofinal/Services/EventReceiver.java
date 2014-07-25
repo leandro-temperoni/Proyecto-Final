@@ -240,8 +240,8 @@ public class EventReceiver extends BroadcastReceiver {
         if(intent.getAction().equals(Intent.ACTION_PACKAGE_DATA_CLEARED))
         {
             String packageName = intent.getData().toString().replace("package:", "");
-            String app = OSOperations.getAppNameFromPackageName(context.getPackageManager(), packageName);
-            MyLog.write("ADC:" + packageName + ":" + app, "Mediciones", true);
+            //String app = OSOperations.getAppNameFromPackageName(context.getPackageManager(), packageName);
+            MyLog.write("ADC:" + packageName, "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))
         {

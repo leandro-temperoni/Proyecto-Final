@@ -60,6 +60,7 @@ public class HttpFileUploader {
             conn.setRequestProperty("Connection", "Keep-Alive");
 
             conn.setRequestProperty("Content-Type", "multipart/form-data;boundary="+boundary);
+			conn.setRequestProperty("uploaded_file", fileName);
 
             DataOutputStream dos = new DataOutputStream( conn.getOutputStream() );
 

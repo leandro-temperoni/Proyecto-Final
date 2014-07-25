@@ -3,6 +3,7 @@ package com.caece.proyectofinal.Utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.Calendar;
 
@@ -57,6 +58,30 @@ public class Preferencias {
 
 
         return primeraCorrida;
+
+    }
+
+    public static Boolean superaLimiteMemoriaInterna(Context context, int romLevel){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        String valor = sharedPrefs.getString("memint_list", "");
+
+        if(Integer.parseInt(valor) < romLevel)
+            return true;
+        else return false;
+
+    }
+
+    public static Boolean superaLimiteMemoriaExterna(Context context, int sdLevel){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        String valor = sharedPrefs.getString("memext_list", "");
+
+        if(Integer.parseInt(valor) < sdLevel)
+            return true;
+        else return false;
 
     }
 

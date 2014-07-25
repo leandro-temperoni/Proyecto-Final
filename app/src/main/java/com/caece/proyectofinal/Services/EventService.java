@@ -192,7 +192,7 @@ public class EventService extends Service {
                                 appName = "[" + "Unknowed app" + "]";
                             }
 
-                            MyLog.write("FA:" + appName, "Mediciones", true);
+                            MyLog.write("FA:" + pn, "Mediciones", true);
 
                         }
                     }
@@ -235,10 +235,10 @@ public class EventService extends Service {
                         if (noEstaba) {
                             //Log.i("pepe", name);
                             if (lastActiveApp.equals("com.sec.android.app.controlpanel") || lastActiveApp.equals("com.android.systemui"))
-                                MyLog.write("CBU:" + OSOperations.getAppNameFromPackageName(getPackageManager(), name), "Mediciones", true);
+                                MyLog.write("CBU:" + name, "Mediciones", true);
                             else if (memoriaSaturada())
-                                    MyLog.write("CBA:" + OSOperations.getAppNameFromPackageName(getPackageManager(), name), "Mediciones", true);
-                                else MyLog.write("CBUN:" + OSOperations.getAppNameFromPackageName(getPackageManager(), name), "Mediciones", true);
+                                    MyLog.write("CBA:" + name, "Mediciones", true);
+                                else MyLog.write("CBUN:" + name, "Mediciones", true);
                         }
                     }
 
@@ -311,9 +311,21 @@ public class EventService extends Service {
             MyLog.write("DR:" + String.valueOf(TrafficStats.getTotalRxBytes()), "Mediciones", true);
             MyLog.write("DS:" + String.valueOf(TrafficStats.getTotalTxBytes()), "Mediciones", true);
 
+            chequearLimites((int)romLevel, (int)sdLevel);
+
             handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
         }
+
+    }
+
+    private void chequearLimites(int romLevel, int sdLevel){
+
+        if(Preferencias.superaLimiteMemoriaInterna(this, romLevel))
+            Notificacion.mostrar(this, "Atención", "Límite de memoria interna superado");
+
+        if(Preferencias.superaLimiteMemoriaExterna(this, sdLevel))
+            Notificacion.mostrar(this, "Atención", "Límite de memoria externa superado");
 
     }
 
@@ -347,7 +359,7 @@ public class EventService extends Service {
                         //Log.i("cpu", s);
                         String[] split2 = s.split("-");
                         if (!split2[cpu].replace("%", "").equals("0") && !s.contains("top") && s.contains(".")) {
-                            datos += OSOperations.getAppNameFromPackageName(getPackageManager(), split2[pn]) + ":" + split2[pid] + ":" + split2[cpu] + "-";
+                            datos += split2[pn] + ":" + split2[pid] + ":" + split2[cpu] + "-";
                         }
 
                     } else {
@@ -411,7 +423,7 @@ public class EventService extends Service {
                 if(nextLine.contains("Displayed")) {
                     String line = nextLine.substring(25).replace("Displayed", "RT:").replace(" ", "");
                     String pn = line.substring(3, line.indexOf("/"));
-                    line = line.replace(pn, OSOperations.getAppNameFromPackageName(getPackageManager(), pn));
+                    //line = line.replace(pn, OSOperations.getAppNameFromPackageName(getPackageManager(), pn));
                     MyLog.write(line, "Mediciones", true);
                 }
             }
