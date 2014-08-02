@@ -4,10 +4,9 @@
     <!-- Example General settings -->
     <string name="pref_header_limites">Limites</string>
 
-    <string name="pref_title_ram">Limite de datos móviles</string>
-    <string name="pref_description_ram">Elija el limite de uso de datos móviles mensual</string>
-    <string-array name="pref_ram_list_titles">
-        <item>500 KB</item>
+    <string name="pref_title_datos_diarios">Datos diarios</string>
+    <string name="pref_description_datos_diarios">Elija el limite de uso de datos móviles diario</string>
+    <string-array name="pref_datos_diarios_list_titles">
         <item>1 MB</item>
         <item>2 MB</item>
         <item>3 MB</item>
@@ -16,15 +15,31 @@
         <item>15 MB</item>
         <item>20 MB</item>
     </string-array>
-    <string-array name="pref_ram_list_values">
-        <item>25</item>
+    <string-array name="pref_datos_diarios_list_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </string-array>
+
+    <string name="pref_title_datos_mensuales">Datos mensuales</string>
+    <string name="pref_description_datos_mensuales">Elija el limite de uso de datos móviles mensual</string>
+    <string-array name="pref_datos_mensuales_list_titles">
+        <item>30 MB</item>
+        <item>100 MB</item>
+        <item>200 MB</item>
+        <item>400 MB</item>
+        <item>600 MB</item>
+    </string-array>
+    <string-array name="pref_datos_mensuales_list_values">
         <item>30</item>
-        <item>40</item>
-        <item>50</item>
-        <item>60</item>
-        <item>70</item>
-        <item>80</item>
-        <item>90</item>
+        <item>100</item>
+        <item>200</item>
+        <item>400</item>
+        <item>600</item>
     </string-array>
 
     <string name="pref_title_memint">Limite de memoria interna</string>

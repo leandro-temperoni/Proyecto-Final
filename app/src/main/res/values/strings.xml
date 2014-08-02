@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ProyectoFinal</string>
+    <string name="app_name">Tesis</string>
     <string name="action_settings">Configuracion</string>
     <string name="title_activity_settings">Configuracion</string>
-    <string name="title_activity_main_activity2">MainActivity2</string>
     <string name="restart_event_service_desc">Allowes other packages to restart EventService</string>
     <string name="restart_event_service_label">RESTART_EVENT_SERVICE</string>
     <string name="na">n/a</string>

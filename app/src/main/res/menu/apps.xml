@@ -1,5 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.caece.proyectofinal.Activities.MainActivity" >
+    tools:context="com.caece.tesis.Activities.MainActivity" >
 
 </menu>

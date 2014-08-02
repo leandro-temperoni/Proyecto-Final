@@ -11,4 +11,12 @@
     <Preference
         android:key="timePrimeraCorrida" />
 
+    <Preference
+        android:key="datosMovilesDiarios"
+        android:defaultValue="0" />
+
+    <Preference
+        android:key="datosMovilesMensuales"
+        android:defaultValue="0" />
+
 </PreferenceScreen>

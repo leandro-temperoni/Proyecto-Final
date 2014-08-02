@@ -7,10 +7,10 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="D:\Documents\Android\ProyectoFinal" />
-            <option value="D:\Documents\Android\ProyectoFinal\app" />
-            <option value="D:\Documents\Android\ProyectoFinal\libraries" />
-            <option value="D:\Documents\Android\ProyectoFinal\libraries\actionbarsherlock" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/libraries" />
+            <option value="$PROJECT_DIR$/libraries/actionbarsherlock" />
           </set>
         </option>
       </GradleProjectSettings>

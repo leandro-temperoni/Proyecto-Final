@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.caece.proyectofinal" >
+    package="ar.edu.caece.tesis" >
 
     <!-- detect wifi state (on/off) -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -26,10 +26,10 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="com.caece.proyectofinal.RESTART_EVENT_SERVICE" />
+    <uses-permission android:name="ar.edu.caece.tesis.RESTART_EVENT_SERVICE" />
 
     <permission
-        android:name="com.caece.proyectofinal.RESTART_EVENT_SERVICE"
+        android:name="ar.edu.caece.tesis.RESTART_EVENT_SERVICE"
         android:description="@string/restart_event_service_desc"
         android:label="@string/restart_event_service_label"
         android:protectionLevel="signature" />
@@ -61,7 +61,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.caece.proyectofinal.Activities.MainActivity"
+            android:name=".Activities.MainActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
@@ -72,21 +72,21 @@
         </activity>
 
         <activity
-            android:name="com.caece.proyectofinal.Activities.ServiceRestartActivity"
+            android:name=".Activities.ServiceRestartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeTransparent" />
 
         <activity
-            android:name="com.caece.proyectofinal.Activities.AppsActivity"
+            android:name=".Activities.AppsActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.caece.proyectofinal.Activities.SettingsActivity"
+            android:name=".Activities.SettingsActivity"
             android:screenOrientation="portrait"
             android:label="@string/title_activity_settings" >
         </activity>
 
-        <receiver android:name="com.caece.proyectofinal.Services.EventReceiver" >
+        <receiver android:name=".Services.EventReceiver" >
             <intent-filter>
                 <action android:name="android.net.wifi.STATE_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
@@ -114,11 +114,11 @@
         </receiver>
 
         <service
-            android:name="com.caece.proyectofinal.Services.EventService"
+            android:name=".Services.EventService"
             android:exported="true"
-            android:permission="com.caece.proyectofinal.RESTART_EVENT_SERVICE" />
+            android:permission="ar.edu.caece.tesis.RESTART_EVENT_SERVICE" />
         <service
-            android:name="com.caece.proyectofinal.Services.LocationService"
+            android:name=".Services.LocationService"
             android:enabled="true"
             android:exported="true" >
         </service>

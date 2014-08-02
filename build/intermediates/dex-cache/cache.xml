@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="D:\Documents\Android\Tesis\app\build\intermediates\pre-dexed\debug\support-v4-13.0.0-5f0a84060c60ae111267c4d7a0d81d6d79d9d910.jar"
+        jar="C:\Users\COCO\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\13.0.0\support-v4-13.0.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3fe75433da602500cc71fcc1c46e5550291dd45d"/>
+    <item
+        dex="D:\Documents\Android\Tesis\app\build\intermediates\pre-dexed\debug\classes-563222b9f279d30e8bdef23fc4aaecc8e53c181f.jar"
+        jar="D:\Documents\Android\Tesis\app\build\intermediates\exploded-aar\Tesis.libraries\actionbarsherlock\unspecified\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3d278670e7d7975fbf5865eaac1644d484778f6b"/>
+
+</pre-dex-items>

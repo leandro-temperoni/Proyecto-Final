@@ -4,11 +4,11 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.caece.proyectofinal.Activities.SettingsActivity$LimitesPreferenceFragment"
+        android:fragment="com.caece.tesis.Activities.SettingsActivity$LimitesPreferenceFragment"
         android:title="@string/pref_header_limites" />
 
     <header
-        android:fragment="com.caece.proyectofinal.Activities.SettingsActivity$NotificacionesPreferenceFragment"
+        android:fragment="com.caece.tesis.Activities.SettingsActivity$NotificacionesPreferenceFragment"
         android:title="@string/pref_header_notifications" />
 
 </preference-headers>

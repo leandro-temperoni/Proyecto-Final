@@ -1,12 +1,22 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
-        android:key="ram_list"
-        android:title="@string/pref_title_ram"
-        android:defaultValue="80"
-        android:summary="@string/pref_description_ram"
-        android:entries="@array/pref_ram_list_titles"
-        android:entryValues="@array/pref_ram_list_values"
+        android:key="datos_diarios_list"
+        android:title="@string/pref_title_datos_diarios"
+        android:defaultValue="5"
+        android:summary="@string/pref_description_datos_diarios"
+        android:entries="@array/pref_datos_diarios_list_titles"
+        android:entryValues="@array/pref_datos_diarios_list_values"
+        android:negativeButtonText="Cancelar"
+        android:positiveButtonText="Aceptar" />
+
+    <ListPreference
+        android:key="datos_mensuales_list"
+        android:title="@string/pref_title_datos_mensuales"
+        android:defaultValue="200"
+        android:summary="@string/pref_description_datos_mensuales"
+        android:entries="@array/pref_datos_mensuales_list_titles"
+        android:entryValues="@array/pref_datos_mensuales_list_values"
         android:negativeButtonText="Cancelar"
         android:positiveButtonText="Aceptar" />
 
