@@ -25,6 +25,9 @@
         <item>20</item>
     </string-array>
 
+    <string name="pref_title_dia_datos_diarios">Dia del mes</string>
+    <string name="pref_description_dia_datos_diarios">Elija el dia a partir del cual calcular</string>
+
     <string name="pref_title_datos_mensuales">Datos mensuales</string>
     <string name="pref_description_datos_mensuales">Elija el limite de uso de datos móviles mensual</string>
     <string-array name="pref_datos_mensuales_list_titles">

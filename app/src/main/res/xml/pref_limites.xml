@@ -10,6 +10,14 @@
         android:negativeButtonText="Cancelar"
         android:positiveButtonText="Aceptar" />
 
+    <EditTextPreference
+        android:key="dia_datos_diarios_list"
+        android:title="@string/pref_title_dia_datos_diarios"
+        android:defaultValue="1"
+        android:summary="@string/pref_description_dia_datos_diarios"
+        android:negativeButtonText="Cancelar"
+        android:positiveButtonText="Aceptar" />
+
     <ListPreference
         android:key="datos_mensuales_list"
         android:title="@string/pref_title_datos_mensuales"
@@ -23,7 +31,7 @@
     <ListPreference
         android:key="memint_list"
         android:title="@string/pref_title_memint"
-        android:defaultValue="80"
+        android:defaultValue="70"
         android:summary="@string/pref_description_memint"
         android:entries="@array/pref_memint_list_titles"
         android:entryValues="@array/pref_memint_list_values"

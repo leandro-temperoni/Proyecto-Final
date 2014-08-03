@@ -51,9 +51,7 @@ public class EventService extends Service {
     private int ONE_SECOND_CHECK_INTERVAL = 1000;
     private int SPACE_CHECK_INTERVAL = 600000;
 
-    Boolean aviso = false;
     int dia;
-    int mes;
 
     @Override
     public IBinder onBind(Intent intent)
@@ -148,7 +146,6 @@ public class EventService extends Service {
         handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
         dia = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
-        mes = Calendar.getInstance().get(Calendar.MONTH);
 
         super.onCreate();
     }
@@ -325,10 +322,10 @@ public class EventService extends Service {
     private void chequearLimites(int romLevel, int sdLevel, long datosMoviles){
 
         if(Preferencias.superaLimiteMemoriaInterna(this, romLevel))
-            Notificacion.mostrar(this, "Memoria interna", "Has superado el limite");
+            Notificacion.mostrar(this, "Memoria interna", "Has superado el limite", Notificacion.ID_MEMORIA_INTERNA);
 
         if(Preferencias.superaLimiteMemoriaExterna(this, sdLevel))
-            Notificacion.mostrar(this, "Memoria externa", "Has superado el limite");
+            Notificacion.mostrar(this, "Memoria externa", "Has superado el limite", Notificacion.ID_MEMORIA_EXTERNA);
 
         if(Calendar.getInstance().get(Calendar.DAY_OF_YEAR) != dia){            //Si cambio el dia, reseteo el contador para el
                                                                                 //dia siguiente
@@ -337,16 +334,15 @@ public class EventService extends Service {
 
         }
         else if(Preferencias.superaLimiteDatos(this, datosMoviles, "datos_diarios_list", "datosMovilesDiarios"))
-                Notificacion.mostrar(this, "Datos moviles diarios", "Has superado el limite");
+                Notificacion.mostrar(this, "Datos moviles diarios", "Has superado el limite", Notificacion.ID_DATOS_DIARIOS);
 
-        if(Calendar.getInstance().get(Calendar.MONTH) != mes){            //Si cambio el mes, reseteo el contador para el
-                                                                          //mes siguiente
+        if(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == Preferencias.getDiaCambioMes(this)){ //Si es el dia de cambio, reseteo el contador para el
+                                                                                                    //mes siguiente
             Preferencias.limpiarDatosMoviles(this, "datosMovilesMensuales");
-            mes = Calendar.getInstance().get(Calendar.MONTH);
 
         }
         else if(Preferencias.superaLimiteDatos(this, datosMoviles, "datos_mensuales_list", "datosMovilesMensuales"))
-                Notificacion.mostrar(this, "Datos moviles mensuales", "Has superado el limite");
+                Notificacion.mostrar(this, "Datos moviles mensuales", "Has superado el limite", Notificacion.ID_DATOS_MENSUALES);
 
     }
 

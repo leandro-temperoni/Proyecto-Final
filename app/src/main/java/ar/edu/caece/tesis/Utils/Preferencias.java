@@ -12,23 +12,6 @@ import java.util.Calendar;
  */
 public class Preferencias {
 
-    public static Boolean DatosHabilitadas(Context context){
-
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        String pepe = sharedPrefs.getString("internet_list", "");
-        if(pepe.equals("")){
-            SharedPreferences.Editor editor = sharedPrefs.edit();
-            editor.putString("internet_list", "0");
-            editor.commit();
-        }
-
-        if(sharedPrefs.getString("internet_list", "").equals("0"))
-            return true;
-        else return false;
-
-    }
-
     public static Boolean notificacionesHabilitadas(Context context){
 
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notifications", true);
@@ -86,6 +69,12 @@ public class Preferencias {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         String valor = sharedPrefs.getString("memint_list", "");
+        if(valor.equals("")){
+            SharedPreferences.Editor editor = sharedPrefs.edit();
+            editor.putString("memint_list", "70");
+            editor.commit();
+            valor = sharedPrefs.getString("memint_list", "");
+        }
 
         if(Integer.parseInt(valor) < romLevel)
             return true;
@@ -98,6 +87,12 @@ public class Preferencias {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         String valor = sharedPrefs.getString("memext_list", "");
+        if(valor.equals("")){
+            SharedPreferences.Editor editor = sharedPrefs.edit();
+            editor.putString("memext_list", "80");
+            editor.commit();
+            valor = sharedPrefs.getString("memext_list", "");
+        }
 
         if(Integer.parseInt(valor) < sdLevel)
             return true;
@@ -109,11 +104,23 @@ public class Preferencias {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        long valor = sharedPrefs.getLong(tipo, 0);
+        String valor = sharedPrefs.getString(tipo, "");
+        if(valor.equals("")){
+            SharedPreferences.Editor editor = sharedPrefs.edit();
+            if(tipo.equals("datos_diarios_list"))
+                editor.putString(tipo, "5");
+            else editor.putString(tipo, "200");
+            editor.commit();
+            valor = sharedPrefs.getString(tipo, "");
+        }
 
-        cantidad += sharedPrefs.getLong(tipo2, 0);
+        String extra = sharedPrefs.getString(tipo2, "");
+        if(extra.equals(""))
+            extra = "0";
+        cantidad += Long.parseLong(extra);
 
-        if(valor < cantidad)
+        cantidad = cantidad/1000000;        //paso de bytes a Mbytes
+        if(Long.parseLong(valor) < cantidad)
             return true;
         else return false;
 
@@ -129,16 +136,35 @@ public class Preferencias {
     public static void sumarDatosMoviles(Context context, long cantidad, String tipo){
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        long actual = sharedPrefs.getLong(tipo, 0);
-        sharedPrefs.edit().putLong(tipo, cantidad + actual).commit();
+        String actual = sharedPrefs.getString(tipo, "");
+        if(actual.equals("")) {
+            SharedPreferences.Editor editor = sharedPrefs.edit();
+            editor.putString(tipo, "0");
+            editor.commit();
+            actual = sharedPrefs.getString(tipo, "");
+        }
+        sharedPrefs.edit().putLong(tipo, cantidad + Long.parseLong(actual)).commit();
 
     }
 
     public static void limpiarDatosMoviles(Context context, String tipo){
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        sharedPrefs.edit().putLong(tipo, 0).commit();
+        sharedPrefs.edit().putString(tipo, "0").commit();
 
     }
 
+    public static int getDiaCambioMes(Context context) {
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String valor = sharedPrefs.getString("dia_datos_diarios_list", "");
+        if(valor.equals("")){
+            SharedPreferences.Editor editor = sharedPrefs.edit();
+            editor.putString("dia_datos_diarios_list", "1");
+            editor.commit();
+            valor = sharedPrefs.getString("dia_datos_diarios_list", "");
+        }
+        return Integer.parseInt(valor);
+
+    }
 }

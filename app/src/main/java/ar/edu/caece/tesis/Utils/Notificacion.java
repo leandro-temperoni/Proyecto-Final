@@ -15,7 +15,12 @@ import ar.edu.caece.tesis.R;
  */
 public class Notificacion {
 
-    public static void mostrar(Context context, String title, String text) {
+    public static int ID_MEMORIA_INTERNA = 001;
+    public static int ID_MEMORIA_EXTERNA = 002;
+    public static int ID_DATOS_DIARIOS = 003;
+    public static int ID_DATOS_MENSUALES = 004;
+
+    public static void mostrar(Context context, String title, String text, int id) {
 
         if(Preferencias.notificacionesHabilitadas(context)) {
 
@@ -44,11 +49,10 @@ public class Notificacion {
                 mBuilder.setSound(alarmSound);
 
             // Sets an ID for the notification
-            int mNotificationId = 001;
             // Gets an instance of the NotificationManager service
             NotificationManager mNotifyMgr = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             // Builds the notification and issues it.
-            mNotifyMgr.notify(mNotificationId, mBuilder.build());
+            mNotifyMgr.notify(id, mBuilder.build());
 
         }
 

@@ -37,8 +37,6 @@ public class EventReceiver extends BroadcastReceiver {
         Bundle extras = intent.getExtras();
         if(intent.getAction().equals(WifiManager.NETWORK_STATE_CHANGED_ACTION))
         {
-            /*networkinfo(NetworkInfo), bssid(string), linkProperties(LinkProperties)*/
-            /*wifiInfo=SSID: WiredSSID, BSSID: 01:80:c2:00:00:03, MAC: 08:00:27:64:07:04, Supplicant state: COMPLETED, RSSI: -65, Link speed: 0, Net ID: 0, Metered hint: false*/
             NetworkInfo networkInfo = extras != null ? (NetworkInfo) extras.getParcelable("networkInfo") : null;
             if(networkInfo == null || networkInfo.getState() != NetworkInfo.State.CONNECTED && networkInfo.getState() != NetworkInfo.State.DISCONNECTED) return;
             WifiInfo wifiInfo = extras.getParcelable("wifiInfo");
@@ -207,11 +205,9 @@ public class EventReceiver extends BroadcastReceiver {
         if(intent.getAction().equals(Intent.ACTION_CONFIGURATION_CHANGED))
         {
             boolean landscape = context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
-            if(landscape) {
-                Log.i("pepe", "LSC");
+            if(landscape)
                 MyLog.write("LSC", "Mediciones", true);
-            }
-            else { Log.i("pepe", "PRT"); MyLog.write("PRT", "Mediciones", true); }
+            else MyLog.write("PRT", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_REBOOT))
         {
@@ -219,6 +215,7 @@ public class EventReceiver extends BroadcastReceiver {
             //Sumar y guardar los datos utilizados en las preferencias
             Preferencias.sumarDatosMoviles(context, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()), "datosMovilesDiarios");
             Preferencias.sumarDatosMoviles(context, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()), "datosMovilesMensuales");
+            abortBroadcast(); //esto es para que cancelar la recepcion de datos
         }
         if(intent.getAction().equals(Intent.ACTION_SHUTDOWN))
         {
@@ -226,6 +223,7 @@ public class EventReceiver extends BroadcastReceiver {
             //Sumar y guardar los datos utilizados en las preferencias
             Preferencias.sumarDatosMoviles(context, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()), "datosMovilesDiarios");
             Preferencias.sumarDatosMoviles(context, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()), "datosMovilesMensuales");
+            abortBroadcast(); //esto es para que cancelar la recepcion de datos
         }
         if(intent.getAction().equals(Intent.ACTION_POWER_CONNECTED))
         {
