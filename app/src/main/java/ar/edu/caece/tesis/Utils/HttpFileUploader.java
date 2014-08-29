@@ -65,7 +65,7 @@ public class HttpFileUploader {
             DataOutputStream dos = new DataOutputStream( conn.getOutputStream() );
 
             dos.writeBytes(twoHyphens + boundary + lineEnd);
-            dos.writeBytes("Content-Disposition: form-data; name=\"" + existingFileName + "\";filename=\"" + existingFileName +"\"" + lineEnd);
+            dos.writeBytes("Content-Disposition: form-data; uploaded_file=\"" + existingFileName + "\";uploaded_file=\"" + existingFileName +"\"" + lineEnd);
             dos.writeBytes(lineEnd);
 
             Log.e(Tag,"Headers are written");

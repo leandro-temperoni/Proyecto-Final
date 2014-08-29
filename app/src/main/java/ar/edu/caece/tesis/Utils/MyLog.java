@@ -1,12 +1,21 @@
 package ar.edu.caece.tesis.Utils;
 
 import android.content.Context;
+import android.net.http.AndroidHttpClient;
 import android.os.Environment;
 import android.util.Log;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.FileEntity;
+import org.apache.http.util.EntityUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Calendar;
 
@@ -18,7 +27,7 @@ public class MyLog {
     public static void write(String text, String name, Boolean timestamp){
 
         File externalStorageDir = Environment.getExternalStorageDirectory();
-        File dir = new File(externalStorageDir.getAbsolutePath() + "/Tesis/logs");      //Cambiar este path a Android/data
+        File dir = new File(externalStorageDir.getAbsolutePath() + "/Tesis/logs");
         if(!dir.exists())
             dir.mkdirs();
         File myFile = new File(dir, name + ".txt");
@@ -87,6 +96,7 @@ public class MyLog {
         if(!dir.exists())
             dir.mkdirs();
         File myFile = new File(dir, name + ".txt");
+        Log.i("pepe", myFile.getName());
 
         HttpFileUploader uploader = new HttpFileUploader("http://tesis-oswebarg.rhcloud.com/upload.php", myFile.getName());
         try {
@@ -97,5 +107,24 @@ public class MyLog {
         }
 
     }
+
+    public static void enviar(String url, File file){
+
+        HttpClient http = AndroidHttpClient.newInstance("Tesis");
+        HttpPost method = new HttpPost(url);
+
+        method.setEntity(new FileEntity(file, "application/octet-stream"));
+
+        try {
+            HttpResponse response = http.execute(method);
+            HttpEntity entity = response.getEntity();
+            String responseString = EntityUtils.toString(entity, "UTF-8");
+            Log.i("pepe", responseString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 }
