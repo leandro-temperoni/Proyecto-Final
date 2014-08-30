@@ -87,8 +87,8 @@ public class MainActivity extends SherlockActivity {
         @Override
         public void run() {
             collectData();
-            subir("Datos");
-            subir("Apps");
+            subir("Datos.txt");
+            subir("Apps.txt");
         }
     };
 

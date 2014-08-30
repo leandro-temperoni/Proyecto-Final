@@ -88,6 +88,7 @@ public class LocationService extends Service {
         else { //Dejo de medir y envio al servidor
 
             Preferencias.cancelarLocalizacion(this);
+            MyLog.subirAlServidor("Coordenadas.txt", this);
 
         }
 

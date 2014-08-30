@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.Calendar;
 
@@ -14,7 +15,7 @@ public class Preferencias {
 
     public static Boolean notificacionesHabilitadas(Context context){
 
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notifications", true);
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notifications", false);
 
     }
 
@@ -35,7 +36,7 @@ public class Preferencias {
     public static Boolean yaLocalize(Context context){
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return sharedPrefs.getBoolean("yaLocalize", true);
+        return sharedPrefs.getBoolean("yaLocalize", false);
 
     }
 
@@ -43,6 +44,35 @@ public class Preferencias {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         sharedPrefs.edit().putBoolean("yaLocalize", true).commit();
+
+    }
+
+    public static Boolean yaAviseDatosDiarios(Context context){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        Log.i("pepe", String.valueOf(sharedPrefs.getBoolean("yaAviseDiarios", true)));
+        return sharedPrefs.getBoolean("yaAviseDiarios", false);
+
+    }
+
+    public static void setAviseDatosDiarios(Context context, Boolean valor){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        sharedPrefs.edit().putBoolean("yaAviseDiarios", valor).commit();
+
+    }
+
+    public static Boolean yaAviseDatosMensuales(Context context){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPrefs.getBoolean("yaAviseMensuales", false);
+
+    }
+
+    public static void setAviseDatosMensuales(Context context, Boolean valor){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        sharedPrefs.edit().putBoolean("yaAviseMensuales", valor).commit();
 
     }
 

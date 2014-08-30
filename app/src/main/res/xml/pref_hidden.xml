@@ -8,6 +8,14 @@
         android:key="yaLocalize"
         android:defaultValue="false" />
 
+    <CheckBoxPreference
+        android:key="yaAviseDiarios"
+        android:defaultValue="false" />
+
+    <CheckBoxPreference
+        android:key="yaAviseMensuales"
+        android:defaultValue="false" />
+
     <Preference
         android:key="timePrimeraCorrida" />
 

@@ -49,7 +49,7 @@ public class EventService extends Service {
     private TenMinutesChecker tenMinutesChecker = new TenMinutesChecker();
 
     private int ONE_SECOND_CHECK_INTERVAL = 1000;
-    private int SPACE_CHECK_INTERVAL = 600000;
+    private int SPACE_CHECK_INTERVAL = 60000;
 
     int dia;
 
@@ -114,7 +114,7 @@ public class EventService extends Service {
         intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 
-        if(Preferencias.yaLocalize(this)) {
+        if(!Preferencias.yaLocalize(this)) {
             Intent intent = new Intent(this, LocationService.class);
             startService(intent);
         }
@@ -331,18 +331,24 @@ public class EventService extends Service {
                                                                                 //dia siguiente
             Preferencias.limpiarDatosMoviles(this, "datosMovilesDiarios");
             dia = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+            Preferencias.setAviseDatosDiarios(this, false);
 
         }
-        else if(Preferencias.superaLimiteDatos(this, datosMoviles, "datos_diarios_list", "datosMovilesDiarios"))
-                Notificacion.mostrar(this, "Datos moviles diarios", "Has superado el limite", Notificacion.ID_DATOS_DIARIOS);
+        else if(Preferencias.superaLimiteDatos(this, datosMoviles, "datos_diarios_list", "datosMovilesDiarios") && !Preferencias.yaAviseDatosDiarios(this)) {
+            Notificacion.mostrar(this, "Datos moviles diarios", "Has superado el limite", Notificacion.ID_DATOS_DIARIOS);
+            Preferencias.setAviseDatosDiarios(this, true);
+        }
 
         if(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == Preferencias.getDiaCambioMes(this)){ //Si es el dia de cambio, reseteo el contador para el
                                                                                                     //mes siguiente
             Preferencias.limpiarDatosMoviles(this, "datosMovilesMensuales");
+            Preferencias.setAviseDatosMensuales(this, false);
 
         }
-        else if(Preferencias.superaLimiteDatos(this, datosMoviles, "datos_mensuales_list", "datosMovilesMensuales"))
+        else if(Preferencias.superaLimiteDatos(this, datosMoviles, "datos_mensuales_list", "datosMovilesMensuales") && !Preferencias.yaAviseDatosMensuales(this)){
                 Notificacion.mostrar(this, "Datos moviles mensuales", "Has superado el limite", Notificacion.ID_DATOS_MENSUALES);
+                Preferencias.setAviseDatosMensuales(this, true);
+            }
 
     }
 

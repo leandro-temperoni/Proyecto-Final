@@ -4,116 +4,93 @@ package ar.edu.caece.tesis.Utils;
  * Created by COCO on 27/06/2014.
  */
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
-import android.util.Log;
+import android.os.Environment;
 
 public class HttpFileUploader {
 
-    URL connectURL;
-    String responseString;
-    String fileName;
-    byte[] dataToServer;
+    public static void uploadFile(String name){
 
-    HttpFileUploader(String urlString, String fileName ){
-        try{
-            connectURL = new URL(urlString);
-        }catch(Exception ex){
-            Log.i("URL FORMATION","MALFORMATED URL");
-        }
+        HttpURLConnection connection = null;
+        DataOutputStream outputStream = null;
+        DataInputStream inputStream = null;
 
-        this.fileName = fileName;
-    }
+        File externalStorageDir = Environment.getExternalStorageDirectory();
+        File dir = new File(externalStorageDir.getAbsolutePath() + "/Tesis/logs");
+        if(!dir.exists())
+            dir.mkdirs();
+        File myFile = new File(dir, name);
 
-    void doStart(FileInputStream stream){
-        fileInputStream = stream;
-        thirdTry();
-    }
-
-    FileInputStream fileInputStream = null;
-    void thirdTry() {
-        String existingFileName = fileName;
-
+        String pathToOurFile = myFile.getPath();
+        String urlServer = "http://tesis-oswebarg.rhcloud.com/upload.php";
         String lineEnd = "\r\n";
         String twoHyphens = "--";
-        String boundary = "*****";
-        String Tag="3rd";
+        String boundary =  "*****";
+
+        int bytesRead, bytesAvailable, bufferSize;
+        byte[] buffer;
+        int maxBufferSize = 1*1024*1024;
+
         try
         {
-            //------------------ CLIENT REQUEST
+            FileInputStream fileInputStream = new FileInputStream(new File(pathToOurFile) );
 
-            Log.e(Tag,"Starting to bad things");
+            URL url = new URL(urlServer);
+            connection = (HttpURLConnection) url.openConnection();
 
-            // PHP Service connection
-            HttpURLConnection conn = (HttpURLConnection) connectURL.openConnection();
-            conn.setDoInput(true);
-            conn.setDoOutput(true);
-            conn.setUseCaches(false);
-            conn.setRequestMethod("POST");
+            // Allow Inputs &amp; Outputs.
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setUseCaches(false);
 
-            conn.setRequestProperty("Connection", "Keep-Alive");
+            // Set HTTP method to POST.
+            connection.setRequestMethod("POST");
 
-            conn.setRequestProperty("Content-Type", "multipart/form-data;boundary="+boundary);
-			conn.setRequestProperty("uploaded_file", fileName);
+            connection.setRequestProperty("Connection", "Keep-Alive");
+            connection.setRequestProperty("Content-Type", "multipart/form-data;boundary="+boundary);
 
-            DataOutputStream dos = new DataOutputStream( conn.getOutputStream() );
+            outputStream = new DataOutputStream( connection.getOutputStream() );
+            outputStream.writeBytes(twoHyphens + boundary + lineEnd);
+            outputStream.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + pathToOurFile +"\"" + lineEnd);
+            outputStream.writeBytes(lineEnd);
 
-            dos.writeBytes(twoHyphens + boundary + lineEnd);
-            dos.writeBytes("Content-Disposition: form-data; uploaded_file=\"" + existingFileName + "\";uploaded_file=\"" + existingFileName +"\"" + lineEnd);
-            dos.writeBytes(lineEnd);
+            bytesAvailable = fileInputStream.available();
+            bufferSize = Math.min(bytesAvailable, maxBufferSize);
+            buffer = new byte[bufferSize];
 
-            Log.e(Tag,"Headers are written");
-
-            int bytesAvailable = fileInputStream.available();
-            int maxBufferSize = 1024;
-            int bufferSize = Math.min(bytesAvailable, maxBufferSize);
-            byte[] buffer = new byte[bufferSize];
-
-            int bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+            // Read file
+            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
 
             while (bytesRead > 0)
             {
-                dos.write(buffer, 0, bufferSize);
+                outputStream.write(buffer, 0, bufferSize);
                 bytesAvailable = fileInputStream.available();
                 bufferSize = Math.min(bytesAvailable, maxBufferSize);
                 bytesRead = fileInputStream.read(buffer, 0, bufferSize);
             }
 
-            dos.writeBytes(lineEnd);
-            dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+            outputStream.writeBytes(lineEnd);
+            outputStream.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
 
-            // Close input stream
-            Log.e(Tag,"File is written");
+            // Responses from the server (code and message)
+            //String serverResponseCode = connection.getResponseCode();
+            String serverResponseMessage = connection.getResponseMessage();
+
             fileInputStream.close();
-            dos.flush();
-
-            InputStream is = conn.getInputStream();
-            // retrieve the response from server
-            int ch;
-
-            StringBuffer b =new StringBuffer();
-            while( ( ch = is.read() ) != -1 ){
-                b.append( (char)ch );
-            }
-            String s=b.toString();
-            Log.i("pepe",s);
-            dos.close();
-
+            outputStream.flush();
+            outputStream.close();
         }
-        catch (MalformedURLException ex)
+        catch (Exception ex)
         {
-            Log.e(Tag, "error: " + ex.getMessage(), ex);
+            //Exception handling
         }
 
-        catch (IOException ioe)
-        {
-            Log.e(Tag, "error: " + ioe.getMessage(), ioe);
-        }
     }
+
 }

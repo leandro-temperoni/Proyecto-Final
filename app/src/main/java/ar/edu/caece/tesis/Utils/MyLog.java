@@ -57,7 +57,7 @@ public class MyLog {
         File dir = new File(externalStorageDir.getAbsolutePath() + "/Tesis/logs");
         if(!dir.exists())
             dir.mkdirs();
-        File myFile = new File(dir, name + ".txt");
+        File myFile = new File(dir, name);
         Calendar calendar = Calendar.getInstance();
 
         try
@@ -87,44 +87,26 @@ public class MyLog {
 
     }
 
-    public static void subirAlServidor(String name, Context context){
-
-        writeHeader(Device.getDeviceId(context), name);     //antes de enviar escribe el ID del dispositivo
+    private static void eliminarArchivo(String name){
 
         File externalStorageDir = Environment.getExternalStorageDirectory();
         File dir = new File(externalStorageDir.getAbsolutePath() + "/Tesis/logs");
         if(!dir.exists())
             dir.mkdirs();
-        File myFile = new File(dir, name + ".txt");
-        Log.i("pepe", myFile.getName());
+        File myFile = new File(dir, name);
 
-        HttpFileUploader uploader = new HttpFileUploader("http://tesis-oswebarg.rhcloud.com/upload.php", myFile.getName());
-        try {
-            uploader.doStart(new FileInputStream(myFile.getAbsolutePath()));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            Log.i("pepe", "fallo el upload");
-        }
+        myFile.delete();
 
     }
 
-    public static void enviar(String url, File file){
+    public static void subirAlServidor(String name, Context context){
 
-        HttpClient http = AndroidHttpClient.newInstance("Tesis");
-        HttpPost method = new HttpPost(url);
+        //writeHeader(Device.getDeviceId(context), name);     //antes de enviar escribe el ID del dispositivo
 
-        method.setEntity(new FileEntity(file, "application/octet-stream"));
+        HttpFileUploader.uploadFile(name);
 
-        try {
-            HttpResponse response = http.execute(method);
-            HttpEntity entity = response.getEntity();
-            String responseString = EntityUtils.toString(entity, "UTF-8");
-            Log.i("pepe", responseString);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        eliminarArchivo(name);
 
     }
-
 
 }
