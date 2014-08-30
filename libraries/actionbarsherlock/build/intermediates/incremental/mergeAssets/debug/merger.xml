@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="D:\Documents\Android\Tesis\libraries\actionbarsherlock\src\main\assets" />
+        <source path="D:\Documents\GitHub\ProyectoFinal\libraries\actionbarsherlock\src\main\assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="D:\Documents\Android\Tesis\libraries\actionbarsherlock\src\debug\assets" />
+        <source path="D:\Documents\GitHub\ProyectoFinal\libraries\actionbarsherlock\src\debug\assets" />
     </dataSet>
 
 </merger>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__attrs.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__attrs.xml -->
     <eat-comment />
 
     <attr name="background" format="reference|color" />
@@ -10,22 +10,22 @@
     <attr name="height" format="dimension" />
     <attr name="subtitleTextStyle" format="reference" />
     <attr name="titleTextStyle" format="reference" />
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__bools.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__bools.xml -->
     <eat-comment />
 
     <bool name="abs__action_bar_embed_tabs">false</bool>
     <bool name="abs__action_bar_expanded_action_views_exclusive">true</bool>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__config.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__config.xml -->
     <eat-comment />
 
     <bool name="abs__config_actionMenuItemAllCaps">true</bool>
     <bool name="abs__config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abs__config_showMenuShortcutsWhenKeyboardPresent">false</bool>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__bools.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__bools.xml -->
     <eat-comment />
 
     <bool name="abs__split_action_bar_is_narrow">true</bool>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__colors.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__colors.xml -->
     <eat-comment />
 
     <color name="abs__background_holo_dark">#ff000000</color>
@@ -34,7 +34,7 @@
     <color name="abs__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
     <color name="abs__bright_foreground_holo_dark">@color/abs__background_holo_light</color>
     <color name="abs__bright_foreground_holo_light">@color/abs__background_holo_dark</color>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__attrs.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__attrs.xml -->
     <eat-comment />
 
     <declare-styleable name="SherlockActionBar">
@@ -481,7 +481,7 @@
     <declare-styleable name="SherlockView">
         <attr name="android:focusable" />
     </declare-styleable>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__dimens.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__dimens.xml -->
     <eat-comment />
 
     <dimen name="abs__action_bar_default_height">48dip</dimen>
@@ -491,11 +491,11 @@
     <dimen name="abs__action_bar_subtitle_top_margin">-3dp</dimen>
     <dimen name="abs__action_bar_title_text_size">18dp</dimen>
     <dimen name="abs__action_button_min_width">56dip</dimen>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__config.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__config.xml -->
     <eat-comment />
 
     <dimen name="abs__config_prefDialogWidth">320dp</dimen>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__dimens.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__dimens.xml -->
     <eat-comment />
 
     <dimen name="abs__dropdownitem_icon_width">32dip</dimen>
@@ -503,7 +503,7 @@
     <dimen name="abs__dropdownitem_text_padding_right">8dip</dimen>
     <dimen name="abs__search_view_preferred_width">320dip</dimen>
     <dimen name="abs__search_view_text_min_width">160dip</dimen>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__ids.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__ids.xml -->
     <eat-comment />
 
     <item name="abs__action_menu_divider" type="id"/>
@@ -512,11 +512,11 @@
     <item name="abs__progress_circular" type="id"/>
     <item name="abs__progress_horizontal" type="id"/>
     <item name="abs__up" type="id"/>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__dimens.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__dimens.xml -->
     <eat-comment />
 
     <integer name="abs__max_action_buttons">2</integer>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__strings.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__strings.xml -->
     <eat-comment />
 
     <string name="abs__action_bar_home_description">Navigate home</string>
@@ -532,14 +532,14 @@
     <string name="abs__searchview_description_voice">Voice search</string>
     <string name="abs__shareactionprovider_share_with">Share with</string>
     <string name="abs__shareactionprovider_share_with_application">Share with <ns1:g id="application_name" example="Bluetooth">%s</ns1:g></string>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__styles.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__styles.xml -->
     <eat-comment />
 
     <style name="Sherlock.__TextAppearance.Small" parent="Widget">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__themes.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__themes.xml -->
     <eat-comment />
 
     <style name="Sherlock.__Theme" parent="android:Theme.NoTitleBar">
@@ -551,7 +551,7 @@
     <style name="Sherlock.__Theme.Light" parent="android:Theme.Light.NoTitleBar">
         <item name="android:windowContentOverlay">@null</item>
     </style>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__styles.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__styles.xml -->
     <eat-comment />
 
     <style name="Sherlock.__Widget.ActionBar" parent="Widget">
@@ -725,7 +725,7 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">normal</item>
     </style>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__themes.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__themes.xml -->
     <eat-comment />
 
     <style name="Theme.Sherlock" parent="Sherlock.__Theme">
@@ -908,7 +908,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <!-- From: file:/D:/Documents/Android/Tesis/libraries/actionbarsherlock/res/values/abs__styles.xml -->
+    <!-- From: file:/D:/Documents/GitHub/ProyectoFinal/libraries/actionbarsherlock/res/values/abs__styles.xml -->
     <eat-comment />
 
     <style name="Widget"></style>

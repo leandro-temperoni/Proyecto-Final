@@ -49,7 +49,7 @@ public class EventService extends Service {
     private TenMinutesChecker tenMinutesChecker = new TenMinutesChecker();
 
     private int ONE_SECOND_CHECK_INTERVAL = 1000;
-    private int SPACE_CHECK_INTERVAL = 60000;
+    private int SPACE_CHECK_INTERVAL = 600000;
 
     int dia;
 

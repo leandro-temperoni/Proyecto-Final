@@ -50,7 +50,6 @@ public class Preferencias {
     public static Boolean yaAviseDatosDiarios(Context context){
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Log.i("pepe", String.valueOf(sharedPrefs.getBoolean("yaAviseDiarios", true)));
         return sharedPrefs.getBoolean("yaAviseDiarios", false);
 
     }
