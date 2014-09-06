@@ -10,6 +10,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 
 import java.util.Calendar;
 
@@ -36,6 +37,7 @@ public class LocationService extends Service {
 
         if(location != null) {
             MyLog.write(location.getLongitude() + "-" + location.getLatitude(), "Coordenadas", true);
+            Log.i("pepe", "Medi y programo");
             detenerYProgramar();
         }
 
@@ -91,6 +93,8 @@ public class LocationService extends Service {
             MyLog.subirAlServidor("Coordenadas.txt", this);
 
         }
+
+        Log.i("pepe", "programe y me estoy por detener");
 
         stopSelf();
 

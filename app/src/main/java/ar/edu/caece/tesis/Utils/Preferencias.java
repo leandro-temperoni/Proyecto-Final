@@ -13,6 +13,40 @@ import java.util.Calendar;
  */
 public class Preferencias {
 
+    public static int getNextIdMedicion1Min(Context context){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        int ret = sharedPrefs.getInt("idMedicionPeriodica1Min", 0) + 1;
+
+        sharedPrefs.edit().putInt("idMedicionPeriodica1Min", ret).commit();
+
+        return ret;
+
+    }
+
+    public static int getNextIdMedicion10Min(Context context){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        int ret = sharedPrefs.getInt("idMedicionPeriodica10Min", 0) + 1;
+
+        sharedPrefs.edit().putInt("idMedicionPeriodica10Min", ret).commit();
+
+        return ret;
+
+    }
+
+    public static Boolean DatosHabilitadas(Context context){
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        if(sharedPrefs.getString("internet_list", "0").equals("0"))
+            return true;
+        else return false;
+
+    }
+
     public static Boolean notificacionesHabilitadas(Context context){
 
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notifications", false);

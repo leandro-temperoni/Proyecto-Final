@@ -3,6 +3,7 @@ package ar.edu.caece.tesis.Utils;
 import android.content.Context;
 import android.net.http.AndroidHttpClient;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -51,20 +52,22 @@ public class MyLog {
 
     }
 
-    public static void writeHeader(String text, String name){
+    public static void write(String text, String name, long timestamp, int id){
 
         File externalStorageDir = Environment.getExternalStorageDirectory();
         File dir = new File(externalStorageDir.getAbsolutePath() + "/Tesis/logs");
         if(!dir.exists())
             dir.mkdirs();
-        File myFile = new File(dir, name);
-        Calendar calendar = Calendar.getInstance();
+        File myFile = new File(dir, name + ".txt");
+
+        Log.i("pepe", text);
 
         try
         {
+            long fileLength = myFile.length();
             RandomAccessFile raf = new RandomAccessFile(myFile, "rw");
-            raf.seek(0);
-            raf.writeBytes(text + "-" + calendar.getTimeInMillis() + "\n");
+            raf.seek(fileLength);
+            raf.writeBytes(text + " - " + timestamp + " - " + id + "\n");
             raf.close();
         } catch(Exception e)
         {
@@ -73,21 +76,7 @@ public class MyLog {
 
     }
 
-    public static Boolean superolos5MB(){
-
-        File externalStorageDir = Environment.getExternalStorageDirectory();
-        File dir = new File(externalStorageDir.getAbsolutePath() + "/Tesis/logs");
-        if(!dir.exists())
-            dir.mkdirs();
-        File myFile = new File(dir, "Mediciones.txt");
-
-        if(myFile.length() > 5000000)
-            return true;
-        else return false;
-
-    }
-
-    private static void eliminarArchivo(String name){
+    public static void subirAlServidor(String name, Context context){
 
         File externalStorageDir = Environment.getExternalStorageDirectory();
         File dir = new File(externalStorageDir.getAbsolutePath() + "/Tesis/logs");
@@ -95,17 +84,15 @@ public class MyLog {
             dir.mkdirs();
         File myFile = new File(dir, name);
 
-        myFile.delete();
+        Calendar calendar = Calendar.getInstance();
+        String fecha = calendar.get(Calendar.DAY_OF_MONTH) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.YEAR);
+        Log.i("barcelona", fecha);
+        String id = Device.getDeviceId(context);
+        Log.i("barcelona", id);
+        Log.i("barcelona", myFile.getName());
 
-    }
-
-    public static void subirAlServidor(String name, Context context){
-
-        //writeHeader(Device.getDeviceId(context), name);     //antes de enviar escribe el ID del dispositivo
-
-        HttpFileUploader.uploadFile(name);
-
-        eliminarArchivo(name);
+        DataSender dataSender = new DataSender(myFile, id, fecha, context);
+        dataSender.send();
 
     }
 

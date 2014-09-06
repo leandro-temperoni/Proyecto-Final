@@ -65,6 +65,7 @@ public class SettingsActivity extends SherlockPreferenceActivity {
 
         // Add 'general' preferences.
         addPreferencesFromResource(R.xml.pref_limites);
+        addPreferencesFromResource(R.xml.pref_internet);
         addPreferencesFromResource(R.xml.pref_notification);
 
     }
@@ -206,6 +207,17 @@ public class SettingsActivity extends SherlockPreferenceActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_notification);
+
+
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static class InternetPreferenceFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_internet);
 
 
         }

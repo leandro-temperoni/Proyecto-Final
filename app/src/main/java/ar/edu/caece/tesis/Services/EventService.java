@@ -2,6 +2,8 @@ package ar.edu.caece.tesis.Services;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -18,6 +20,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,7 +42,6 @@ public class EventService extends Service {
 
     private EventReceiver manualRegisterReceiver;
     private String lastActiveApp = "";
-    private Calendar lastCalendar;
     private List<ActivityManager.RunningTaskInfo> tasksAnteriores;
     private Handler handlerOneSecond;
     private Handler handlerLogWatcher;
@@ -72,7 +74,7 @@ public class EventService extends Service {
         intentFilter.addAction(Intent.ACTION_REBOOT);
         intentFilter.addAction(Intent.ACTION_SHUTDOWN);
         intentFilter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
-        intentFilter.addAction(Intent.ACTION_HEADSET_PLUG);
+        intentFilter.addAction(Intent.ACTION_CONFIGURATION_CHANGED);
         intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_LOW);
         intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_OK);
 
@@ -145,7 +147,8 @@ public class EventService extends Service {
         handlerTenMinutesChecker = new Handler(thread4.getLooper());
         handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
-        dia = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+        Calendar calendar = Calendar.getInstance();
+        dia = calendar.get(Calendar.DAY_OF_YEAR);
 
         super.onCreate();
     }
@@ -159,11 +162,17 @@ public class EventService extends Service {
         }
     }
 
+    private int getNextId1Min(){ return Preferencias.getNextIdMedicion1Min(this); }
+    private int getNextId10Min(){ return Preferencias.getNextIdMedicion10Min(this); }
+
     private class OneSecondChecker implements Runnable
     {
         @Override
         public void run()
         {
+            long time = Calendar.getInstance().getTimeInMillis();
+            int id = getNextId1Min();
+
             Boolean nuevaApp = false;
 
             List<ActivityManager.RunningTaskInfo> tasks = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(10);
@@ -192,7 +201,7 @@ public class EventService extends Service {
                                 appName = "[" + "Unknowed app" + "]";
                             }
 
-                            MyLog.write("FA:" + pn, "Mediciones", true);
+                            MyLog.write("FA:" + pn, "Mediciones", time, id);
 
                         }
                     }
@@ -201,15 +210,15 @@ public class EventService extends Service {
 
             //Memoria saturada
             if(memoriaSaturada())
-                MyLog.write("MS", "Mediciones", true);
+                MyLog.write("MS", "Mediciones", time, id);
 
-            getCPUPerApp();
+            getCPUPerApp(time, id);
 
             //Si se abrio una nueva app o se cerro, se registra el grado de multiprogramacion y la memoria por app
             if(nuevaApp) {
                 List<ActivityManager.RunningAppProcessInfo> processes = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningAppProcesses();
-                MyLog.write("MP:" + processes.size(), "Mediciones",true);
-                getMemPerApp(processes);
+                MyLog.write("MP:" + processes.size(), "Mediciones",time, id);
+                getMemPerApp(processes, time, id);
             }
 
             //Ver quien mato a roger rabbit
@@ -235,10 +244,10 @@ public class EventService extends Service {
                         if (noEstaba) {
                             //Log.i("pepe", name);
                             if (lastActiveApp.equals("com.sec.android.app.controlpanel") || lastActiveApp.equals("com.android.systemui"))
-                                MyLog.write("CBU:" + name, "Mediciones", true);
+                                MyLog.write("CBU:" + name, "Mediciones", time, id);
                             else if (memoriaSaturada())
-                                    MyLog.write("CBA:" + name, "Mediciones", true);
-                                else MyLog.write("CBUN:" + name, "Mediciones", true);
+                                    MyLog.write("CBA:" + name, "Mediciones", time, id);
+                                else MyLog.write("CBUN:" + name, "Mediciones", time, id);
                         }
                     }
 
@@ -252,7 +261,7 @@ public class EventService extends Service {
         }
     }
 
-    private void getMemPerApp(List<ActivityManager.RunningAppProcessInfo> processes){
+    private void getMemPerApp(List<ActivityManager.RunningAppProcessInfo> processes, long time, int id){
 
         List<ActivityManager.RunningTaskInfo> tasks = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(10);
         ArrayList<String> pns = new ArrayList<String>();
@@ -285,7 +294,7 @@ public class EventService extends Service {
         }
 
         if(!data.equals("M:")) {
-            MyLog.write(data.substring(0, data.length() - 1), "Mediciones", true);
+            MyLog.write(data.substring(0, data.length() - 1), "Mediciones", time, id);
             //Log.i("pepe", data);
         }
 
@@ -297,6 +306,9 @@ public class EventService extends Service {
         @Override
         public void run() {
 
+            long time = Calendar.getInstance().getTimeInMillis();
+            int id = getNextId10Min();
+
             long sdAvailable = MemoryStatus.getAvailableExternalMemorySize();
             long sdTotal = MemoryStatus.getTotalExternalMemorySize();
             long sdLevel = 100 - (sdAvailable * 100) / sdTotal;
@@ -305,17 +317,33 @@ public class EventService extends Service {
             long romTotal = MemoryStatus.getTotalInternalMemorySize();
             long romLevel = 100 - (romAvailable * 100) / romTotal;
 
-            MyLog.write("MI:" + String.valueOf(romLevel), "Mediciones", true);
-            MyLog.write("ME:" + String.valueOf(sdLevel), "Mediciones", true);
-            MyLog.write("BL:" + String.valueOf(nivelBateria()), "Mediciones", true);
-            MyLog.write("DR:" + String.valueOf(TrafficStats.getTotalRxBytes()), "Mediciones", true);
-            MyLog.write("DS:" + String.valueOf(TrafficStats.getTotalTxBytes()), "Mediciones", true);
+            MyLog.write("MI:" + String.valueOf(romLevel), "Mediciones", time, id);
+            MyLog.write("ME:" + String.valueOf(sdLevel), "Mediciones", time, id);
+            //MyLog.write("BL:" + String.valueOf(nivelBateria()), "Mediciones", time, id);
+            MyLog.write("DR:" + String.valueOf(TrafficStats.getTotalRxBytes()), "Mediciones", time, id);
+            MyLog.write("DS:" + String.valueOf(TrafficStats.getTotalTxBytes()), "Mediciones", time, id);
 
             chequearLimites((int)romLevel, (int)sdLevel, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()));
+
+            Calendar calendar = Calendar.getInstance();
+            int ahora = calendar.get(Calendar.DAY_OF_MONTH);
+            calendar.add(Calendar.MINUTE, 10);
+            int diezMins = calendar.get(Calendar.DAY_OF_MONTH);
+
+            if(ahora != diezMins)         // si faltan menos de 10 mins para que termine el dia
+                runUploader();
+
 
             handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
         }
+
+    }
+
+    private void runUploader(){
+
+        Intent intent = new Intent(this, UploaderService.class);
+        startService(intent);
 
     }
 
@@ -352,7 +380,7 @@ public class EventService extends Service {
 
     }
 
-    private void getCPUPerApp(){
+    private void getCPUPerApp(long time, int id){
 
         try {
             int pid = 0;
@@ -407,7 +435,7 @@ public class EventService extends Service {
 
             if(!datos.equals("C:")) {
                 //Log.i("pepe", datos.substring(0, datos.length() - 1));
-                MyLog.write(datos.substring(0, datos.length() - 1), "Mediciones", true);
+                MyLog.write(datos.substring(0, datos.length() - 1), "Mediciones", time, id);
             }
 
         } catch (Exception e) {

@@ -4,11 +4,15 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.caece.tesis.Activities.SettingsActivity$LimitesPreferenceFragment"
+        android:fragment="ar.edu.caece.tesis.Activities.SettingsActivity$LimitesPreferenceFragment"
         android:title="@string/pref_header_limites" />
 
     <header
-        android:fragment="com.caece.tesis.Activities.SettingsActivity$NotificacionesPreferenceFragment"
+        android:fragment="ar.edu.caece.tesis.Activities.SettingsActivity$InternetPreferenceFragment"
+        android:title="@string/pref_title_internet" />
+
+    <header
+        android:fragment="ar.edu.caece.tesis.Activities.SettingsActivity$NotificacionesPreferenceFragment"
         android:title="@string/pref_header_notifications" />
 
 </preference-headers>

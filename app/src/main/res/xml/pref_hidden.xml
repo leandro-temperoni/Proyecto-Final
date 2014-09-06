@@ -27,4 +27,12 @@
         android:key="datosMovilesMensuales"
         android:defaultValue="0" />
 
+    <Preference
+        android:key="idMedicionPeriodica1Min"
+        android:defaultValue="0" />
+
+    <Preference
+        android:key="idMedicionPeriodica10Min"
+        android:defaultValue="0" />
+
 </PreferenceScreen>

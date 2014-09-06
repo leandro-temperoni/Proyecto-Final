@@ -19,6 +19,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import ar.edu.caece.tesis.R;
+import ar.edu.caece.tesis.Utils.Battery;
 import ar.edu.caece.tesis.Utils.MyLog;
 import ar.edu.caece.tesis.Utils.OSOperations;
 import ar.edu.caece.tesis.Utils.Preferencias;
@@ -63,11 +64,9 @@ public class EventReceiver extends BroadcastReceiver {
             switch (wifiState)
             {
                 case WifiManager.WIFI_STATE_DISABLED:
-                    Log.i("pepe", "WifiOFF");
                     MyLog.write("WifiOFF", "Mediciones", true);
                     break;
                 case WifiManager.WIFI_STATE_ENABLED:
-                    Log.i("pepe", "WifiON");
                     MyLog.write("WifiON", "Mediciones", true);
                     break;
             }
@@ -227,13 +226,11 @@ public class EventReceiver extends BroadcastReceiver {
         }
         if(intent.getAction().equals(Intent.ACTION_POWER_CONNECTED))
         {
-            Log.i("pepe", "PC");
-            MyLog.write("PC", "Mediciones", true);
+            MyLog.write("PC:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED))
         {
-            Log.i("pepe", "PD");
-            MyLog.write("PD", "Mediciones", true);
+            MyLog.write("PD:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED))
         {
@@ -253,35 +250,37 @@ public class EventReceiver extends BroadcastReceiver {
             //String app = OSOperations.getAppNameFromPackageName(context.getPackageManager(), packageName);
             MyLog.write("AU:" + packageName, "Mediciones", true);
         }
-        if(intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED) && false)
+        if(intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED))
         {
+            MyLog.write("entre a battery", "Mediciones", true);
             if(extras != null)
             {
+                MyLog.write("entre a extras", "Mediciones", true);
                 int state = extras.getInt(BatteryManager.EXTRA_STATUS);
+                int level = extras.getInt(BatteryManager.EXTRA_LEVEL);
                 switch (state)
                 {
                     case BatteryManager.BATTERY_STATUS_CHARGING:
-                        Log.i("pepe", "Cargando bateria");
-                        MyLog.write("BatC", "Mediciones", true);
+                        //Log.i("pepe", "Cargando bateria");
+                        MyLog.write("BatC:" + level, "Mediciones", true);
                         break;
                     case BatteryManager.BATTERY_STATUS_DISCHARGING:
-                        Log.i("pepe", "Descargandose le bateria");
-                        MyLog.write("BatD", "Mediciones", true);
+                        //Log.i("pepe", "Descargandose le bateria");
+                        MyLog.write("BatD:" + level, "Mediciones", true);
                         break;
                     case BatteryManager.BATTERY_STATUS_FULL:
-                        Log.i("pepe", "FB");
-                        MyLog.write("FB", "Mediciones", true);
+                        //Log.i("pepe", "FB");
+                        MyLog.write("FB:" + level, "Mediciones", true);
                         break;
                     case BatteryManager.BATTERY_STATUS_NOT_CHARGING:
-                        Log.i("pepe", "No se esta cargando");
+                        //Log.i("pepe", "No se esta cargando");
                         //MyLog.write("No se esta cargando", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_STATUS_UNKNOWN:
-                        Log.i("pepe", "No se sabe el estado de la bateria");
+                        //Log.i("pepe", "No se sabe el estado de la bateria");
                         //MyLog.write("No se sabe el estado de la bateria", "Mediciones", false);
                         break;
                 }
-                int level = extras.getInt(BatteryManager.EXTRA_LEVEL);
                 int health = extras.getInt(BatteryManager.EXTRA_HEALTH);
                 switch (health)
                 {

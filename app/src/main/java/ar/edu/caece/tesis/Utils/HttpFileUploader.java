@@ -12,23 +12,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import android.os.Environment;
+import android.util.Log;
 
 public class HttpFileUploader {
 
-    public static void uploadFile(String name){
+    public static Boolean uploadFile(File file, String id, String fecha){
 
         HttpURLConnection connection = null;
         DataOutputStream outputStream = null;
-        DataInputStream inputStream = null;
 
-        File externalStorageDir = Environment.getExternalStorageDirectory();
-        File dir = new File(externalStorageDir.getAbsolutePath() + "/Tesis/logs");
-        if(!dir.exists())
-            dir.mkdirs();
-        File myFile = new File(dir, name);
-
-        String pathToOurFile = myFile.getPath();
-        String urlServer = "http://tesis-oswebarg.rhcloud.com/upload.php";
+        String pathToOurFile = file.getPath();
+        String urlServer = "http://tesis-oswebarg.rhcloud.com/upload.php?id=" + id + "&fecha=" + fecha;
         String lineEnd = "\r\n";
         String twoHyphens = "--";
         String boundary =  "*****";
@@ -88,8 +82,11 @@ public class HttpFileUploader {
         }
         catch (Exception ex)
         {
-            //Exception handling
+            Log.i("pepe", ex.getMessage());
+            return false;
         }
+
+        return true;
 
     }
 

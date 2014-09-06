@@ -1,12 +1,18 @@
 package ar.edu.caece.tesis.Activities;
 
 import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageStats;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -17,6 +23,8 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -71,6 +79,8 @@ public class MainActivity extends SherlockActivity {
             Thread thread = new Thread(recopilarDatosPrimeraCorrida);
             thread.start();
 
+            checkLocationServices();                                      //chequeo que
+
         }
 
         if(!ActivityManager.isUserAMonkey()) {                          //Si el usuario no es un mono, iniciamos el servicio
@@ -80,6 +90,29 @@ public class MainActivity extends SherlockActivity {
 
         getDatos();
         mTimer.scheduleAtFixedRate(new TimeDisplayTimerTask(), 0, 50);
+
+    }
+
+    private void checkLocationServices() {
+
+        // Get Location Manager and check for GPS & Network location services
+        LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if(!lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            // Build the alert dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Servicios de ubicación");
+            builder.setMessage("Para un correcto funcionamiento de la aplicación, por favor active los servicios de ubicación por redes móviles o inalámbricas");
+            builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    // Show location settings when the user acknowledges the alert dialog
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(intent);
+                }
+            });
+            Dialog alertDialog = builder.create();
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.show();
+        }
 
     }
 

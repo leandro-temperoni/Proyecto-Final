@@ -2,6 +2,20 @@
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
+
+    <string name="pref_header_general">Internet</string>
+
+    <string name="pref_title_internet">Elija un tipo de red</string>
+    <string name="pref_description_internet">Wi-Fi o datos móviles</string>
+    <string-array name="pref_internet_list_titles">
+        <item>Sólo Wi-Fi</item>
+        <item>Wi-fi y datos móviles</item>
+    </string-array>
+    <string-array name="pref_internet_list_values">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
     <string name="pref_header_limites">Limites</string>
 
     <string name="pref_title_datos_diarios">Datos diarios</string>
