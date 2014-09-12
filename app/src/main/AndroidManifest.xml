@@ -111,6 +111,13 @@
                 <action android:name="android.intent.action.ACTION_SHUTDOWN" />
                 <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
                 <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package"/>
             </intent-filter>
         </receiver>
 
@@ -118,16 +125,13 @@
             android:name=".Services.EventService"
             android:exported="true"
             android:permission="ar.edu.caece.tesis.RESTART_EVENT_SERVICE" />
+
         <service
             android:name=".Services.LocationService"
             android:enabled="true"
             android:exported="true" >
         </service>
-        <service
-            android:name=".Services.UploaderService"
-            android:enabled="true"
-            android:exported="true" >
-        </service>
+
     </application>
 
 </manifest>

@@ -41,7 +41,7 @@ public class Preferencias {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        if(sharedPrefs.getString("internet_list", "0").equals("0"))
+        if(sharedPrefs.getString("internet_list", "1").equals("0"))
             return true;
         else return false;
 

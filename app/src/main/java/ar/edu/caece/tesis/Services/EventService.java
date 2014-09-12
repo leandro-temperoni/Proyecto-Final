@@ -74,40 +74,20 @@ public class EventService extends Service {
         intentFilter.addAction(Intent.ACTION_REBOOT);
         intentFilter.addAction(Intent.ACTION_SHUTDOWN);
         intentFilter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
-        intentFilter.addAction(Intent.ACTION_CONFIGURATION_CHANGED);
-        intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_LOW);
-        intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_OK);
-
-        //package
-        intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
-        intentFilter.addAction(Intent.ACTION_PACKAGE_CHANGED);
-        intentFilter.addAction(Intent.ACTION_PACKAGE_DATA_CLEARED);
-        intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
-        intentFilter.addAction(Intent.ACTION_PACKAGE_REPLACED);
-        intentFilter.addAction(Intent.ACTION_PACKAGE_RESTARTED);
 
         //configuration
         intentFilter.addAction(Intent.ACTION_LOCALE_CHANGED);
         intentFilter.addAction(Intent.ACTION_CONFIGURATION_CHANGED);
 
-        //media
-        intentFilter.addAction(Intent.ACTION_MEDIA_BAD_REMOVAL);
-        intentFilter.addAction(Intent.ACTION_MEDIA_CHECKING);
-        intentFilter.addAction(Intent.ACTION_MEDIA_EJECT);
-        intentFilter.addAction(Intent.ACTION_MEDIA_MOUNTED);
-        intentFilter.addAction(Intent.ACTION_MEDIA_NOFS);
-        intentFilter.addAction(Intent.ACTION_MEDIA_REMOVED);
-        intentFilter.addAction(Intent.ACTION_MEDIA_SCANNER_FINISHED);
-        intentFilter.addAction(Intent.ACTION_MEDIA_SCANNER_STARTED);
-
+        //storage
         intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_OK);
         intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_LOW);
 
         //packages
-        intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
-        intentFilter.addAction(Intent.ACTION_PACKAGE_DATA_CLEARED);
-        intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
-        intentFilter.addDataScheme("package");
+        //intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
+        //intentFilter.addAction(Intent.ACTION_PACKAGE_DATA_CLEARED);
+        //intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        //intentFilter.addDataScheme("package");
 
         //power
         intentFilter.addAction(Intent.ACTION_BATTERY_LOW);
@@ -319,31 +299,15 @@ public class EventService extends Service {
 
             MyLog.write("MI:" + String.valueOf(romLevel), "Mediciones", time, id);
             MyLog.write("ME:" + String.valueOf(sdLevel), "Mediciones", time, id);
-            //MyLog.write("BL:" + String.valueOf(nivelBateria()), "Mediciones", time, id);
+            MyLog.write("BL:" + String.valueOf(nivelBateria()), "Mediciones", time, id);
             MyLog.write("DR:" + String.valueOf(TrafficStats.getTotalRxBytes()), "Mediciones", time, id);
             MyLog.write("DS:" + String.valueOf(TrafficStats.getTotalTxBytes()), "Mediciones", time, id);
 
             chequearLimites((int)romLevel, (int)sdLevel, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()));
 
-            Calendar calendar = Calendar.getInstance();
-            int ahora = calendar.get(Calendar.DAY_OF_MONTH);
-            calendar.add(Calendar.MINUTE, 10);
-            int diezMins = calendar.get(Calendar.DAY_OF_MONTH);
-
-            if(ahora != diezMins)         // si faltan menos de 10 mins para que termine el dia
-                runUploader();
-
-
             handlerTenMinutesChecker.postDelayed(tenMinutesChecker, SPACE_CHECK_INTERVAL);
 
         }
-
-    }
-
-    private void runUploader(){
-
-        Intent intent = new Intent(this, UploaderService.class);
-        startService(intent);
 
     }
 
@@ -360,6 +324,7 @@ public class EventService extends Service {
             Preferencias.limpiarDatosMoviles(this, "datosMovilesDiarios");
             dia = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
             Preferencias.setAviseDatosDiarios(this, false);
+            MyLog.subirAlServidor("Mediciones.txt", this);       //y subo los datos al servidor
 
         }
         else if(Preferencias.superaLimiteDatos(this, datosMoviles, "datos_diarios_list", "datosMovilesDiarios") && !Preferencias.yaAviseDatosDiarios(this)) {

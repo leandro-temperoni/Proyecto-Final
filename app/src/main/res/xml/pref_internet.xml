@@ -6,7 +6,7 @@
     <ListPreference
         android:key="internet_list"
         android:title="@string/pref_title_internet"
-        android:defaultValue="0"
+        android:defaultValue="1"
         android:summary="@string/pref_description_internet"
         android:entries="@array/pref_internet_list_titles"
         android:entryValues="@array/pref_internet_list_values"

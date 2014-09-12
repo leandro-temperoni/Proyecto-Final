@@ -79,7 +79,7 @@ public class MainActivity extends SherlockActivity {
             Thread thread = new Thread(recopilarDatosPrimeraCorrida);
             thread.start();
 
-            checkLocationServices();                                      //chequeo que
+            checkLocationServices();                                      //chequeo que los servicios de location esten activos
 
         }
 
@@ -284,9 +284,9 @@ public class MainActivity extends SherlockActivity {
         PackageStats ps;
         for (ApplicationInfo info : OSOperations.getInstalledApps(this, OSOperations.USER_APPS)){
 
-            ps = new PackageStats(info.packageName);
-            long size = ps.codeSize + ps.dataSize;
-            MyLog.write(info.packageName + ":" + OSOperations.getAppNameFromPackageName(getPackageManager(), info.packageName) + ":" + size, "Apps", false);
+            //ps = new PackageStats(info.packageName);
+            //long size = ps.codeSize + ps.dataSize;
+            MyLog.write(info.packageName + ":" + OSOperations.getAppNameFromPackageName(getPackageManager(), info.packageName), "Apps", false);
 
         }
 

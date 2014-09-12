@@ -33,9 +33,10 @@ public class EventReceiver extends BroadcastReceiver {
         {
             return;
         }
-        //TODO only if battery save isn't enabled
-        //context.startService(new Intent(context, EventService.class));
+
         Bundle extras = intent.getExtras();
+        //Log.i("pepe", "El action es: " + intent.getAction());
+        context.startService(new Intent(context, EventService.class));
         if(intent.getAction().equals(WifiManager.NETWORK_STATE_CHANGED_ACTION))
         {
             NetworkInfo networkInfo = extras != null ? (NetworkInfo) extras.getParcelable("networkInfo") : null;
@@ -64,10 +65,10 @@ public class EventReceiver extends BroadcastReceiver {
             switch (wifiState)
             {
                 case WifiManager.WIFI_STATE_DISABLED:
-                    MyLog.write("WifiOFF", "Mediciones", true);
+                    MyLog.write("WifiOFF:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
                     break;
                 case WifiManager.WIFI_STATE_ENABLED:
-                    MyLog.write("WifiON", "Mediciones", true);
+                    MyLog.write("WifiON:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
                     break;
             }
 
@@ -80,19 +81,15 @@ public class EventReceiver extends BroadcastReceiver {
             switch (state)
             {
                 case BluetoothAdapter.STATE_OFF:
-                    Log.i("pepe", "B/TOFF");
-                    MyLog.write("B/TOFF", "Mediciones", true);
+                    MyLog.write("B/TOFF:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
                     break;
                 case BluetoothAdapter.STATE_ON:
-                    Log.i("pepe", "B/TON");
-                    MyLog.write("B/TON", "Mediciones", true);
+                    MyLog.write("B/TON:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
                     break;
                 case BluetoothAdapter.STATE_CONNECTED:
-                    Log.i("pepe", "B/T Conectado");
                     //MyLog.write("B/T Conectado", "Mediciones", false);
                     break;
                 case BluetoothAdapter.STATE_DISCONNECTED:
-                    Log.i("pepe", "B/T Desconectado");
                     //MyLog.write("B/T Desconectado", "Mediciones", false);
                     break;
             }
@@ -108,86 +105,47 @@ public class EventReceiver extends BroadcastReceiver {
         }
         if(intent.getAction().equals(Telephony.Sms.Intents.SMS_RECEIVED_ACTION))
         {
-            SmsMessage[] messages = new SmsMessage[0];
-            try
-            {
-                Object[] pdus = (Object[]) extras.get("pdus");
-                messages = new SmsMessage[pdus.length];
-                for(int i = 0; i < pdus.length; i++)
-                {
-                    messages[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
-                }
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-            String address = messages[0].getOriginatingAddress();
-            Log.i("pepe", "SMSR");
-            MyLog.write("SMSR", "Mediciones", true);
+            MyLog.write("SMSR:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED) || intent.getAction().equals("android.intent.action.QUICKBOOT_POWERON"))
         {
-            Log.i("pepe", "BC");
-            MyLog.write("BC", "Mediciones", true);
+
+            MyLog.write("BC:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_TIME_CHANGED))
         {
-            Log.i("pepe", "Se cambio la hora");
-            //MyLog.write("Se cambio la hora", "Mediciones", false);
+
         }
         if(intent.getAction().equals(Intent.ACTION_DATE_CHANGED))
         {
-            Log.i("pepe", "Se cambio la fecha");
-            //MyLog.write("Se cambio la fecha", "Mediciones", false);
+
         }
         if(intent.getAction().equals(Intent.ACTION_TIMEZONE_CHANGED))
         {
-            Log.i("pepe", "Se cambio la hora local");
-            //MyLog.write("Se cambio la hora local", "Mediciones", false);
+
         }
         if(intent.getAction().equals(Intent.ACTION_AIRPLANE_MODE_CHANGED))
         {
             boolean isEnabled = extras != null && extras.getBoolean("state");
             if(isEnabled)
-                MyLog.write("AvionON", "Mediciones", true);
-            else MyLog.write("AvionOFF", "Mediciones", true);
+                MyLog.write("AvionON:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
+            else MyLog.write("AvionOFF:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(LocationManager.PROVIDERS_CHANGED_ACTION))
         {
             final LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
             boolean gpsEnabled = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
             if(gpsEnabled)
-                MyLog.write("GPSON", "Mediciones", true);
-            else MyLog.write("GPSOFF", "Mediciones", true);
+                MyLog.write("GPSON:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
+            else MyLog.write("GPSOFF:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals("android.media.VOLUME_CHANGED_ACTION"))
         {
-            /*android.media.EXTRA_VOLUME_STREAM_TYPE=2*/
-            /*android.media.EXTRA_PREV_VOLUME_STREAM_VALUE=6*/
-            /*android.media.EXTRA_VOLUME_STREAM_VALUE=7*/
-            /*2=ring, 3=media*/
-            if(extras != null)
-            {
-                int prev = extras.getInt("android.media.EXTRA_PREV_VOLUME_STREAM_VALUE");
-                int now = extras.getInt("android.media.EXTRA_VOLUME_STREAM_VALUE");
-                if(prev == now)return;
-            }
-            String prevVolume = extras != null ? "" + extras.getInt("android.media.EXTRA_PREV_VOLUME_STREAM_VALUE") : context.getString(R.string.na).toUpperCase();
-            String newVolume = extras != null ? "" + extras.getInt("android.media.EXTRA_VOLUME_STREAM_VALUE") : context.getString(R.string.na).toUpperCase();
-            int streamType = extras != null ? extras.getInt("android.media.EXTRA_VOLUME_STREAM_TYPE") : -1;
-            String type = "";
-            if(streamType == 2) type = context.getString(R.string.ringer);
-            else if(streamType == 3) type = context.getString(R.string.media);
-            Log.i("pepe", "Volume changed");
-            //MyLog.write("Volume changed", "Mediciones", false);
+
         }
         if(intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL))
         {
-            /*android.intent.extra.PHONE_NUMBER=2222*/
-            String phoneNum = extras != null ? extras.getString(Intent.EXTRA_PHONE_NUMBER) : context.getString(R.string.na).toUpperCase();
-            Log.i("pepe", "IntLL");
-            MyLog.write("IntLL", "Mediciones", true);
+            MyLog.write("IntLL:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED))
         {
@@ -195,22 +153,20 @@ public class EventReceiver extends BroadcastReceiver {
             {
                 return;
             }
-            String phoneNum = extras != null ? extras.getString(TelephonyManager.EXTRA_INCOMING_NUMBER) : context.getString(R.string.na).toUpperCase();
 
-            Log.i("pepe", "RecLL");
-            MyLog.write("RecLL", "Mediciones", true);
+            MyLog.write("RecLL:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
 
         }
         if(intent.getAction().equals(Intent.ACTION_CONFIGURATION_CHANGED))
         {
             boolean landscape = context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
             if(landscape)
-                MyLog.write("LSC", "Mediciones", true);
-            else MyLog.write("PRT", "Mediciones", true);
+                MyLog.write("LSC:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
+            else MyLog.write("PRT:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_REBOOT))
         {
-            MyLog.write("RB", "Mediciones", true);
+            MyLog.write("RB:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
             //Sumar y guardar los datos utilizados en las preferencias
             Preferencias.sumarDatosMoviles(context, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()), "datosMovilesDiarios");
             Preferencias.sumarDatosMoviles(context, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()), "datosMovilesMensuales");
@@ -218,7 +174,7 @@ public class EventReceiver extends BroadcastReceiver {
         }
         if(intent.getAction().equals(Intent.ACTION_SHUTDOWN))
         {
-            MyLog.write("SH", "Mediciones", true);
+            MyLog.write("SH:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
             //Sumar y guardar los datos utilizados en las preferencias
             Preferencias.sumarDatosMoviles(context, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()), "datosMovilesDiarios");
             Preferencias.sumarDatosMoviles(context, (TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes()), "datosMovilesMensuales");
@@ -241,148 +197,79 @@ public class EventReceiver extends BroadcastReceiver {
         if(intent.getAction().equals(Intent.ACTION_PACKAGE_DATA_CLEARED))
         {
             String packageName = intent.getData().toString().replace("package:", "");
-            //String app = OSOperations.getAppNameFromPackageName(context.getPackageManager(), packageName);
             MyLog.write("ADC:" + packageName, "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))
         {
             String packageName = intent.getData().toString().replace("package:", "");
-            //String app = OSOperations.getAppNameFromPackageName(context.getPackageManager(), packageName);
             MyLog.write("AU:" + packageName, "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED))
         {
-            MyLog.write("entre a battery", "Mediciones", true);
             if(extras != null)
             {
-                MyLog.write("entre a extras", "Mediciones", true);
                 int state = extras.getInt(BatteryManager.EXTRA_STATUS);
                 int level = extras.getInt(BatteryManager.EXTRA_LEVEL);
                 switch (state)
                 {
                     case BatteryManager.BATTERY_STATUS_CHARGING:
-                        //Log.i("pepe", "Cargando bateria");
-                        MyLog.write("BatC:" + level, "Mediciones", true);
+                        //MyLog.write("BatC:" + level, "Mediciones", true);
                         break;
                     case BatteryManager.BATTERY_STATUS_DISCHARGING:
-                        //Log.i("pepe", "Descargandose le bateria");
-                        MyLog.write("BatD:" + level, "Mediciones", true);
+                        //MyLog.write("BatD:" + level, "Mediciones", true);
                         break;
                     case BatteryManager.BATTERY_STATUS_FULL:
-                        //Log.i("pepe", "FB");
                         MyLog.write("FB:" + level, "Mediciones", true);
                         break;
                     case BatteryManager.BATTERY_STATUS_NOT_CHARGING:
-                        //Log.i("pepe", "No se esta cargando");
                         //MyLog.write("No se esta cargando", "Mediciones", false);
                         break;
                     case BatteryManager.BATTERY_STATUS_UNKNOWN:
-                        //Log.i("pepe", "No se sabe el estado de la bateria");
                         //MyLog.write("No se sabe el estado de la bateria", "Mediciones", false);
                         break;
                 }
-                int health = extras.getInt(BatteryManager.EXTRA_HEALTH);
-                switch (health)
-                {
-                    case BatteryManager.BATTERY_HEALTH_COLD:
-                        Log.i("pepe", "BATTERY_HEALTH_COLD");
-                        //MyLog.write("BATTERY_HEALTH_COLD", "Mediciones", false);
-                        break;
-                    case BatteryManager.BATTERY_HEALTH_DEAD:
-                        Log.i("pepe", "BATTERY_HEALTH_DEAD");
-                        //MyLog.write("BATTERY_HEALTH_DEAD", "Mediciones", false);
-                        break;
-                    case BatteryManager.BATTERY_HEALTH_GOOD:
-                        Log.i("pepe", "BATTERY_HEALTH_GOOD");
-                        //MyLog.write("BATTERY_HEALTH_GOOD", "Mediciones", false);
-                        break;
-                    case BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE:
-                        Log.i("pepe", "BATTERY_HEALTH_OVER_VOLTAGE");
-                        //MyLog.write("BATTERY_HEALTH_OVER_VOLTAGE", "Mediciones", false);
-                        break;
-                    case BatteryManager.BATTERY_HEALTH_OVERHEAT:
-                        Log.i("pepe", "BATTERY_HEALTH_OVERHEAT");
-                        //MyLog.write("BATTERY_HEALTH_OVERHEAT", "Mediciones", false);
-                        break;
-                    case BatteryManager.BATTERY_HEALTH_UNKNOWN:
-                        Log.i("pepe", "BATTERY_HEALTH_UNKNOWN");
-                        //MyLog.write("BATTERY_HEALTH_UNKNOWN", "Mediciones", false);
-                        break;
-                    case BatteryManager.BATTERY_HEALTH_UNSPECIFIED_FAILURE:
-                        Log.i("pepe", "BATTERY_HEALTH_UNSPECIFIED_FAILURE");
-                        //MyLog.write("BATTERY_HEALTH_UNSPECIFIED_FAILURE", "Mediciones", false);
-                        break;
-                }
-
             }
 
         }
         if(intent.getAction().equals(Intent.ACTION_BATTERY_LOW))
         {
-            Log.i("pepe", "LB");
+            Log.i("pepe", "LB:" + Battery.getLevel(context.getApplicationContext()));
             MyLog.write("LB", "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_BATTERY_OKAY))
         {
-            Log.i("pepe", "Aviso bateria ok");
-            //MyLog.write("Aviso bateria ok", "Mediciones", false);
+
         }
         if(intent.getAction().equals(Intent.ACTION_LOCALE_CHANGED))
         {
-            Log.i("pepe", "Aviso locale changed");
-            //MyLog.write("Aviso locale changed", "Mediciones", false);
+
         }
         if(intent.getAction().equals(Intent.ACTION_SCREEN_OFF))
         {
-            //Log.i("pepe", "ScOff");
-            MyLog.write("ScOFF", "Mediciones", true);
+            MyLog.write("ScOFF:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_SCREEN_ON))
         {
-            //Log.i("pepe", "ScON");
-            MyLog.write("ScON", "Mediciones", true);
+            MyLog.write("ScON:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_USER_PRESENT))
         {
-            //Log.i("pepe", "UP");
-            MyLog.write("UP", "Mediciones", true);
+            MyLog.write("UP:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_DEVICE_STORAGE_LOW))
         {
-            //Log.i("pepe", "SL");
-            MyLog.write("SL", "Mediciones", true);
+            MyLog.write("SL:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_DEVICE_STORAGE_OK))
         {
-            //Log.i("pepe", "SOK");
-            MyLog.write("SOK", "Mediciones", true);
-        }
-        if(intent.getAction().equals(Intent.ACTION_HEADSET_PLUG))
-        {
-            int state = extras != null ? extras.getInt("state") : -1;//1=plug, 0=unplug
-            String name = extras != null ? extras.getString("name") : context.getString(R.string.na).toUpperCase();
-            int hasMic = extras != null ? extras.getInt("microphone") : -1;
-            String sHasMic = context.getString(R.string.na);
-            if(state == 1)
-            {
-                Log.i("pepe", "Enchufo headset");
-                //MyLog.write("Enchufo headset", "Mediciones", false);
-            }
-            else if(state == 0)
-            {
-                Log.i("pepe", "Desenchufo headset");
-                //MyLog.write("Desenchufo headset", "Mediciones", false);
-            }
-
+            MyLog.write("SOK:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
         }
         if(intent.getAction().equals(Intent.ACTION_MEDIA_SCANNER_STARTED))
         {
-            Log.i("pepe", "Media scanner started");
             //MyLog.write("Media scanner started", "Mediciones", false);
         }
         if(intent.getAction().equals(Intent.ACTION_MEDIA_SCANNER_FINISHED))
         {
-            Log.i("pepe", "Media scanner finished");
             //MyLog.write("Media scanner finished", "Mediciones", false);
         }
     }

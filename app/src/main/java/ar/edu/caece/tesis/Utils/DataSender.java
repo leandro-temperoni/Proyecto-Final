@@ -1,22 +1,11 @@
 package ar.edu.caece.tesis.Utils;
 
-import android.app.ActivityManager;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
 
 import java.io.File;
-import java.util.Calendar;
-import java.util.List;
-
-import ar.edu.caece.tesis.Services.UploaderService;
 
 /**
  * Created by COCO on 02/09/2014.
@@ -78,18 +67,6 @@ public class DataSender {
     }
 
     private void cancelar(){
-
-        if(file.getName().contains("Mediciones")) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.add(Calendar.DAY_OF_YEAR, 1);
-            calendar.set(Calendar.HOUR, 0);
-            calendar.set(Calendar.MINUTE, 0);
-            calendar.set(Calendar.SECOND, 0);
-            Intent myIntent = new Intent(context, UploaderService.class);
-            PendingIntent pi = PendingIntent.getService(context, 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
-        }
 
         handler.removeCallbacks(espera);
 
