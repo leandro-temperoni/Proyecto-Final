@@ -177,10 +177,7 @@ public class Preferencias {
             valor = sharedPrefs.getString(tipo, "");
         }
 
-        String extra = sharedPrefs.getString(tipo2, "");
-        if(extra.equals(""))
-            extra = "0";
-        cantidad += Long.parseLong(extra);
+        cantidad += sharedPrefs.getLong(tipo2, 0);
 
         cantidad = cantidad/1000000;        //paso de bytes a Mbytes
         if(Long.parseLong(valor) < cantidad)
@@ -199,21 +196,15 @@ public class Preferencias {
     public static void sumarDatosMoviles(Context context, long cantidad, String tipo){
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String actual = sharedPrefs.getString(tipo, "");
-        if(actual.equals("")) {
-            SharedPreferences.Editor editor = sharedPrefs.edit();
-            editor.putString(tipo, "0");
-            editor.commit();
-            actual = sharedPrefs.getString(tipo, "");
-        }
-        sharedPrefs.edit().putLong(tipo, cantidad + Long.parseLong(actual)).commit();
+        long actual = sharedPrefs.getLong(tipo, 0);
+        sharedPrefs.edit().putLong(tipo, cantidad + actual).commit();
 
     }
 
     public static void limpiarDatosMoviles(Context context, String tipo){
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        sharedPrefs.edit().putString(tipo, "0").commit();
+        sharedPrefs.edit().putLong(tipo, 0).commit();
 
     }
 
