@@ -268,7 +268,7 @@ public class EventService extends Service {
         for(Debug.MemoryInfo info : memoryInfos){
 
             if(info.getTotalPss() != 0)
-                data += OSOperations.getAppNameFromPackageName(getPackageManager(), pns.get(i)) + ":" + pids[i] + ":" + info.getTotalPss() + "-";
+                data += pns.get(i) + ":" + pids[i] + ":" + info.getTotalPss() + "-";
             i++;
 
         }
