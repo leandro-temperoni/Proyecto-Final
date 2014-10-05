@@ -16,13 +16,15 @@ import android.util.Log;
 
 public class HttpFileUploader {
 
+    public static String serverUrl = "tesis-oswebarg.rhcloud.com";
+
     public static Boolean uploadFile(File file, String id, String fecha){
 
         HttpURLConnection connection = null;
         DataOutputStream outputStream = null;
 
         String pathToOurFile = file.getPath();
-        String urlServer = "http://tesis-oswebarg.rhcloud.com/upload.php?id=" + id + "&fecha=" + fecha;
+        String urlServer = "http://54.86.16.126/upload.php?id=" + id + "&fecha=" + fecha;
         String lineEnd = "\r\n";
         String twoHyphens = "--";
         String boundary =  "*****";
