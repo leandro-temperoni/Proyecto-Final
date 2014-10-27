@@ -17,6 +17,7 @@ import android.util.Log;
 public class HttpFileUploader {
 
     public static String serverUrl = "tesis-oswebarg.rhcloud.com";
+    public static String awsUrl = "54.86.16.126";
 
     public static Boolean uploadFile(File file, String id, String fecha){
 
@@ -24,7 +25,7 @@ public class HttpFileUploader {
         DataOutputStream outputStream = null;
 
         String pathToOurFile = file.getPath();
-        String urlServer = "http://54.86.16.126/upload.php?id=" + id + "&fecha=" + fecha;
+        String urlServer = "http://" + serverUrl + "/upload.php?id=" + id + "&fecha=" + fecha;
         String lineEnd = "\r\n";
         String twoHyphens = "--";
         String boundary =  "*****";

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 
+import ar.edu.caece.tesis.Utils.Battery;
 import ar.edu.caece.tesis.Utils.MyLog;
 
 /**
@@ -35,7 +36,7 @@ public class SMSObserver extends ContentObserver {
             int type = cur.getInt(cur.getColumnIndex("type"));
             if (isOutgoingMessage(type)) {
 
-                MyLog.write("SMSS", "Mediciones", true);
+                MyLog.write("SMSS:" + Battery.getLevel(context.getApplicationContext()), "Mediciones", true);
 
             }
         }
