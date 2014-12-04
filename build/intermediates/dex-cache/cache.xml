@@ -2,11 +2,11 @@
 <pre-dex-items>
 
     <item
-        dex="D:\Documents\GitHub\ProyectoFinal\app\build\intermediates\pre-dexed\release\classes-3742d232cba45f536f72e0cc04b016bf9236a664.jar"
-        jar="D:\Documents\GitHub\ProyectoFinal\app\build\intermediates\exploded-aar\ProyectoFinal.libraries\actionbarsherlock\unspecified\classes.jar"
+        dex="D:\Documents\GitHub\Proyecto-Final\app\build\intermediates\pre-dexed\release\classes-1ec77c35216805e6051c02f3239f5625dfe609b6.jar"
+        jar="D:\Documents\GitHub\Proyecto-Final\app\build\intermediates\exploded-aar\Proyecto-Final.libraries\actionbarsherlock\unspecified\classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="6dd0afc89b267e8b266a119ee2272d65bf8ecae1"/>
+        sha1="8143da0d670ed73a1aae44ee635ac456d44fd1c5"/>
     <item
         dex="D:\Documents\Android\Tesis\app\build\intermediates\pre-dexed\debug\classes-563222b9f279d30e8bdef23fc4aaecc8e53c181f.jar"
         jar="D:\Documents\Android\Tesis\app\build\intermediates\exploded-aar\Tesis.libraries\actionbarsherlock\unspecified\classes.jar"
