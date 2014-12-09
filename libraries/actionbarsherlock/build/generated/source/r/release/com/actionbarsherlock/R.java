@@ -9,21 +9,15 @@ package com.actionbarsherlock;
 
 public final class R {
     public static final class attr {
-        /**  Custom divider drawable to use for elements in the action bar. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarDivider=0x7f010027;
-        /**  Custom item state list drawable background for action bar items. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarItemBackground=0x7f010028;
-        /** 
-             Size of the Action Bar, including the contextual
-             bar used to present Action Modes.
-        
-         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -41,18 +35,11 @@ containing a value of this type.
 </table>
          */
         public static int actionBarSize=0x7f010026;
-        /** 
-             Reference to a style for the split Action Bar. This style
-             controls the split component that holds the menu/action
-             buttons. actionBarStyle is still used for the primary
-             bar.
-        
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarSplitStyle=0x7f010024;
-        /**  Reference to a style for the Action Bar 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarStyle=0x7f010023;
@@ -60,8 +47,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarTabBarStyle=0x7f010020;
-        /**  Default style for tabs within an action bar 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarTabStyle=0x7f01001f;
@@ -69,16 +55,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarTabTextStyle=0x7f010021;
-        /** 
-             Reference to a theme that should be used to inflate widgets
-             and layouts destined for the action bar. Most of the time
-             this will be a reference to the current theme, but when
-             the action bar has a significantly different contrast
-             profile than the rest of the activity the difference
-             can become important. If this is set to @null the current
-             theme will be used.
-        
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarWidgetTheme=0x7f010025;
@@ -90,23 +67,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionDropDownStyle=0x7f010052;
-        /** 
-             TextAppearance style that will be applied to text that
-             appears within action menu items.
-        
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionMenuTextAppearance=0x7f010029;
-        /**  Color for text that appears within action menu items. 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static int actionMenuTextColor=0x7f01002a;
-        /**  Background drawable to use for action mode UI 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionModeBackground=0x7f01002d;
@@ -114,23 +85,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionModeCloseButtonStyle=0x7f01002c;
-        /**  Drawable to use for the close action mode button 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionModeCloseDrawable=0x7f01002f;
-        /**  PopupWindow style to use for action modes when showing as a window overlay. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionModePopupWindowStyle=0x7f010031;
-        /**  Drawable to use for the Share action button in WebView selection action modes 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionModeShareDrawable=0x7f010030;
-        /**  Background drawable to use for action mode UI in the lower split bar 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionModeSplitBackground=0x7f01002e;
@@ -146,13 +113,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionSpinnerItemStyle=0x7f010058;
-        /**  Drawable used as a background for activated items. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int activatedBackgroundIndicator=0x7f010060;
-        /**  Default ActivityChooserView style. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int activityChooserViewStyle=0x7f01005f;
@@ -168,25 +133,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static int backgroundSplit=0x7f010001;
-        /**  Specifies a background drawable for a second stacked row of the action bar. 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static int backgroundStacked=0x7f01000c;
-        /**  Small Button style. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int buttonStyleSmall=0x7f010032;
-        /**  Specifies a layout for custom navigation. Overrides navigationMode. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int customNavigationLayout=0x7f01000d;
-        /**  Options affecting how the action bar is displayed. 
-         <p>Must be one or more (separated by '|') of the following constant values.</p>
+        /** <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -205,8 +166,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int divider=0x7f010002;
-        /**  Drawable to use for generic vertical dividers. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int dividerVertical=0x7f010051;
@@ -228,19 +188,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int dropdownListPreferredItemHeight=0x7f010057;
-        /** 
-             The drawable to show in the button for expanding the activities overflow popup.
-             <strong>Note:</strong> Clients would like to set this drawable
-             as a clue about the action the chosen activity will perform. For
-             example, if share activity is to be chosen the drawable should
-             give a clue that sharing is to be performed.
-        
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int expandActivityOverflowButtonDrawable=0x7f010014;
-        /**  Default background for the menu header. 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -260,26 +212,19 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int homeAsUpIndicator=0x7f010054;
-        /**  Specifies a layout to use for the "home" section of the action bar. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int homeLayout=0x7f01000e;
-        /**  Default horizontal divider between rows of menu items. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int horizontalDivider=0x7f010016;
-        /**  Specifies the drawable used for the application icon. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int icon=0x7f01000a;
-        /** 
-             The default state of the SearchView. If true, it will be iconified when not in
-             use and expanded when clicked.
-        
-         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -287,13 +232,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int iconifiedByDefault=0x7f01001d;
-        /**  Specifies a style resource to use for an indeterminate progress spinner. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int indeterminateProgressStyle=0x7f010010;
-        /**  The maximal number of items initially shown in the activity list. 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -301,15 +244,13 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int initialActivityCount=0x7f010013;
-        /**  Default background for each menu item. 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static int itemBackground=0x7f010019;
-        /**  Default disabled icon alpha for each menu item that shows an icon. 
-         <p>Must be a floating point value, such as "<code>1.2</code>".
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -317,11 +258,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int itemIconDisabledAlpha=0x7f01001b;
-        /** 
-             Specifies padding that should be applied to the left and right sides of
-             system-provided items in the bar.
-        
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -331,8 +268,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int itemPadding=0x7f010012;
-        /**  Default appearance of menu item text. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int itemTextAppearance=0x7f010015;
@@ -340,8 +276,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int listPopupWindowStyle=0x7f01005e;
-        /**  A smaller, sleeker list item height. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -351,8 +286,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int listPreferredItemHeightSmall=0x7f01004b;
-        /**  The preferred padding along the left edge of list items. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -362,8 +296,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int listPreferredItemPaddingLeft=0x7f01004c;
-        /**  The preferred padding along the right edge of list items. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -373,21 +306,19 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int listPreferredItemPaddingRight=0x7f01004d;
-        /**  Specifies the drawable used for the application logo. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int logo=0x7f01000b;
-        /**  The type of navigation to use. 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>normal</code></td><td>0</td><td> Normal static title text </td></tr>
-<tr><td><code>listMode</code></td><td>1</td><td> The action bar will use a selection list for navigation. </td></tr>
-<tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
+<tr><td><code>normal</code></td><td>0</td><td></td></tr>
+<tr><td><code>listMode</code></td><td>1</td><td></td></tr>
+<tr><td><code>tabMode</code></td><td>2</td><td></td></tr>
 </table>
          */
         public static int navigationMode=0x7f010006;
@@ -395,8 +326,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int popupMenuStyle=0x7f010056;
-        /**  Whether space should be reserved in layout when an icon is missing. 
-         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -404,8 +334,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int preserveIconSpacing=0x7f01001c;
-        /**  Specifies the horizontal padding on either end for an embedded progress bar. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -415,13 +344,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int progressBarPadding=0x7f010011;
-        /**  Specifies a style resource to use for an embedded progress bar. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int progressBarStyle=0x7f01000f;
-        /**  An optional query hint string to be displayed in the empty query field. 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -429,18 +356,15 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int queryHint=0x7f01001e;
-        /**  SearchView AutoCompleteTextView style 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchAutoCompleteTextView=0x7f01003d;
-        /**  SearchView dropdown background 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchDropdownBackground=0x7f01003e;
-        /**  The list item height for search results. @hide 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -450,48 +374,39 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int searchResultListItemHeight=0x7f010048;
-        /**  SearchView close button icon 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchViewCloseIcon=0x7f01003f;
-        /**  SearchView query refinement icon 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchViewEditQuery=0x7f010043;
-        /**  SearchView query refinement icon background 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchViewEditQueryBackground=0x7f010044;
-        /**  SearchView Go button icon 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchViewGoIcon=0x7f010040;
-        /**  SearchView Search icon 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchViewSearchIcon=0x7f010041;
-        /**  SearchView text field background for the left section 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchViewTextField=0x7f010045;
-        /**  SearchView text field background for the right section 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchViewTextFieldRight=0x7f010046;
-        /**  SearchView Voice button icon 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int searchViewVoiceIcon=0x7f010042;
-        /**  Background drawable for standalone items that need focus/pressed states. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int selectableItemBackground=0x7f010033;
@@ -503,8 +418,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int spinnerItemStyle=0x7f01003b;
-        /**  Specifies subtitle text used for navigationMode="normal" 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -516,33 +430,27 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int subtitleTextStyle=0x7f010004;
-        /**  Text color, typeface, size, and style for the text inside of a popup menu. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int textAppearanceLargePopupMenu=0x7f010035;
-        /**  The preferred TextAppearance for the primary text of small list items. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int textAppearanceListItemSmall=0x7f01004e;
-        /**  Text color, typeface, size, and style for system search result subtitle. Defaults to primary inverse text color. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int textAppearanceSearchResultSubtitle=0x7f01004a;
-        /**  Text color, typeface, size, and style for system search result title. Defaults to primary inverse text color. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int textAppearanceSearchResultTitle=0x7f010049;
-        /**  Text color, typeface, size, and style for "small" text. Defaults to secondary text color. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int textAppearanceSmall=0x7f010037;
-        /**  Text color, typeface, size, and style for small text inside of a popup menu. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int textAppearanceSmallPopupMenu=0x7f010036;
@@ -573,15 +481,13 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int textColorPrimaryInverse=0x7f01003a;
-        /**  Text color for urls in search suggestions, used by things like global search and the browser. @hide 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static int textColorSearchUrl=0x7f010047;
-        /**  Specifies title text used for navigationMode="normal" 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -593,8 +499,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int titleTextStyle=0x7f010005;
-        /**  Default vertical divider between menu items. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int verticalDivider=0x7f010017;
@@ -622,16 +527,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int windowActionModeOverlay=0x7f01005c;
-        /**  Default animations for the menu. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int windowAnimationStyle=0x7f01001a;
-        /** 
-             This Drawable is overlaid over the foreground of the Window's content area, usually
-             to place a shadow below the title.
-        
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int windowContentOverlay=0x7f010034;
@@ -693,21 +593,21 @@ containing a value of this type.
         public static int abs__primary_text_holo_light=0x7f050009;
     }
     public static final class dimen {
-        public static int abs__action_bar_default_height=0x7f070000;
-        public static int abs__action_bar_icon_vertical_padding=0x7f070001;
-        public static int abs__action_bar_subtitle_bottom_margin=0x7f070002;
-        public static int abs__action_bar_subtitle_text_size=0x7f070003;
-        public static int abs__action_bar_subtitle_top_margin=0x7f070004;
-        public static int abs__action_bar_title_text_size=0x7f070005;
-        public static int abs__action_button_min_width=0x7f070006;
-        public static int abs__config_prefDialogWidth=0x7f070007;
-        public static int abs__dialog_min_width_major=0x7f07000d;
-        public static int abs__dialog_min_width_minor=0x7f07000e;
-        public static int abs__dropdownitem_icon_width=0x7f070008;
-        public static int abs__dropdownitem_text_padding_left=0x7f070009;
-        public static int abs__dropdownitem_text_padding_right=0x7f07000a;
-        public static int abs__search_view_preferred_width=0x7f07000b;
-        public static int abs__search_view_text_min_width=0x7f07000c;
+        public static int abs__action_bar_default_height=0x7f060000;
+        public static int abs__action_bar_icon_vertical_padding=0x7f060001;
+        public static int abs__action_bar_subtitle_bottom_margin=0x7f060002;
+        public static int abs__action_bar_subtitle_text_size=0x7f060003;
+        public static int abs__action_bar_subtitle_top_margin=0x7f060004;
+        public static int abs__action_bar_title_text_size=0x7f060005;
+        public static int abs__action_button_min_width=0x7f060006;
+        public static int abs__config_prefDialogWidth=0x7f060007;
+        public static int abs__dialog_min_width_major=0x7f06000d;
+        public static int abs__dialog_min_width_minor=0x7f06000e;
+        public static int abs__dropdownitem_icon_width=0x7f060008;
+        public static int abs__dropdownitem_text_padding_left=0x7f060009;
+        public static int abs__dropdownitem_text_padding_right=0x7f06000a;
+        public static int abs__search_view_preferred_width=0x7f06000b;
+        public static int abs__search_view_text_min_width=0x7f06000c;
     }
     public static final class drawable {
         public static int abs__ab_bottom_solid_dark_holo=0x7f020000;
@@ -824,56 +724,56 @@ containing a value of this type.
         public static int abs__toast_frame=0x7f02006f;
     }
     public static final class id {
-        public static int abs__action_bar=0x7f060020;
-        public static int abs__action_bar_container=0x7f06001f;
-        public static int abs__action_bar_subtitle=0x7f060011;
-        public static int abs__action_bar_title=0x7f060010;
-        public static int abs__action_context_bar=0x7f060021;
-        public static int abs__action_menu_divider=0x7f06000a;
-        public static int abs__action_menu_presenter=0x7f06000b;
-        public static int abs__action_mode_bar=0x7f060025;
-        public static int abs__action_mode_bar_stub=0x7f060024;
-        public static int abs__action_mode_close_button=0x7f060014;
-        public static int abs__activity_chooser_view_content=0x7f060015;
-        public static int abs__checkbox=0x7f06001c;
-        public static int abs__content=0x7f060022;
-        public static int abs__default_activity_button=0x7f060018;
-        public static int abs__expand_activities_button=0x7f060016;
-        public static int abs__home=0x7f06000c;
-        public static int abs__icon=0x7f06001a;
-        public static int abs__image=0x7f060017;
-        public static int abs__imageButton=0x7f060012;
-        public static int abs__list_item=0x7f060019;
-        public static int abs__progress_circular=0x7f06000d;
-        public static int abs__progress_horizontal=0x7f06000e;
-        public static int abs__radio=0x7f06001d;
-        public static int abs__search_badge=0x7f060028;
-        public static int abs__search_bar=0x7f060027;
-        public static int abs__search_button=0x7f060029;
-        public static int abs__search_close_btn=0x7f06002e;
-        public static int abs__search_edit_frame=0x7f06002a;
-        public static int abs__search_go_btn=0x7f060030;
-        public static int abs__search_mag_icon=0x7f06002b;
-        public static int abs__search_plate=0x7f06002c;
-        public static int abs__search_src_text=0x7f06002d;
-        public static int abs__search_voice_btn=0x7f060031;
-        public static int abs__shortcut=0x7f06001e;
-        public static int abs__split_action_bar=0x7f060023;
-        public static int abs__submit_area=0x7f06002f;
-        public static int abs__textButton=0x7f060013;
-        public static int abs__title=0x7f06001b;
-        public static int abs__up=0x7f06000f;
-        public static int disableHome=0x7f060008;
-        public static int edit_query=0x7f060026;
-        public static int homeAsUp=0x7f060005;
-        public static int listMode=0x7f060001;
-        public static int normal=0x7f060000;
-        public static int showCustom=0x7f060007;
-        public static int showHome=0x7f060004;
-        public static int showTitle=0x7f060006;
-        public static int tabMode=0x7f060002;
-        public static int useLogo=0x7f060003;
-        public static int wrap_content=0x7f060009;
+        public static int abs__action_bar=0x7f070020;
+        public static int abs__action_bar_container=0x7f07001f;
+        public static int abs__action_bar_subtitle=0x7f070011;
+        public static int abs__action_bar_title=0x7f070010;
+        public static int abs__action_context_bar=0x7f070021;
+        public static int abs__action_menu_divider=0x7f070000;
+        public static int abs__action_menu_presenter=0x7f070001;
+        public static int abs__action_mode_bar=0x7f070025;
+        public static int abs__action_mode_bar_stub=0x7f070024;
+        public static int abs__action_mode_close_button=0x7f070014;
+        public static int abs__activity_chooser_view_content=0x7f070015;
+        public static int abs__checkbox=0x7f07001c;
+        public static int abs__content=0x7f070022;
+        public static int abs__default_activity_button=0x7f070018;
+        public static int abs__expand_activities_button=0x7f070016;
+        public static int abs__home=0x7f070002;
+        public static int abs__icon=0x7f07001a;
+        public static int abs__image=0x7f070017;
+        public static int abs__imageButton=0x7f070012;
+        public static int abs__list_item=0x7f070019;
+        public static int abs__progress_circular=0x7f070003;
+        public static int abs__progress_horizontal=0x7f070004;
+        public static int abs__radio=0x7f07001d;
+        public static int abs__search_badge=0x7f070028;
+        public static int abs__search_bar=0x7f070027;
+        public static int abs__search_button=0x7f070029;
+        public static int abs__search_close_btn=0x7f07002e;
+        public static int abs__search_edit_frame=0x7f07002a;
+        public static int abs__search_go_btn=0x7f070030;
+        public static int abs__search_mag_icon=0x7f07002b;
+        public static int abs__search_plate=0x7f07002c;
+        public static int abs__search_src_text=0x7f07002d;
+        public static int abs__search_voice_btn=0x7f070031;
+        public static int abs__shortcut=0x7f07001e;
+        public static int abs__split_action_bar=0x7f070023;
+        public static int abs__submit_area=0x7f07002f;
+        public static int abs__textButton=0x7f070013;
+        public static int abs__title=0x7f07001b;
+        public static int abs__up=0x7f070005;
+        public static int disableHome=0x7f070009;
+        public static int edit_query=0x7f070026;
+        public static int homeAsUp=0x7f07000a;
+        public static int listMode=0x7f070006;
+        public static int normal=0x7f070007;
+        public static int showCustom=0x7f07000b;
+        public static int showHome=0x7f07000c;
+        public static int showTitle=0x7f07000d;
+        public static int tabMode=0x7f070008;
+        public static int useLogo=0x7f07000e;
+        public static int wrap_content=0x7f07000f;
     }
     public static final class integer {
         public static int abs__max_action_buttons=0x7f080000;
@@ -1016,27 +916,25 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockActionBar_background com.actionbarsherlock:background}</code></td><td> Specifies a background drawable for the action bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_backgroundSplit com.actionbarsherlock:backgroundSplit}</code></td><td> Specifies a background drawable for the bottom component of a split action bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_backgroundStacked com.actionbarsherlock:backgroundStacked}</code></td><td> Specifies a background drawable for a second stacked row of the action bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_customNavigationLayout com.actionbarsherlock:customNavigationLayout}</code></td><td> Specifies a layout for custom navigation.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_displayOptions com.actionbarsherlock:displayOptions}</code></td><td> Options affecting how the action bar is displayed.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_divider com.actionbarsherlock:divider}</code></td><td> Specifies the drawable used for item dividers.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_height com.actionbarsherlock:height}</code></td><td> Specifies a fixed height.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_homeLayout com.actionbarsherlock:homeLayout}</code></td><td> Specifies a layout to use for the "home" section of the action bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_icon com.actionbarsherlock:icon}</code></td><td> Specifies the drawable used for the application icon.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_indeterminateProgressStyle com.actionbarsherlock:indeterminateProgressStyle}</code></td><td> Specifies a style resource to use for an indeterminate progress spinner.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_itemPadding com.actionbarsherlock:itemPadding}</code></td><td>
-             Specifies padding that should be applied to the left and right sides of
-             system-provided items in the bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_logo com.actionbarsherlock:logo}</code></td><td> Specifies the drawable used for the application logo.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_navigationMode com.actionbarsherlock:navigationMode}</code></td><td> The type of navigation to use.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_progressBarPadding com.actionbarsherlock:progressBarPadding}</code></td><td> Specifies the horizontal padding on either end for an embedded progress bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_progressBarStyle com.actionbarsherlock:progressBarStyle}</code></td><td> Specifies a style resource to use for an embedded progress bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_subtitle com.actionbarsherlock:subtitle}</code></td><td> Specifies subtitle text used for navigationMode="normal" </td></tr>
-           <tr><td><code>{@link #SherlockActionBar_subtitleTextStyle com.actionbarsherlock:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
-           <tr><td><code>{@link #SherlockActionBar_title com.actionbarsherlock:title}</code></td><td> Specifies title text used for navigationMode="normal" </td></tr>
-           <tr><td><code>{@link #SherlockActionBar_titleTextStyle com.actionbarsherlock:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           <tr><td><code>{@link #SherlockActionBar_background com.actionbarsherlock:background}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_backgroundSplit com.actionbarsherlock:backgroundSplit}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_backgroundStacked com.actionbarsherlock:backgroundStacked}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_customNavigationLayout com.actionbarsherlock:customNavigationLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_displayOptions com.actionbarsherlock:displayOptions}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_divider com.actionbarsherlock:divider}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_height com.actionbarsherlock:height}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_homeLayout com.actionbarsherlock:homeLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_icon com.actionbarsherlock:icon}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_indeterminateProgressStyle com.actionbarsherlock:indeterminateProgressStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_itemPadding com.actionbarsherlock:itemPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_logo com.actionbarsherlock:logo}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_navigationMode com.actionbarsherlock:navigationMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_progressBarPadding com.actionbarsherlock:progressBarPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_progressBarStyle com.actionbarsherlock:progressBarStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_subtitle com.actionbarsherlock:subtitle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_subtitleTextStyle com.actionbarsherlock:subtitleTextStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_title com.actionbarsherlock:title}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionBar_titleTextStyle com.actionbarsherlock:titleTextStyle}</code></td><td></td></tr>
            </table>
            @see #SherlockActionBar_background
            @see #SherlockActionBar_backgroundSplit
@@ -1066,63 +964,54 @@ containing a value of this type.
             0x7f010010, 0x7f010011, 0x7f010012
         };
         /**
-          <p>
-          @attr description
-           Specifies a background drawable for the action bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#background}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:background
         */
-        public static final int SherlockActionBar_background = 0;
+        public static int SherlockActionBar_background = 0;
         /**
-          <p>
-          @attr description
-           Specifies a background drawable for the bottom component of a split action bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#backgroundSplit}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:backgroundSplit
         */
-        public static final int SherlockActionBar_backgroundSplit = 1;
+        public static int SherlockActionBar_backgroundSplit = 1;
         /**
-          <p>
-          @attr description
-           Specifies a background drawable for a second stacked row of the action bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#backgroundStacked}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:backgroundStacked
         */
-        public static final int SherlockActionBar_backgroundStacked = 12;
+        public static int SherlockActionBar_backgroundStacked = 12;
         /**
-          <p>
-          @attr description
-           Specifies a layout for custom navigation. Overrides navigationMode. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#customNavigationLayout}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:customNavigationLayout
         */
-        public static final int SherlockActionBar_customNavigationLayout = 13;
+        public static int SherlockActionBar_customNavigationLayout = 13;
         /**
-          <p>
-          @attr description
-           Options affecting how the action bar is displayed. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#displayOptions}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -1138,26 +1027,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>showCustom</code></td><td>0x10</td><td></td></tr>
 <tr><td><code>disableHome</code></td><td>0x20</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:displayOptions
         */
-        public static final int SherlockActionBar_displayOptions = 7;
+        public static int SherlockActionBar_displayOptions = 7;
         /**
-          <p>
-          @attr description
-           Specifies the drawable used for item dividers. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#divider}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:divider
         */
-        public static final int SherlockActionBar_divider = 2;
+        public static int SherlockActionBar_divider = 2;
         /**
-          <p>
-          @attr description
-           Specifies a fixed height. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#height}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -1168,53 +1053,42 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:height
         */
-        public static final int SherlockActionBar_height = 3;
+        public static int SherlockActionBar_height = 3;
         /**
-          <p>
-          @attr description
-           Specifies a layout to use for the "home" section of the action bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#homeLayout}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:homeLayout
         */
-        public static final int SherlockActionBar_homeLayout = 14;
+        public static int SherlockActionBar_homeLayout = 14;
         /**
-          <p>
-          @attr description
-           Specifies the drawable used for the application icon. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#icon}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:icon
         */
-        public static final int SherlockActionBar_icon = 10;
+        public static int SherlockActionBar_icon = 10;
         /**
-          <p>
-          @attr description
-           Specifies a style resource to use for an indeterminate progress spinner. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#indeterminateProgressStyle}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:indeterminateProgressStyle
         */
-        public static final int SherlockActionBar_indeterminateProgressStyle = 16;
+        public static int SherlockActionBar_indeterminateProgressStyle = 16;
         /**
-          <p>
-          @attr description
-          
-             Specifies padding that should be applied to the left and right sides of
-             system-provided items in the bar.
-        
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#itemPadding}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -1225,26 +1099,22 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:itemPadding
         */
-        public static final int SherlockActionBar_itemPadding = 18;
+        public static int SherlockActionBar_itemPadding = 18;
         /**
-          <p>
-          @attr description
-           Specifies the drawable used for the application logo. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#logo}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:logo
         */
-        public static final int SherlockActionBar_logo = 11;
+        public static int SherlockActionBar_logo = 11;
         /**
-          <p>
-          @attr description
-           The type of navigation to use. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#navigationMode}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -1253,18 +1123,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>normal</code></td><td>0</td><td> Normal static title text </td></tr>
-<tr><td><code>listMode</code></td><td>1</td><td> The action bar will use a selection list for navigation. </td></tr>
-<tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
+<tr><td><code>normal</code></td><td>0</td><td></td></tr>
+<tr><td><code>listMode</code></td><td>1</td><td></td></tr>
+<tr><td><code>tabMode</code></td><td>2</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:navigationMode
         */
-        public static final int SherlockActionBar_navigationMode = 6;
+        public static int SherlockActionBar_navigationMode = 6;
         /**
-          <p>
-          @attr description
-           Specifies the horizontal padding on either end for an embedded progress bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#progressBarPadding}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -1275,26 +1143,22 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:progressBarPadding
         */
-        public static final int SherlockActionBar_progressBarPadding = 17;
+        public static int SherlockActionBar_progressBarPadding = 17;
         /**
-          <p>
-          @attr description
-           Specifies a style resource to use for an embedded progress bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#progressBarStyle}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:progressBarStyle
         */
-        public static final int SherlockActionBar_progressBarStyle = 15;
+        public static int SherlockActionBar_progressBarStyle = 15;
         /**
-          <p>
-          @attr description
-           Specifies subtitle text used for navigationMode="normal" 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#subtitle}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -1303,26 +1167,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:subtitle
         */
-        public static final int SherlockActionBar_subtitle = 9;
+        public static int SherlockActionBar_subtitle = 9;
         /**
-          <p>
-          @attr description
-           Specifies a style to use for subtitle text. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#subtitleTextStyle}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:subtitleTextStyle
         */
-        public static final int SherlockActionBar_subtitleTextStyle = 4;
+        public static int SherlockActionBar_subtitleTextStyle = 4;
         /**
-          <p>
-          @attr description
-           Specifies title text used for navigationMode="normal" 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#title}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -1331,22 +1191,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:title
         */
-        public static final int SherlockActionBar_title = 8;
+        public static int SherlockActionBar_title = 8;
         /**
-          <p>
-          @attr description
-           Specifies a style to use for title text. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#titleTextStyle}
+          attribute's value can be found in the {@link #SherlockActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:titleTextStyle
         */
-        public static final int SherlockActionBar_titleTextStyle = 5;
+        public static int SherlockActionBar_titleTextStyle = 5;
         /** Attributes that can be used with a SherlockActionMenuItemView.
            <p>Includes the following attributes:</p>
            <table>
@@ -1365,18 +1222,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #SherlockActionMenuItemView} array.
           @attr name android:minWidth
         */
-        public static final int SherlockActionMenuItemView_android_minWidth = 0;
+        public static int SherlockActionMenuItemView_android_minWidth = 0;
         /** Attributes that can be used with a SherlockActionMode.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockActionMode_background com.actionbarsherlock:background}</code></td><td> Specifies a background for the action mode bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionMode_backgroundSplit com.actionbarsherlock:backgroundSplit}</code></td><td> Specifies a background for the split action mode bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionMode_height com.actionbarsherlock:height}</code></td><td> Specifies a fixed height for the action mode bar.</td></tr>
-           <tr><td><code>{@link #SherlockActionMode_subtitleTextStyle com.actionbarsherlock:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
-           <tr><td><code>{@link #SherlockActionMode_titleTextStyle com.actionbarsherlock:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           <tr><td><code>{@link #SherlockActionMode_background com.actionbarsherlock:background}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionMode_backgroundSplit com.actionbarsherlock:backgroundSplit}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionMode_height com.actionbarsherlock:height}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionMode_subtitleTextStyle com.actionbarsherlock:subtitleTextStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionMode_titleTextStyle com.actionbarsherlock:titleTextStyle}</code></td><td></td></tr>
            </table>
            @see #SherlockActionMode_background
            @see #SherlockActionMode_backgroundSplit
@@ -1389,37 +1246,32 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010005
         };
         /**
-          <p>
-          @attr description
-           Specifies a background for the action mode bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#background}
+          attribute's value can be found in the {@link #SherlockActionMode} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:background
         */
-        public static final int SherlockActionMode_background = 0;
+        public static int SherlockActionMode_background = 0;
         /**
-          <p>
-          @attr description
-           Specifies a background for the split action mode bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#backgroundSplit}
+          attribute's value can be found in the {@link #SherlockActionMode} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:backgroundSplit
         */
-        public static final int SherlockActionMode_backgroundSplit = 1;
+        public static int SherlockActionMode_backgroundSplit = 1;
         /**
-          <p>
-          @attr description
-           Specifies a fixed height for the action mode bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#height}
+          attribute's value can be found in the {@link #SherlockActionMode} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -1430,34 +1282,29 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:height
         */
-        public static final int SherlockActionMode_height = 2;
+        public static int SherlockActionMode_height = 2;
         /**
-          <p>
-          @attr description
-           Specifies a style to use for subtitle text. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#subtitleTextStyle}
+          attribute's value can be found in the {@link #SherlockActionMode} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:subtitleTextStyle
         */
-        public static final int SherlockActionMode_subtitleTextStyle = 3;
+        public static int SherlockActionMode_subtitleTextStyle = 3;
         /**
-          <p>
-          @attr description
-           Specifies a style to use for title text. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#titleTextStyle}
+          attribute's value can be found in the {@link #SherlockActionMode} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:titleTextStyle
         */
-        public static final int SherlockActionMode_titleTextStyle = 4;
+        public static int SherlockActionMode_titleTextStyle = 4;
         /** Attributes that can be used with a SherlockActivityChooserView.
            <p>Includes the following attributes:</p>
            <table>
@@ -1465,9 +1312,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #SherlockActivityChooserView_android_background android:background}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockActivityChooserView_expandActivityOverflowButtonDrawable com.actionbarsherlock:expandActivityOverflowButtonDrawable}</code></td><td>
-             The drawable to show in the button for expanding the activities overflow popup.</td></tr>
-           <tr><td><code>{@link #SherlockActivityChooserView_initialActivityCount com.actionbarsherlock:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
+           <tr><td><code>{@link #SherlockActivityChooserView_expandActivityOverflowButtonDrawable com.actionbarsherlock:expandActivityOverflowButtonDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActivityChooserView_initialActivityCount com.actionbarsherlock:initialActivityCount}</code></td><td></td></tr>
            </table>
            @see #SherlockActivityChooserView_android_background
            @see #SherlockActivityChooserView_expandActivityOverflowButtonDrawable
@@ -1481,29 +1327,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #SherlockActivityChooserView} array.
           @attr name android:background
         */
-        public static final int SherlockActivityChooserView_android_background = 0;
+        public static int SherlockActivityChooserView_android_background = 0;
         /**
-          <p>
-          @attr description
-          
-             The drawable to show in the button for expanding the activities overflow popup.
-             <strong>Note:</strong> Clients would like to set this drawable
-             as a clue about the action the chosen activity will perform. For
-             example, if share activity is to be chosen the drawable should
-             give a clue that sharing is to be performed.
-        
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#expandActivityOverflowButtonDrawable}
+          attribute's value can be found in the {@link #SherlockActivityChooserView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:expandActivityOverflowButtonDrawable
         */
-        public static final int SherlockActivityChooserView_expandActivityOverflowButtonDrawable = 2;
+        public static int SherlockActivityChooserView_expandActivityOverflowButtonDrawable = 2;
         /**
-          <p>
-          @attr description
-           The maximal number of items initially shown in the activity list. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#initialActivityCount}
+          attribute's value can be found in the {@link #SherlockActivityChooserView} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -1512,24 +1349,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:initialActivityCount
         */
-        public static final int SherlockActivityChooserView_initialActivityCount = 1;
+        public static int SherlockActivityChooserView_initialActivityCount = 1;
         /** Attributes that can be used with a SherlockMenuGroup.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_checkableBehavior android:checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_enabled android:enabled}</code></td><td> Whether the items are enabled.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_id android:id}</code></td><td> The ID of the group.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_menuCategory android:menuCategory}</code></td><td>
-             The category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_orderInCategory android:orderInCategory}</code></td><td>
-             The order within the category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_visible android:visible}</code></td><td> Whether the items are shown/visible.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_checkableBehavior android:checkableBehavior}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_enabled android:enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_id android:id}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_menuCategory android:menuCategory}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_orderInCategory android:orderInCategory}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_visible android:visible}</code></td><td></td></tr>
            </table>
            @see #SherlockMenuGroup_android_checkableBehavior
            @see #SherlockMenuGroup_android_enabled
@@ -1543,102 +1377,64 @@ containing a value of this type.
             0x010101df, 0x010101e0
         };
         /**
-          <p>
-          @attr description
-           Whether the items are capable of displaying a check mark. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#checkableBehavior}.
+          <p>This symbol is the offset where the {@link android.R.attr#checkableBehavior}
+          attribute's value can be found in the {@link #SherlockMenuGroup} array.
           @attr name android:checkableBehavior
         */
-        public static final int SherlockMenuGroup_android_checkableBehavior = 5;
+        public static int SherlockMenuGroup_android_checkableBehavior = 5;
         /**
-          <p>
-          @attr description
-           Whether the items are enabled. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#enabled}.
+          <p>This symbol is the offset where the {@link android.R.attr#enabled}
+          attribute's value can be found in the {@link #SherlockMenuGroup} array.
           @attr name android:enabled
         */
-        public static final int SherlockMenuGroup_android_enabled = 0;
+        public static int SherlockMenuGroup_android_enabled = 0;
         /**
-          <p>
-          @attr description
-           The ID of the group. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#id}.
+          <p>This symbol is the offset where the {@link android.R.attr#id}
+          attribute's value can be found in the {@link #SherlockMenuGroup} array.
           @attr name android:id
         */
-        public static final int SherlockMenuGroup_android_id = 1;
+        public static int SherlockMenuGroup_android_id = 1;
         /**
-          <p>
-          @attr description
-          
-             The category applied to all items within this group.
-             (This will be or'ed with the orderInCategory attribute.)
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#menuCategory}.
+          <p>This symbol is the offset where the {@link android.R.attr#menuCategory}
+          attribute's value can be found in the {@link #SherlockMenuGroup} array.
           @attr name android:menuCategory
         */
-        public static final int SherlockMenuGroup_android_menuCategory = 3;
+        public static int SherlockMenuGroup_android_menuCategory = 3;
         /**
-          <p>
-          @attr description
-          
-             The order within the category applied to all items within this group.
-             (This will be or'ed with the category attribute.)
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#orderInCategory}.
+          <p>This symbol is the offset where the {@link android.R.attr#orderInCategory}
+          attribute's value can be found in the {@link #SherlockMenuGroup} array.
           @attr name android:orderInCategory
         */
-        public static final int SherlockMenuGroup_android_orderInCategory = 4;
+        public static int SherlockMenuGroup_android_orderInCategory = 4;
         /**
-          <p>
-          @attr description
-           Whether the items are shown/visible. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#visible}.
+          <p>This symbol is the offset where the {@link android.R.attr#visible}
+          attribute's value can be found in the {@link #SherlockMenuGroup} array.
           @attr name android:visible
         */
-        public static final int SherlockMenuGroup_android_visible = 2;
+        public static int SherlockMenuGroup_android_visible = 2;
         /** Attributes that can be used with a SherlockMenuItem.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_actionLayout android:actionLayout}</code></td><td>
-             An optional layout to be used as an action view.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_actionProviderClass android:actionProviderClass}</code></td><td>
-             The name of an optional ActionProvider class to instantiate an action view
-             and perform operations such as default action for that menu item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_actionViewClass android:actionViewClass}</code></td><td>
-             The name of an optional View class to instantiate and use as an
-             action view.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td>
-             The alphabetic shortcut key.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_checkable android:checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_checked android:checked}</code></td><td>
-             Whether the item is checked.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_enabled android:enabled}</code></td><td> Whether the item is enabled.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_icon android:icon}</code></td><td>
-             The icon associated with this item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_id android:id}</code></td><td> The ID of the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_menuCategory android:menuCategory}</code></td><td>
-             The category applied to the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_numericShortcut android:numericShortcut}</code></td><td>
-             The numeric shortcut key.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_onClick android:onClick}</code></td><td>
-             Name of a method on the Context used to inflate the menu that will be
-             called when the item is clicked.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_orderInCategory android:orderInCategory}</code></td><td>
-             The order within the category applied to the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_showAsAction android:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_title android:title}</code></td><td> The title associated with the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_titleCondensed android:titleCondensed}</code></td><td>
-             The condensed title associated with the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_visible android:visible}</code></td><td> Whether the item is shown/visible.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_actionLayout android:actionLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_actionProviderClass android:actionProviderClass}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_actionViewClass android:actionViewClass}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_checkable android:checkable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_checked android:checked}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_enabled android:enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_icon android:icon}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_id android:id}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_menuCategory android:menuCategory}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_numericShortcut android:numericShortcut}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_onClick android:onClick}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_orderInCategory android:orderInCategory}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_showAsAction android:showAsAction}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_title android:title}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_titleCondensed android:titleCondensed}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_visible android:visible}</code></td><td></td></tr>
            </table>
            @see #SherlockMenuItem_android_actionLayout
            @see #SherlockMenuItem_android_actionProviderClass
@@ -1666,209 +1462,121 @@ containing a value of this type.
             0x01010389
         };
         /**
-          <p>
-          @attr description
-          
-             An optional layout to be used as an action view.
-             See {@link android.view.MenuItem#setActionView(android.view.View)}
-             for more info.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#actionLayout}.
+          <p>This symbol is the offset where the {@link android.R.attr#actionLayout}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:actionLayout
         */
-        public static final int SherlockMenuItem_android_actionLayout = 14;
+        public static int SherlockMenuItem_android_actionLayout = 14;
         /**
-          <p>
-          @attr description
-          
-             The name of an optional ActionProvider class to instantiate an action view
-             and perform operations such as default action for that menu item.
-             See {@link android.view.MenuItem#setActionProvider(android.view.ActionProvider)}
-             for more info.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#actionProviderClass}.
+          <p>This symbol is the offset where the {@link android.R.attr#actionProviderClass}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:actionProviderClass
         */
-        public static final int SherlockMenuItem_android_actionProviderClass = 16;
+        public static int SherlockMenuItem_android_actionProviderClass = 16;
         /**
-          <p>
-          @attr description
-          
-             The name of an optional View class to instantiate and use as an
-             action view. See {@link android.view.MenuItem#setActionView(android.view.View)}
-             for more info.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#actionViewClass}.
+          <p>This symbol is the offset where the {@link android.R.attr#actionViewClass}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:actionViewClass
         */
-        public static final int SherlockMenuItem_android_actionViewClass = 15;
+        public static int SherlockMenuItem_android_actionViewClass = 15;
         /**
-          <p>
-          @attr description
-          
-             The alphabetic shortcut key.  This is the shortcut when using a keyboard
-             with alphabetic keys.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#alphabeticShortcut}.
+          <p>This symbol is the offset where the {@link android.R.attr#alphabeticShortcut}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:alphabeticShortcut
         */
-        public static final int SherlockMenuItem_android_alphabeticShortcut = 9;
+        public static int SherlockMenuItem_android_alphabeticShortcut = 9;
         /**
-          <p>
-          @attr description
-           Whether the item is capable of displaying a check mark. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#checkable}.
+          <p>This symbol is the offset where the {@link android.R.attr#checkable}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:checkable
         */
-        public static final int SherlockMenuItem_android_checkable = 11;
+        public static int SherlockMenuItem_android_checkable = 11;
         /**
-          <p>
-          @attr description
-          
-             Whether the item is checked.  Note that you must first have enabled checking with
-             the checkable attribute or else the check mark will not appear.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#checked}.
+          <p>This symbol is the offset where the {@link android.R.attr#checked}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:checked
         */
-        public static final int SherlockMenuItem_android_checked = 3;
+        public static int SherlockMenuItem_android_checked = 3;
         /**
-          <p>
-          @attr description
-           Whether the item is enabled. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#enabled}.
+          <p>This symbol is the offset where the {@link android.R.attr#enabled}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:enabled
         */
-        public static final int SherlockMenuItem_android_enabled = 1;
+        public static int SherlockMenuItem_android_enabled = 1;
         /**
-          <p>
-          @attr description
-          
-             The icon associated with this item.  This icon will not always be shown, so
-             the title should be sufficient in describing this item.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#icon}.
+          <p>This symbol is the offset where the {@link android.R.attr#icon}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:icon
         */
-        public static final int SherlockMenuItem_android_icon = 0;
+        public static int SherlockMenuItem_android_icon = 0;
         /**
-          <p>
-          @attr description
-           The ID of the item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#id}.
+          <p>This symbol is the offset where the {@link android.R.attr#id}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:id
         */
-        public static final int SherlockMenuItem_android_id = 2;
+        public static int SherlockMenuItem_android_id = 2;
         /**
-          <p>
-          @attr description
-          
-             The category applied to the item.
-             (This will be or'ed with the orderInCategory attribute.)
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#menuCategory}.
+          <p>This symbol is the offset where the {@link android.R.attr#menuCategory}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:menuCategory
         */
-        public static final int SherlockMenuItem_android_menuCategory = 5;
+        public static int SherlockMenuItem_android_menuCategory = 5;
         /**
-          <p>
-          @attr description
-          
-             The numeric shortcut key.  This is the shortcut when using a numeric (e.g., 12-key)
-             keyboard.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#numericShortcut}.
+          <p>This symbol is the offset where the {@link android.R.attr#numericShortcut}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:numericShortcut
         */
-        public static final int SherlockMenuItem_android_numericShortcut = 10;
+        public static int SherlockMenuItem_android_numericShortcut = 10;
         /**
-          <p>
-          @attr description
-          
-             Name of a method on the Context used to inflate the menu that will be
-             called when the item is clicked.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#onClick}.
+          <p>This symbol is the offset where the {@link android.R.attr#onClick}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:onClick
         */
-        public static final int SherlockMenuItem_android_onClick = 12;
+        public static int SherlockMenuItem_android_onClick = 12;
         /**
-          <p>
-          @attr description
-          
-             The order within the category applied to the item.
-             (This will be or'ed with the category attribute.)
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#orderInCategory}.
+          <p>This symbol is the offset where the {@link android.R.attr#orderInCategory}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:orderInCategory
         */
-        public static final int SherlockMenuItem_android_orderInCategory = 6;
+        public static int SherlockMenuItem_android_orderInCategory = 6;
         /**
-          <p>
-          @attr description
-           How this item should display in the Action Bar, if present. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#showAsAction}.
+          <p>This symbol is the offset where the {@link android.R.attr#showAsAction}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:showAsAction
         */
-        public static final int SherlockMenuItem_android_showAsAction = 13;
+        public static int SherlockMenuItem_android_showAsAction = 13;
         /**
-          <p>
-          @attr description
-           The title associated with the item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#title}.
+          <p>This symbol is the offset where the {@link android.R.attr#title}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:title
         */
-        public static final int SherlockMenuItem_android_title = 7;
+        public static int SherlockMenuItem_android_title = 7;
         /**
-          <p>
-          @attr description
-          
-             The condensed title associated with the item.  This is used in situations where the
-             normal title may be too long to be displayed.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#titleCondensed}.
+          <p>This symbol is the offset where the {@link android.R.attr#titleCondensed}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:titleCondensed
         */
-        public static final int SherlockMenuItem_android_titleCondensed = 8;
+        public static int SherlockMenuItem_android_titleCondensed = 8;
         /**
-          <p>
-          @attr description
-           Whether the item is shown/visible. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#visible}.
+          <p>This symbol is the offset where the {@link android.R.attr#visible}
+          attribute's value can be found in the {@link #SherlockMenuItem} array.
           @attr name android:visible
         */
-        public static final int SherlockMenuItem_android_visible = 4;
+        public static int SherlockMenuItem_android_visible = 4;
         /** Attributes that can be used with a SherlockMenuView.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockMenuView_headerBackground com.actionbarsherlock:headerBackground}</code></td><td> Default background for the menu header.</td></tr>
-           <tr><td><code>{@link #SherlockMenuView_horizontalDivider com.actionbarsherlock:horizontalDivider}</code></td><td> Default horizontal divider between rows of menu items.</td></tr>
-           <tr><td><code>{@link #SherlockMenuView_itemBackground com.actionbarsherlock:itemBackground}</code></td><td> Default background for each menu item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuView_itemIconDisabledAlpha com.actionbarsherlock:itemIconDisabledAlpha}</code></td><td> Default disabled icon alpha for each menu item that shows an icon.</td></tr>
-           <tr><td><code>{@link #SherlockMenuView_itemTextAppearance com.actionbarsherlock:itemTextAppearance}</code></td><td> Default appearance of menu item text.</td></tr>
-           <tr><td><code>{@link #SherlockMenuView_preserveIconSpacing com.actionbarsherlock:preserveIconSpacing}</code></td><td> Whether space should be reserved in layout when an icon is missing.</td></tr>
-           <tr><td><code>{@link #SherlockMenuView_verticalDivider com.actionbarsherlock:verticalDivider}</code></td><td> Default vertical divider between menu items.</td></tr>
-           <tr><td><code>{@link #SherlockMenuView_windowAnimationStyle com.actionbarsherlock:windowAnimationStyle}</code></td><td> Default animations for the menu.</td></tr>
+           <tr><td><code>{@link #SherlockMenuView_headerBackground com.actionbarsherlock:headerBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuView_horizontalDivider com.actionbarsherlock:horizontalDivider}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuView_itemBackground com.actionbarsherlock:itemBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuView_itemIconDisabledAlpha com.actionbarsherlock:itemIconDisabledAlpha}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuView_itemTextAppearance com.actionbarsherlock:itemTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuView_preserveIconSpacing com.actionbarsherlock:preserveIconSpacing}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuView_verticalDivider com.actionbarsherlock:verticalDivider}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockMenuView_windowAnimationStyle com.actionbarsherlock:windowAnimationStyle}</code></td><td></td></tr>
            </table>
            @see #SherlockMenuView_headerBackground
            @see #SherlockMenuView_horizontalDivider
@@ -1884,49 +1592,42 @@ containing a value of this type.
             0x7f010019, 0x7f01001a, 0x7f01001b, 0x7f01001c
         };
         /**
-          <p>
-          @attr description
-           Default background for the menu header. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#headerBackground}
+          attribute's value can be found in the {@link #SherlockMenuView} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:headerBackground
         */
-        public static final int SherlockMenuView_headerBackground = 3;
+        public static int SherlockMenuView_headerBackground = 3;
         /**
-          <p>
-          @attr description
-           Default horizontal divider between rows of menu items. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#horizontalDivider}
+          attribute's value can be found in the {@link #SherlockMenuView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:horizontalDivider
         */
-        public static final int SherlockMenuView_horizontalDivider = 1;
+        public static int SherlockMenuView_horizontalDivider = 1;
         /**
-          <p>
-          @attr description
-           Default background for each menu item. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#itemBackground}
+          attribute's value can be found in the {@link #SherlockMenuView} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:itemBackground
         */
-        public static final int SherlockMenuView_itemBackground = 4;
+        public static int SherlockMenuView_itemBackground = 4;
         /**
-          <p>
-          @attr description
-           Default disabled icon alpha for each menu item that shows an icon. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#itemIconDisabledAlpha}
+          attribute's value can be found in the {@link #SherlockMenuView} array.
 
 
           <p>Must be a floating point value, such as "<code>1.2</code>".
@@ -1935,26 +1636,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:itemIconDisabledAlpha
         */
-        public static final int SherlockMenuView_itemIconDisabledAlpha = 6;
+        public static int SherlockMenuView_itemIconDisabledAlpha = 6;
         /**
-          <p>
-          @attr description
-           Default appearance of menu item text. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#itemTextAppearance}
+          attribute's value can be found in the {@link #SherlockMenuView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:itemTextAppearance
         */
-        public static final int SherlockMenuView_itemTextAppearance = 0;
+        public static int SherlockMenuView_itemTextAppearance = 0;
         /**
-          <p>
-          @attr description
-           Whether space should be reserved in layout when an icon is missing. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#preserveIconSpacing}
+          attribute's value can be found in the {@link #SherlockMenuView} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -1963,46 +1660,40 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:preserveIconSpacing
         */
-        public static final int SherlockMenuView_preserveIconSpacing = 7;
+        public static int SherlockMenuView_preserveIconSpacing = 7;
         /**
-          <p>
-          @attr description
-           Default vertical divider between menu items. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#verticalDivider}
+          attribute's value can be found in the {@link #SherlockMenuView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:verticalDivider
         */
-        public static final int SherlockMenuView_verticalDivider = 2;
+        public static int SherlockMenuView_verticalDivider = 2;
         /**
-          <p>
-          @attr description
-           Default animations for the menu. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#windowAnimationStyle}
+          attribute's value can be found in the {@link #SherlockMenuView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:windowAnimationStyle
         */
-        public static final int SherlockMenuView_windowAnimationStyle = 5;
+        public static int SherlockMenuView_windowAnimationStyle = 5;
         /** Attributes that can be used with a SherlockSearchView.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockSearchView_android_imeOptions android:imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SherlockSearchView_android_inputType android:inputType}</code></td><td> The input type to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SherlockSearchView_android_maxWidth android:maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
-           <tr><td><code>{@link #SherlockSearchView_iconifiedByDefault com.actionbarsherlock:iconifiedByDefault}</code></td><td>
-             The default state of the SearchView.</td></tr>
-           <tr><td><code>{@link #SherlockSearchView_queryHint com.actionbarsherlock:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
+           <tr><td><code>{@link #SherlockSearchView_android_imeOptions android:imeOptions}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSearchView_android_inputType android:inputType}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSearchView_android_maxWidth android:maxWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSearchView_iconifiedByDefault com.actionbarsherlock:iconifiedByDefault}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSearchView_queryHint com.actionbarsherlock:queryHint}</code></td><td></td></tr>
            </table>
            @see #SherlockSearchView_android_imeOptions
            @see #SherlockSearchView_android_inputType
@@ -2015,39 +1706,26 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f01001e
         };
         /**
-          <p>
-          @attr description
-           The IME options to set on the query text field. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#imeOptions}.
+          <p>This symbol is the offset where the {@link android.R.attr#imeOptions}
+          attribute's value can be found in the {@link #SherlockSearchView} array.
           @attr name android:imeOptions
         */
-        public static final int SherlockSearchView_android_imeOptions = 2;
+        public static int SherlockSearchView_android_imeOptions = 2;
         /**
-          <p>
-          @attr description
-           The input type to set on the query text field. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#inputType}.
+          <p>This symbol is the offset where the {@link android.R.attr#inputType}
+          attribute's value can be found in the {@link #SherlockSearchView} array.
           @attr name android:inputType
         */
-        public static final int SherlockSearchView_android_inputType = 1;
+        public static int SherlockSearchView_android_inputType = 1;
         /**
-          <p>
-          @attr description
-           An optional maximum width of the SearchView. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#maxWidth}.
+          <p>This symbol is the offset where the {@link android.R.attr#maxWidth}
+          attribute's value can be found in the {@link #SherlockSearchView} array.
           @attr name android:maxWidth
         */
-        public static final int SherlockSearchView_android_maxWidth = 0;
+        public static int SherlockSearchView_android_maxWidth = 0;
         /**
-          <p>
-          @attr description
-          
-             The default state of the SearchView. If true, it will be iconified when not in
-             use and expanded when clicked.
-        
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#iconifiedByDefault}
+          attribute's value can be found in the {@link #SherlockSearchView} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -2056,14 +1734,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:iconifiedByDefault
         */
-        public static final int SherlockSearchView_iconifiedByDefault = 3;
+        public static int SherlockSearchView_iconifiedByDefault = 3;
         /**
-          <p>
-          @attr description
-           An optional query hint string to be displayed in the empty query field. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#queryHint}
+          attribute's value can be found in the {@link #SherlockSearchView} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -2072,30 +1748,23 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:queryHint
         */
-        public static final int SherlockSearchView_queryHint = 4;
+        public static int SherlockSearchView_queryHint = 4;
         /** Attributes that can be used with a SherlockSpinner.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownHorizontalOffset android:dropDownHorizontalOffset}</code></td><td>
-             Horizontal offset from the spinner widget for positioning the dropdown
-             in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownSelector android:dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownVerticalOffset android:dropDownVerticalOffset}</code></td><td>
-             Vertical offset from the spinner widget for positioning the dropdown in
-             spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownWidth android:dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_gravity android:gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_popupBackground android:popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_popupPromptView android:popupPromptView}</code></td><td>
-             Reference to a layout to use for displaying a prompt in the dropdown for
-             spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_prompt android:prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownHorizontalOffset android:dropDownHorizontalOffset}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownSelector android:dropDownSelector}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownVerticalOffset android:dropDownVerticalOffset}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownWidth android:dropDownWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_gravity android:gravity}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_popupBackground android:popupBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_popupPromptView android:popupPromptView}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_prompt android:prompt}</code></td><td></td></tr>
            </table>
            @see #SherlockSpinner_android_dropDownHorizontalOffset
            @see #SherlockSpinner_android_dropDownSelector
@@ -2111,164 +1780,122 @@ containing a value of this type.
             0x01010262, 0x010102ac, 0x010102ad, 0x01010411
         };
         /**
-          <p>
-          @attr description
-          
-             Horizontal offset from the spinner widget for positioning the dropdown
-             in spinnerMode="dropdown".
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownHorizontalOffset}.
+          <p>This symbol is the offset where the {@link android.R.attr#dropDownHorizontalOffset}
+          attribute's value can be found in the {@link #SherlockSpinner} array.
           @attr name android:dropDownHorizontalOffset
         */
-        public static final int SherlockSpinner_android_dropDownHorizontalOffset = 5;
+        public static int SherlockSpinner_android_dropDownHorizontalOffset = 5;
         /**
-          <p>
-          @attr description
-           List selector to use for spinnerMode="dropdown" display. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownSelector}.
+          <p>This symbol is the offset where the {@link android.R.attr#dropDownSelector}
+          attribute's value can be found in the {@link #SherlockSpinner} array.
           @attr name android:dropDownSelector
         */
-        public static final int SherlockSpinner_android_dropDownSelector = 1;
+        public static int SherlockSpinner_android_dropDownSelector = 1;
         /**
-          <p>
-          @attr description
-          
-             Vertical offset from the spinner widget for positioning the dropdown in
-             spinnerMode="dropdown".
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownVerticalOffset}.
+          <p>This symbol is the offset where the {@link android.R.attr#dropDownVerticalOffset}
+          attribute's value can be found in the {@link #SherlockSpinner} array.
           @attr name android:dropDownVerticalOffset
         */
-        public static final int SherlockSpinner_android_dropDownVerticalOffset = 6;
+        public static int SherlockSpinner_android_dropDownVerticalOffset = 6;
         /**
-          <p>
-          @attr description
-           Width of the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownWidth}.
+          <p>This symbol is the offset where the {@link android.R.attr#dropDownWidth}
+          attribute's value can be found in the {@link #SherlockSpinner} array.
           @attr name android:dropDownWidth
         */
-        public static final int SherlockSpinner_android_dropDownWidth = 4;
+        public static int SherlockSpinner_android_dropDownWidth = 4;
         /**
-          <p>
-          @attr description
-           Gravity setting for positioning the currently selected item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#gravity}.
+          <p>This symbol is the offset where the {@link android.R.attr#gravity}
+          attribute's value can be found in the {@link #SherlockSpinner} array.
           @attr name android:gravity
         */
-        public static final int SherlockSpinner_android_gravity = 0;
+        public static int SherlockSpinner_android_gravity = 0;
         /**
-          <p>
-          @attr description
-           Background drawable to use for the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#popupBackground}.
+          <p>This symbol is the offset where the {@link android.R.attr#popupBackground}
+          attribute's value can be found in the {@link #SherlockSpinner} array.
           @attr name android:popupBackground
         */
-        public static final int SherlockSpinner_android_popupBackground = 2;
+        public static int SherlockSpinner_android_popupBackground = 2;
         /**
-          <p>
-          @attr description
-          
-             Reference to a layout to use for displaying a prompt in the dropdown for
-             spinnerMode="dropdown". This layout must contain a TextView with the id
-             @android:id/text1 to be populated with the prompt text.
-        
-          <p>This is a private symbol.
+          <p>This symbol is the offset where the {@link android.R.attr#popupPromptView}
+          attribute's value can be found in the {@link #SherlockSpinner} array.
           @attr name android:popupPromptView
         */
-        public static final int SherlockSpinner_android_popupPromptView = 7;
+        public static int SherlockSpinner_android_popupPromptView = 7;
         /**
-          <p>
-          @attr description
-           The prompt to display when the spinner's dialog is shown. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#prompt}.
+          <p>This symbol is the offset where the {@link android.R.attr#prompt}
+          attribute's value can be found in the {@link #SherlockSpinner} array.
           @attr name android:prompt
         */
-        public static final int SherlockSpinner_android_prompt = 3;
+        public static int SherlockSpinner_android_prompt = 3;
         /** Attributes that can be used with a SherlockTheme.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockTheme_actionBarDivider com.actionbarsherlock:actionBarDivider}</code></td><td> Custom divider drawable to use for elements in the action bar.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionBarItemBackground com.actionbarsherlock:actionBarItemBackground}</code></td><td> Custom item state list drawable background for action bar items.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionBarSize com.actionbarsherlock:actionBarSize}</code></td><td>
-             Size of the Action Bar, including the contextual
-             bar used to present Action Modes.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionBarSplitStyle com.actionbarsherlock:actionBarSplitStyle}</code></td><td>
-             Reference to a style for the split Action Bar.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionBarStyle com.actionbarsherlock:actionBarStyle}</code></td><td> Reference to a style for the Action Bar </td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionBarDivider com.actionbarsherlock:actionBarDivider}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionBarItemBackground com.actionbarsherlock:actionBarItemBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionBarSize com.actionbarsherlock:actionBarSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionBarSplitStyle com.actionbarsherlock:actionBarSplitStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionBarStyle com.actionbarsherlock:actionBarStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_actionBarTabBarStyle com.actionbarsherlock:actionBarTabBarStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionBarTabStyle com.actionbarsherlock:actionBarTabStyle}</code></td><td> Default style for tabs within an action bar </td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionBarTabStyle com.actionbarsherlock:actionBarTabStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_actionBarTabTextStyle com.actionbarsherlock:actionBarTabTextStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionBarWidgetTheme com.actionbarsherlock:actionBarWidgetTheme}</code></td><td>
-             Reference to a theme that should be used to inflate widgets
-             and layouts destined for the action bar.</td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionBarWidgetTheme com.actionbarsherlock:actionBarWidgetTheme}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_actionButtonStyle com.actionbarsherlock:actionButtonStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_actionDropDownStyle com.actionbarsherlock:actionDropDownStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionMenuTextAppearance com.actionbarsherlock:actionMenuTextAppearance}</code></td><td>
-             TextAppearance style that will be applied to text that
-             appears within action menu items.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionMenuTextColor com.actionbarsherlock:actionMenuTextColor}</code></td><td> Color for text that appears within action menu items.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionModeBackground com.actionbarsherlock:actionModeBackground}</code></td><td> Background drawable to use for action mode UI </td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionMenuTextAppearance com.actionbarsherlock:actionMenuTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionMenuTextColor com.actionbarsherlock:actionMenuTextColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionModeBackground com.actionbarsherlock:actionModeBackground}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_actionModeCloseButtonStyle com.actionbarsherlock:actionModeCloseButtonStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionModeCloseDrawable com.actionbarsherlock:actionModeCloseDrawable}</code></td><td> Drawable to use for the close action mode button </td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionModePopupWindowStyle com.actionbarsherlock:actionModePopupWindowStyle}</code></td><td> PopupWindow style to use for action modes when showing as a window overlay.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionModeShareDrawable com.actionbarsherlock:actionModeShareDrawable}</code></td><td> Drawable to use for the Share action button in WebView selection action modes </td></tr>
-           <tr><td><code>{@link #SherlockTheme_actionModeSplitBackground com.actionbarsherlock:actionModeSplitBackground}</code></td><td> Background drawable to use for action mode UI in the lower split bar </td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionModeCloseDrawable com.actionbarsherlock:actionModeCloseDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionModePopupWindowStyle com.actionbarsherlock:actionModePopupWindowStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionModeShareDrawable com.actionbarsherlock:actionModeShareDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_actionModeSplitBackground com.actionbarsherlock:actionModeSplitBackground}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_actionModeStyle com.actionbarsherlock:actionModeStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_actionOverflowButtonStyle com.actionbarsherlock:actionOverflowButtonStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_actionSpinnerItemStyle com.actionbarsherlock:actionSpinnerItemStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_activatedBackgroundIndicator com.actionbarsherlock:activatedBackgroundIndicator}</code></td><td> Drawable used as a background for activated items.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_activityChooserViewStyle com.actionbarsherlock:activityChooserViewStyle}</code></td><td> Default ActivityChooserView style.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_buttonStyleSmall com.actionbarsherlock:buttonStyleSmall}</code></td><td> Small Button style.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_dividerVertical com.actionbarsherlock:dividerVertical}</code></td><td> Drawable to use for generic vertical dividers.</td></tr>
+           <tr><td><code>{@link #SherlockTheme_activatedBackgroundIndicator com.actionbarsherlock:activatedBackgroundIndicator}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_activityChooserViewStyle com.actionbarsherlock:activityChooserViewStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_buttonStyleSmall com.actionbarsherlock:buttonStyleSmall}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_dividerVertical com.actionbarsherlock:dividerVertical}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_dropDownHintAppearance com.actionbarsherlock:dropDownHintAppearance}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_dropDownListViewStyle com.actionbarsherlock:dropDownListViewStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_dropdownListPreferredItemHeight com.actionbarsherlock:dropdownListPreferredItemHeight}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_homeAsUpIndicator com.actionbarsherlock:homeAsUpIndicator}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_listPopupWindowStyle com.actionbarsherlock:listPopupWindowStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_listPreferredItemHeightSmall com.actionbarsherlock:listPreferredItemHeightSmall}</code></td><td> A smaller, sleeker list item height.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_listPreferredItemPaddingLeft com.actionbarsherlock:listPreferredItemPaddingLeft}</code></td><td> The preferred padding along the left edge of list items.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_listPreferredItemPaddingRight com.actionbarsherlock:listPreferredItemPaddingRight}</code></td><td> The preferred padding along the right edge of list items.</td></tr>
+           <tr><td><code>{@link #SherlockTheme_listPreferredItemHeightSmall com.actionbarsherlock:listPreferredItemHeightSmall}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_listPreferredItemPaddingLeft com.actionbarsherlock:listPreferredItemPaddingLeft}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_listPreferredItemPaddingRight com.actionbarsherlock:listPreferredItemPaddingRight}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_popupMenuStyle com.actionbarsherlock:popupMenuStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchAutoCompleteTextView com.actionbarsherlock:searchAutoCompleteTextView}</code></td><td> SearchView AutoCompleteTextView style </td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchDropdownBackground com.actionbarsherlock:searchDropdownBackground}</code></td><td> SearchView dropdown background </td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchResultListItemHeight com.actionbarsherlock:searchResultListItemHeight}</code></td><td> The list item height for search results.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchViewCloseIcon com.actionbarsherlock:searchViewCloseIcon}</code></td><td> SearchView close button icon </td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchViewEditQuery com.actionbarsherlock:searchViewEditQuery}</code></td><td> SearchView query refinement icon </td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchViewEditQueryBackground com.actionbarsherlock:searchViewEditQueryBackground}</code></td><td> SearchView query refinement icon background </td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchViewGoIcon com.actionbarsherlock:searchViewGoIcon}</code></td><td> SearchView Go button icon </td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchViewSearchIcon com.actionbarsherlock:searchViewSearchIcon}</code></td><td> SearchView Search icon </td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchViewTextField com.actionbarsherlock:searchViewTextField}</code></td><td> SearchView text field background for the left section </td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchViewTextFieldRight com.actionbarsherlock:searchViewTextFieldRight}</code></td><td> SearchView text field background for the right section </td></tr>
-           <tr><td><code>{@link #SherlockTheme_searchViewVoiceIcon com.actionbarsherlock:searchViewVoiceIcon}</code></td><td> SearchView Voice button icon </td></tr>
-           <tr><td><code>{@link #SherlockTheme_selectableItemBackground com.actionbarsherlock:selectableItemBackground}</code></td><td> Background drawable for standalone items that need focus/pressed states.</td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchAutoCompleteTextView com.actionbarsherlock:searchAutoCompleteTextView}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchDropdownBackground com.actionbarsherlock:searchDropdownBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchResultListItemHeight com.actionbarsherlock:searchResultListItemHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchViewCloseIcon com.actionbarsherlock:searchViewCloseIcon}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchViewEditQuery com.actionbarsherlock:searchViewEditQuery}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchViewEditQueryBackground com.actionbarsherlock:searchViewEditQueryBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchViewGoIcon com.actionbarsherlock:searchViewGoIcon}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchViewSearchIcon com.actionbarsherlock:searchViewSearchIcon}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchViewTextField com.actionbarsherlock:searchViewTextField}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchViewTextFieldRight com.actionbarsherlock:searchViewTextFieldRight}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_searchViewVoiceIcon com.actionbarsherlock:searchViewVoiceIcon}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_selectableItemBackground com.actionbarsherlock:selectableItemBackground}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_spinnerDropDownItemStyle com.actionbarsherlock:spinnerDropDownItemStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_spinnerItemStyle com.actionbarsherlock:spinnerItemStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_textAppearanceLargePopupMenu com.actionbarsherlock:textAppearanceLargePopupMenu}</code></td><td> Text color, typeface, size, and style for the text inside of a popup menu.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_textAppearanceListItemSmall com.actionbarsherlock:textAppearanceListItemSmall}</code></td><td> The preferred TextAppearance for the primary text of small list items.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_textAppearanceSearchResultSubtitle com.actionbarsherlock:textAppearanceSearchResultSubtitle}</code></td><td> Text color, typeface, size, and style for system search result subtitle.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_textAppearanceSearchResultTitle com.actionbarsherlock:textAppearanceSearchResultTitle}</code></td><td> Text color, typeface, size, and style for system search result title.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_textAppearanceSmall com.actionbarsherlock:textAppearanceSmall}</code></td><td> Text color, typeface, size, and style for "small" text.</td></tr>
-           <tr><td><code>{@link #SherlockTheme_textAppearanceSmallPopupMenu com.actionbarsherlock:textAppearanceSmallPopupMenu}</code></td><td> Text color, typeface, size, and style for small text inside of a popup menu.</td></tr>
+           <tr><td><code>{@link #SherlockTheme_textAppearanceLargePopupMenu com.actionbarsherlock:textAppearanceLargePopupMenu}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_textAppearanceListItemSmall com.actionbarsherlock:textAppearanceListItemSmall}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_textAppearanceSearchResultSubtitle com.actionbarsherlock:textAppearanceSearchResultSubtitle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_textAppearanceSearchResultTitle com.actionbarsherlock:textAppearanceSearchResultTitle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_textAppearanceSmall com.actionbarsherlock:textAppearanceSmall}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockTheme_textAppearanceSmallPopupMenu com.actionbarsherlock:textAppearanceSmallPopupMenu}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_textColorPrimary com.actionbarsherlock:textColorPrimary}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_textColorPrimaryDisableOnly com.actionbarsherlock:textColorPrimaryDisableOnly}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_textColorPrimaryInverse com.actionbarsherlock:textColorPrimaryInverse}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_textColorSearchUrl com.actionbarsherlock:textColorSearchUrl}</code></td><td> Text color for urls in search suggestions, used by things like global search and the browser.</td></tr>
+           <tr><td><code>{@link #SherlockTheme_textColorSearchUrl com.actionbarsherlock:textColorSearchUrl}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_windowActionBar com.actionbarsherlock:windowActionBar}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_windowActionBarOverlay com.actionbarsherlock:windowActionBarOverlay}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_windowActionModeOverlay com.actionbarsherlock:windowActionModeOverlay}</code></td><td></td></tr>
-           <tr><td><code>{@link #SherlockTheme_windowContentOverlay com.actionbarsherlock:windowContentOverlay}</code></td><td>
-             This Drawable is overlaid over the foreground of the Window's content area, usually
-             to place a shadow below the title.</td></tr>
+           <tr><td><code>{@link #SherlockTheme_windowContentOverlay com.actionbarsherlock:windowContentOverlay}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_windowMinWidthMajor com.actionbarsherlock:windowMinWidthMajor}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_windowMinWidthMinor com.actionbarsherlock:windowMinWidthMinor}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockTheme_windowNoTitle com.actionbarsherlock:windowNoTitle}</code></td><td></td></tr>
@@ -2362,36 +1989,28 @@ containing a value of this type.
             0x7f01005f, 0x7f010060, 0x7f010061
         };
         /**
-          <p>
-          @attr description
-           Custom divider drawable to use for elements in the action bar. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionBarDivider}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionBarDivider
         */
-        public static final int SherlockTheme_actionBarDivider = 8;
+        public static int SherlockTheme_actionBarDivider = 8;
         /**
-          <p>
-          @attr description
-           Custom item state list drawable background for action bar items. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionBarItemBackground}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionBarItemBackground
         */
-        public static final int SherlockTheme_actionBarItemBackground = 9;
+        public static int SherlockTheme_actionBarItemBackground = 9;
         /**
-          <p>
-          @attr description
-          
-             Size of the Action Bar, including the contextual
-             bar used to present Action Modes.
-        
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionBarSize}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -2410,39 +2029,29 @@ containing a value of this type.
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>wrap_content</code></td><td>0</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionBarSize
         */
-        public static final int SherlockTheme_actionBarSize = 7;
+        public static int SherlockTheme_actionBarSize = 7;
         /**
-          <p>
-          @attr description
-          
-             Reference to a style for the split Action Bar. This style
-             controls the split component that holds the menu/action
-             buttons. actionBarStyle is still used for the primary
-             bar.
-        
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionBarSplitStyle}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionBarSplitStyle
         */
-        public static final int SherlockTheme_actionBarSplitStyle = 5;
+        public static int SherlockTheme_actionBarSplitStyle = 5;
         /**
-          <p>
-          @attr description
-           Reference to a style for the Action Bar 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionBarStyle}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionBarStyle
         */
-        public static final int SherlockTheme_actionBarStyle = 4;
+        public static int SherlockTheme_actionBarStyle = 4;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionBarTabBarStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2452,19 +2061,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:actionBarTabBarStyle
         */
-        public static final int SherlockTheme_actionBarTabBarStyle = 1;
+        public static int SherlockTheme_actionBarTabBarStyle = 1;
         /**
-          <p>
-          @attr description
-           Default style for tabs within an action bar 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionBarTabStyle}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionBarTabStyle
         */
-        public static final int SherlockTheme_actionBarTabStyle = 0;
+        public static int SherlockTheme_actionBarTabStyle = 0;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionBarTabTextStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2474,27 +2081,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:actionBarTabTextStyle
         */
-        public static final int SherlockTheme_actionBarTabTextStyle = 2;
+        public static int SherlockTheme_actionBarTabTextStyle = 2;
         /**
-          <p>
-          @attr description
-          
-             Reference to a theme that should be used to inflate widgets
-             and layouts destined for the action bar. Most of the time
-             this will be a reference to the current theme, but when
-             the action bar has a significantly different contrast
-             profile than the rest of the activity the difference
-             can become important. If this is set to @null the current
-             theme will be used.
-        
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionBarWidgetTheme}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionBarWidgetTheme
         */
-        public static final int SherlockTheme_actionBarWidgetTheme = 6;
+        public static int SherlockTheme_actionBarWidgetTheme = 6;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionButtonStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2504,7 +2101,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:actionButtonStyle
         */
-        public static final int SherlockTheme_actionButtonStyle = 52;
+        public static int SherlockTheme_actionButtonStyle = 52;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionDropDownStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2514,48 +2111,39 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:actionDropDownStyle
         */
-        public static final int SherlockTheme_actionDropDownStyle = 51;
+        public static int SherlockTheme_actionDropDownStyle = 51;
         /**
-          <p>
-          @attr description
-          
-             TextAppearance style that will be applied to text that
-             appears within action menu items.
-        
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionMenuTextAppearance}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionMenuTextAppearance
         */
-        public static final int SherlockTheme_actionMenuTextAppearance = 10;
+        public static int SherlockTheme_actionMenuTextAppearance = 10;
         /**
-          <p>
-          @attr description
-           Color for text that appears within action menu items. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionMenuTextColor}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionMenuTextColor
         */
-        public static final int SherlockTheme_actionMenuTextColor = 11;
+        public static int SherlockTheme_actionMenuTextColor = 11;
         /**
-          <p>
-          @attr description
-           Background drawable to use for action mode UI 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionModeBackground}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionModeBackground
         */
-        public static final int SherlockTheme_actionModeBackground = 14;
+        public static int SherlockTheme_actionModeBackground = 14;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionModeCloseButtonStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2565,55 +2153,47 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:actionModeCloseButtonStyle
         */
-        public static final int SherlockTheme_actionModeCloseButtonStyle = 13;
+        public static int SherlockTheme_actionModeCloseButtonStyle = 13;
         /**
-          <p>
-          @attr description
-           Drawable to use for the close action mode button 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionModeCloseDrawable}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionModeCloseDrawable
         */
-        public static final int SherlockTheme_actionModeCloseDrawable = 16;
+        public static int SherlockTheme_actionModeCloseDrawable = 16;
         /**
-          <p>
-          @attr description
-           PopupWindow style to use for action modes when showing as a window overlay. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionModePopupWindowStyle}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionModePopupWindowStyle
         */
-        public static final int SherlockTheme_actionModePopupWindowStyle = 18;
+        public static int SherlockTheme_actionModePopupWindowStyle = 18;
         /**
-          <p>
-          @attr description
-           Drawable to use for the Share action button in WebView selection action modes 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionModeShareDrawable}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionModeShareDrawable
         */
-        public static final int SherlockTheme_actionModeShareDrawable = 17;
+        public static int SherlockTheme_actionModeShareDrawable = 17;
         /**
-          <p>
-          @attr description
-           Background drawable to use for action mode UI in the lower split bar 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionModeSplitBackground}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:actionModeSplitBackground
         */
-        public static final int SherlockTheme_actionModeSplitBackground = 15;
+        public static int SherlockTheme_actionModeSplitBackground = 15;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionModeStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2623,7 +2203,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:actionModeStyle
         */
-        public static final int SherlockTheme_actionModeStyle = 12;
+        public static int SherlockTheme_actionModeStyle = 12;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionOverflowButtonStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2633,7 +2213,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:actionOverflowButtonStyle
         */
-        public static final int SherlockTheme_actionOverflowButtonStyle = 3;
+        public static int SherlockTheme_actionOverflowButtonStyle = 3;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#actionSpinnerItemStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2643,55 +2223,47 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:actionSpinnerItemStyle
         */
-        public static final int SherlockTheme_actionSpinnerItemStyle = 57;
+        public static int SherlockTheme_actionSpinnerItemStyle = 57;
         /**
-          <p>
-          @attr description
-           Drawable used as a background for activated items. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#activatedBackgroundIndicator}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:activatedBackgroundIndicator
         */
-        public static final int SherlockTheme_activatedBackgroundIndicator = 65;
+        public static int SherlockTheme_activatedBackgroundIndicator = 65;
         /**
-          <p>
-          @attr description
-           Default ActivityChooserView style. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#activityChooserViewStyle}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:activityChooserViewStyle
         */
-        public static final int SherlockTheme_activityChooserViewStyle = 64;
+        public static int SherlockTheme_activityChooserViewStyle = 64;
         /**
-          <p>
-          @attr description
-           Small Button style. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#buttonStyleSmall}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:buttonStyleSmall
         */
-        public static final int SherlockTheme_buttonStyleSmall = 19;
+        public static int SherlockTheme_buttonStyleSmall = 19;
         /**
-          <p>
-          @attr description
-           Drawable to use for generic vertical dividers. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#dividerVertical}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:dividerVertical
         */
-        public static final int SherlockTheme_dividerVertical = 50;
+        public static int SherlockTheme_dividerVertical = 50;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#dropDownHintAppearance}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2701,7 +2273,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:dropDownHintAppearance
         */
-        public static final int SherlockTheme_dropDownHintAppearance = 66;
+        public static int SherlockTheme_dropDownHintAppearance = 66;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#dropDownListViewStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2711,7 +2283,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:dropDownListViewStyle
         */
-        public static final int SherlockTheme_dropDownListViewStyle = 54;
+        public static int SherlockTheme_dropDownListViewStyle = 54;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#dropdownListPreferredItemHeight}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2727,7 +2299,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:dropdownListPreferredItemHeight
         */
-        public static final int SherlockTheme_dropdownListPreferredItemHeight = 56;
+        public static int SherlockTheme_dropdownListPreferredItemHeight = 56;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#homeAsUpIndicator}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2737,7 +2309,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:homeAsUpIndicator
         */
-        public static final int SherlockTheme_homeAsUpIndicator = 53;
+        public static int SherlockTheme_homeAsUpIndicator = 53;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#listPopupWindowStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2747,11 +2319,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:listPopupWindowStyle
         */
-        public static final int SherlockTheme_listPopupWindowStyle = 63;
+        public static int SherlockTheme_listPopupWindowStyle = 63;
         /**
-          <p>
-          @attr description
-           A smaller, sleeker list item height. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#listPreferredItemHeightSmall}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -2762,14 +2333,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:listPreferredItemHeightSmall
         */
-        public static final int SherlockTheme_listPreferredItemHeightSmall = 44;
+        public static int SherlockTheme_listPreferredItemHeightSmall = 44;
         /**
-          <p>
-          @attr description
-           The preferred padding along the left edge of list items. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#listPreferredItemPaddingLeft}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -2780,14 +2349,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:listPreferredItemPaddingLeft
         */
-        public static final int SherlockTheme_listPreferredItemPaddingLeft = 45;
+        public static int SherlockTheme_listPreferredItemPaddingLeft = 45;
         /**
-          <p>
-          @attr description
-           The preferred padding along the right edge of list items. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#listPreferredItemPaddingRight}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -2798,10 +2365,9 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:listPreferredItemPaddingRight
         */
-        public static final int SherlockTheme_listPreferredItemPaddingRight = 46;
+        public static int SherlockTheme_listPreferredItemPaddingRight = 46;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#popupMenuStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2811,35 +2377,30 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:popupMenuStyle
         */
-        public static final int SherlockTheme_popupMenuStyle = 55;
+        public static int SherlockTheme_popupMenuStyle = 55;
         /**
-          <p>
-          @attr description
-           SearchView AutoCompleteTextView style 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchAutoCompleteTextView}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchAutoCompleteTextView
         */
-        public static final int SherlockTheme_searchAutoCompleteTextView = 30;
+        public static int SherlockTheme_searchAutoCompleteTextView = 30;
         /**
-          <p>
-          @attr description
-           SearchView dropdown background 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchDropdownBackground}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchDropdownBackground
         */
-        public static final int SherlockTheme_searchDropdownBackground = 31;
+        public static int SherlockTheme_searchDropdownBackground = 31;
         /**
-          <p>
-          @attr description
-           The list item height for search results. @hide 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchResultListItemHeight}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -2850,118 +2411,99 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchResultListItemHeight
         */
-        public static final int SherlockTheme_searchResultListItemHeight = 41;
+        public static int SherlockTheme_searchResultListItemHeight = 41;
         /**
-          <p>
-          @attr description
-           SearchView close button icon 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchViewCloseIcon}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchViewCloseIcon
         */
-        public static final int SherlockTheme_searchViewCloseIcon = 32;
+        public static int SherlockTheme_searchViewCloseIcon = 32;
         /**
-          <p>
-          @attr description
-           SearchView query refinement icon 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchViewEditQuery}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchViewEditQuery
         */
-        public static final int SherlockTheme_searchViewEditQuery = 36;
+        public static int SherlockTheme_searchViewEditQuery = 36;
         /**
-          <p>
-          @attr description
-           SearchView query refinement icon background 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchViewEditQueryBackground}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchViewEditQueryBackground
         */
-        public static final int SherlockTheme_searchViewEditQueryBackground = 37;
+        public static int SherlockTheme_searchViewEditQueryBackground = 37;
         /**
-          <p>
-          @attr description
-           SearchView Go button icon 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchViewGoIcon}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchViewGoIcon
         */
-        public static final int SherlockTheme_searchViewGoIcon = 33;
+        public static int SherlockTheme_searchViewGoIcon = 33;
         /**
-          <p>
-          @attr description
-           SearchView Search icon 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchViewSearchIcon}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchViewSearchIcon
         */
-        public static final int SherlockTheme_searchViewSearchIcon = 34;
+        public static int SherlockTheme_searchViewSearchIcon = 34;
         /**
-          <p>
-          @attr description
-           SearchView text field background for the left section 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchViewTextField}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchViewTextField
         */
-        public static final int SherlockTheme_searchViewTextField = 38;
+        public static int SherlockTheme_searchViewTextField = 38;
         /**
-          <p>
-          @attr description
-           SearchView text field background for the right section 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchViewTextFieldRight}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchViewTextFieldRight
         */
-        public static final int SherlockTheme_searchViewTextFieldRight = 39;
+        public static int SherlockTheme_searchViewTextFieldRight = 39;
         /**
-          <p>
-          @attr description
-           SearchView Voice button icon 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#searchViewVoiceIcon}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:searchViewVoiceIcon
         */
-        public static final int SherlockTheme_searchViewVoiceIcon = 35;
+        public static int SherlockTheme_searchViewVoiceIcon = 35;
         /**
-          <p>
-          @attr description
-           Background drawable for standalone items that need focus/pressed states. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#selectableItemBackground}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:selectableItemBackground
         */
-        public static final int SherlockTheme_selectableItemBackground = 20;
+        public static int SherlockTheme_selectableItemBackground = 20;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#spinnerDropDownItemStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2971,7 +2513,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:spinnerDropDownItemStyle
         */
-        public static final int SherlockTheme_spinnerDropDownItemStyle = 29;
+        public static int SherlockTheme_spinnerDropDownItemStyle = 29;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#spinnerItemStyle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -2981,79 +2523,67 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.actionbarsherlock:spinnerItemStyle
         */
-        public static final int SherlockTheme_spinnerItemStyle = 28;
+        public static int SherlockTheme_spinnerItemStyle = 28;
         /**
-          <p>
-          @attr description
-           Text color, typeface, size, and style for the text inside of a popup menu. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textAppearanceLargePopupMenu}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:textAppearanceLargePopupMenu
         */
-        public static final int SherlockTheme_textAppearanceLargePopupMenu = 22;
+        public static int SherlockTheme_textAppearanceLargePopupMenu = 22;
         /**
-          <p>
-          @attr description
-           The preferred TextAppearance for the primary text of small list items. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textAppearanceListItemSmall}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:textAppearanceListItemSmall
         */
-        public static final int SherlockTheme_textAppearanceListItemSmall = 47;
+        public static int SherlockTheme_textAppearanceListItemSmall = 47;
         /**
-          <p>
-          @attr description
-           Text color, typeface, size, and style for system search result subtitle. Defaults to primary inverse text color. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textAppearanceSearchResultSubtitle}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:textAppearanceSearchResultSubtitle
         */
-        public static final int SherlockTheme_textAppearanceSearchResultSubtitle = 43;
+        public static int SherlockTheme_textAppearanceSearchResultSubtitle = 43;
         /**
-          <p>
-          @attr description
-           Text color, typeface, size, and style for system search result title. Defaults to primary inverse text color. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textAppearanceSearchResultTitle}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:textAppearanceSearchResultTitle
         */
-        public static final int SherlockTheme_textAppearanceSearchResultTitle = 42;
+        public static int SherlockTheme_textAppearanceSearchResultTitle = 42;
         /**
-          <p>
-          @attr description
-           Text color, typeface, size, and style for "small" text. Defaults to secondary text color. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textAppearanceSmall}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:textAppearanceSmall
         */
-        public static final int SherlockTheme_textAppearanceSmall = 24;
+        public static int SherlockTheme_textAppearanceSmall = 24;
         /**
-          <p>
-          @attr description
-           Text color, typeface, size, and style for small text inside of a popup menu. 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textAppearanceSmallPopupMenu}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:textAppearanceSmallPopupMenu
         */
-        public static final int SherlockTheme_textAppearanceSmallPopupMenu = 23;
+        public static int SherlockTheme_textAppearanceSmallPopupMenu = 23;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textColorPrimary}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3068,7 +2598,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:textColorPrimary
         */
-        public static final int SherlockTheme_textColorPrimary = 25;
+        public static int SherlockTheme_textColorPrimary = 25;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textColorPrimaryDisableOnly}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3083,7 +2613,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:textColorPrimaryDisableOnly
         */
-        public static final int SherlockTheme_textColorPrimaryDisableOnly = 26;
+        public static int SherlockTheme_textColorPrimaryDisableOnly = 26;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textColorPrimaryInverse}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3098,21 +2628,19 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:textColorPrimaryInverse
         */
-        public static final int SherlockTheme_textColorPrimaryInverse = 27;
+        public static int SherlockTheme_textColorPrimaryInverse = 27;
         /**
-          <p>
-          @attr description
-           Text color for urls in search suggestions, used by things like global search and the browser. @hide 
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#textColorSearchUrl}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:textColorSearchUrl
         */
-        public static final int SherlockTheme_textColorSearchUrl = 40;
+        public static int SherlockTheme_textColorSearchUrl = 40;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#windowActionBar}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3126,7 +2654,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:windowActionBar
         */
-        public static final int SherlockTheme_windowActionBar = 59;
+        public static int SherlockTheme_windowActionBar = 59;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#windowActionBarOverlay}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3140,7 +2668,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:windowActionBarOverlay
         */
-        public static final int SherlockTheme_windowActionBarOverlay = 60;
+        public static int SherlockTheme_windowActionBarOverlay = 60;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#windowActionModeOverlay}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3154,22 +2682,17 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:windowActionModeOverlay
         */
-        public static final int SherlockTheme_windowActionModeOverlay = 61;
+        public static int SherlockTheme_windowActionModeOverlay = 61;
         /**
-          <p>
-          @attr description
-          
-             This Drawable is overlaid over the foreground of the Window's content area, usually
-             to place a shadow below the title.
-        
+          <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#windowContentOverlay}
+          attribute's value can be found in the {@link #SherlockTheme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.actionbarsherlock:windowContentOverlay
         */
-        public static final int SherlockTheme_windowContentOverlay = 21;
+        public static int SherlockTheme_windowContentOverlay = 21;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#windowMinWidthMajor}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3185,7 +2708,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:windowMinWidthMajor
         */
-        public static final int SherlockTheme_windowMinWidthMajor = 48;
+        public static int SherlockTheme_windowMinWidthMajor = 48;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#windowMinWidthMinor}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3201,7 +2724,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:windowMinWidthMinor
         */
-        public static final int SherlockTheme_windowMinWidthMinor = 49;
+        public static int SherlockTheme_windowMinWidthMinor = 49;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#windowNoTitle}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3215,7 +2738,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:windowNoTitle
         */
-        public static final int SherlockTheme_windowNoTitle = 58;
+        public static int SherlockTheme_windowNoTitle = 58;
         /**
           <p>This symbol is the offset where the {@link com.actionbarsherlock.R.attr#windowSplitActionBar}
           attribute's value can be found in the {@link #SherlockTheme} array.
@@ -3229,7 +2752,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.actionbarsherlock:windowSplitActionBar
         */
-        public static final int SherlockTheme_windowSplitActionBar = 62;
+        public static int SherlockTheme_windowSplitActionBar = 62;
         /** Attributes that can be used with a SherlockView.
            <p>Includes the following attributes:</p>
            <table>
@@ -3248,6 +2771,6 @@ containing a value of this type.
           attribute's value can be found in the {@link #SherlockView} array.
           @attr name android:focusable
         */
-        public static final int SherlockView_android_focusable = 0;
+        public static int SherlockView_android_focusable = 0;
     };
 }

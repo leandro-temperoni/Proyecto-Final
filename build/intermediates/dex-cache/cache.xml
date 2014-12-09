@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pre-dex-items>
+<items version="2" >
 
     <item
-        dex="D:\Documents\GitHub\Proyecto-Final\app\build\intermediates\pre-dexed\release\classes-1ec77c35216805e6051c02f3239f5625dfe609b6.jar"
-        jar="D:\Documents\GitHub\Proyecto-Final\app\build\intermediates\exploded-aar\Proyecto-Final.libraries\actionbarsherlock\unspecified\classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="8143da0d670ed73a1aae44ee635ac456d44fd1c5"/>
-    <item
-        dex="D:\Documents\Android\Tesis\app\build\intermediates\pre-dexed\debug\classes-563222b9f279d30e8bdef23fc4aaecc8e53c181f.jar"
-        jar="D:\Documents\Android\Tesis\app\build\intermediates\exploded-aar\Tesis.libraries\actionbarsherlock\unspecified\classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="433b101de6229279480ae414b3b94900010bbee1"/>
-    <item
-        dex="D:\Documents\Android\Tesis\app\build\intermediates\pre-dexed\debug\support-v4-13.0.0-5f0a84060c60ae111267c4d7a0d81d6d79d9d910.jar"
         jar="C:\Users\COCO\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\13.0.0\support-v4-13.0.0.jar"
         jumboMode="false"
-        revision="19.1.0"
-        sha1="3fe75433da602500cc71fcc1c46e5550291dd45d"/>
+        revision="21.1.1"
+        sha1="3fe75433da602500cc71fcc1c46e5550291dd45d">
+        <dex dex="D:\Documents\GitHub\Proyecto-Final\app\build\intermediates\pre-dexed\debug\support-v4-13.0.0-5f0a84060c60ae111267c4d7a0d81d6d79d9d910.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\Proyecto-Final\app\build\intermediates\exploded-aar\Proyecto-Final.libraries\actionbarsherlock\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="cd83f05ac4e11dfc319f3dcce7c496340657ad11">
+        <dex dex="D:\Documents\GitHub\Proyecto-Final\app\build\intermediates\pre-dexed\debug\classes-1ec77c35216805e6051c02f3239f5625dfe609b6.jar" />
+    </item>
 
-</pre-dex-items>
+</items>
