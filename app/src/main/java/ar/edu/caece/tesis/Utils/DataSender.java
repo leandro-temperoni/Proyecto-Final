@@ -59,7 +59,7 @@ public class DataSender {
             }
             else {
 
-                handler.postDelayed(espera, 3000);        //re intento subir dentro de 5 mins
+                handler.postDelayed(espera, 300000);        //re intento subir dentro de 5 mins
                 Log.i("pepe", "reintento");
 
             }
